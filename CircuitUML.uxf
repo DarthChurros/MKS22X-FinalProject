@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>100</y>
+      <w>200</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>/Element/
+--
+- isPlaced : boolean
+- x : int
+- y : int
+_- ground : Node_
+--
+/+ display()/
+/+ voltage() : float/
+/+ current() : float/
++ place()
++ getX(): float
++ getY(): float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>100</y>
+      <w>240</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>Node
+--
+- components : List&lt;Component&gt;
+- voltage : float
+- vertices : List&lt;int[]&gt;
+--
++ Node(Component, int, int)
++ display()
++ voltage() : float
++ current(): float
++ connect(Component) : boolean
+- merge(Node)
+- updateVoltage()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>350</y>
+      <w>180</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>/Component/
+--
+- vToI : Function
+- terminals : List&lt;Node&gt;
+- isSource : boolean
+--
++ current() : float
++ rotate(int)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>140</y>
+      <w>170</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>300</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>890</x>
+      <y>100</y>
+      <w>160</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>MyStack
+--
+/Taken from/
+/MyDeque to help/
+/Function.eval() run/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>710</x>
+      <y>100</y>
+      <w>170</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Function
+--
+- def : String
+--
++ Function(String)
++ eval(float) : float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>350</y>
+      <w>160</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>/PolarComponent/
+--
+- posTerminal : Node
+- negTerminal : Node
+--
++ voltage() : float
++ current() : float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>540</y>
+      <w>150</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Resistor
+--
+
+--
++ Resistor(float)
++ voltage()
++ display()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>380</y>
+      <w>120</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>480</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>510</y>
+      <w>170</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>VoltSource
+--
+
+--
++ VoltSource(float)
++ display()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>460</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+</diagram>
