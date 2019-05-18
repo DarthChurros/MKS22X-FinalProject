@@ -8,7 +8,7 @@ public class Node extends Element{
  
   //we forgot to add the in and out to the uml
   public float voltage(){
-    in.voltage();
+    return in.voltage();
   }
   
   public float current(){
