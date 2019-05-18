@@ -1,10 +1,10 @@
-import java.util.
-
-public abstract class Element{
-  private boolean isPlaced;
+void setup(){
+}
+abstract class Element{
+  private boolean isPlaced = false;;
   private double x;
   private double y;
-  private Node ground;
+  
   
   public double getX(){
     return x;
@@ -14,16 +14,20 @@ public abstract class Element{
     return y;
   }
   
+  public boolean placed(){
+    return isPlaced;
+  }
+  
+  abstract public void place();
+  
+  
+  abstract public double current();
+  
+  
+  abstract public double voltage();
+  
+  
   
 
-  
-}
-
-public class Node extends Element{
-  private int x;
-  private int y;
-  private boolean isPlaced;
-  
- 
   
 }
