@@ -16,9 +16,14 @@ abstract class Element{
     return isPlaced;
   }
   
+  public void display() {
+    if (!isPlaced) {
+      x = mouseX;
+      y = mouseY;
+    }
+  }
+  
   public void place(){
-    x = mouseX;
-    y = mouseY;
     isPlaced = true;
     
   }
