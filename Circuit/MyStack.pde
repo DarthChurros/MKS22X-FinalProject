@@ -5,7 +5,7 @@ public class MyStack {
   private int start, end;
   
   public MyStack() {
-    data = new float[];
+    data = new float[0];
   }
   
   public int getSize() {
