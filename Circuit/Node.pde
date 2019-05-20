@@ -3,8 +3,23 @@ public class Node extends Element{
   private float verticies;
   private Element in;
   private Element out;
+  //The able will really be replaced by an arraylist of components
+  
   private float x = super.getX();
   private float y = super.getY();
+  
+  
+  public Node(float xf, float yf){
+    x = xf;
+    y = yf;
+  }
+  
+  
+  
+  
+  
+  
+  
  
   //we forgot to add the in and out to the uml
   public float voltage(){
