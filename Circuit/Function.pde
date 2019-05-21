@@ -5,18 +5,20 @@ public class Function {
     def = d;
   }
   
-  double eval(String s) {
+  double eval(double arg) {
     MyStack stack = new MyStack();
-    String arg = "";
-    for (int i = 0; i < s.length(); i++) {
-      if (s.charAt(i) != ' ') {
-        arg += s.charAt(i);
+    String s = "";
+    for (int i = 0; i < def.length(); i++) {
+      if (def.charAt(i) == 'x') {
+        s += arg;
+      } else if (def.charAt(i) != ' ') {
+        s += def.charAt(i);
       } else {
-        operate(stack, arg);
-        arg = "";
+        operate(stack, s);
+        s = "";
       }
     }
-    operate(stack, arg);
+    operate(stack, s);
     return stack.getLast();
   }
 
