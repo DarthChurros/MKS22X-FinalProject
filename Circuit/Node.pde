@@ -1,8 +1,9 @@
 public class Node extends Element{
   private float voltage;
-  private float verticies;
-  private Element in;
-  private Element out;
+  private float vertices;
+  private ArrayList<Component> in;
+  private ArrayList<Component> out;
+  
   //The able will really be replaced by an arraylist of components
   
   private float x = super.getX();
@@ -12,6 +13,8 @@ public class Node extends Element{
   public Node(float xf, float yf){
     x = xf;
     y = yf;
+    in = new ArrayList<Component>();
+    out = new ArrayList<Component>();
   }
   
   
@@ -23,12 +26,15 @@ public class Node extends Element{
  
   //we forgot to add the in and out to the uml
   public float voltage(){
-    return in.voltage();
+    //return in.voltage();
+    //we want to sum all the voltages coming in
+    return 0.0;
   }
   
   public float current(){
-    return in.current();
+   // return in.current();
     //Later we will have to fix this and calculate current for the whole curcuit
+    return 0.0;
   }
   
   
