@@ -7,8 +7,8 @@ void setup(){
 
 
 void draw(){
-  if (mousePressed){
-    Node n = new Node(mouseX, mouseY);
-    n.display();
-  }
+  //if (mousePressed){
+  //  Node n = new Node(mouseX, mouseY);
+  //  n.display();
+  //}
 }

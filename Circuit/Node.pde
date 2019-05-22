@@ -1,10 +1,10 @@
 public class Node extends Element{
   private float voltage;
-  private float verticies;
+  private float vertices;
   private Element in;
   private Element out;
-  private float x = super.getX();
-  private float y = super.getY();
+  private int x = super.getX();
+  private int y = super.getY();
  
   //we forgot to add the in and out to the uml
   public float voltage(){
