@@ -43,6 +43,9 @@ public class Function {
         temp = stack.removeLast();
         stack.addLast(stack.removeLast() % temp);
         break;
+      case "^":
+        temp = stack.removeLast();
+        stack.addLast(pow(stack.removeLast(), temp));
       default:
         stack.addLast(Float.parseFloat(arg));
     }
