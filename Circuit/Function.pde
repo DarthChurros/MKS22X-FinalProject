@@ -5,7 +5,7 @@ public class Function {
     def = d;
   }
   
-  double eval(double arg) {
+  float eval(float arg) {
     MyStack stack = new MyStack();
     String s = "";
     for (int i = 0; i < def.length(); i++) {
