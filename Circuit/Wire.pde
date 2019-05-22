@@ -1,4 +1,4 @@
-public class Node extends Element{
+public class Wire extends Element{
   private float voltage;
   private float vertices;
   private Element in;
