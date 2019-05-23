@@ -1,76 +1,30 @@
 public class Node extends Element{
-  private float voltage;
-  private float vertices;
-  private ArrayList<Component> in;
-  private ArrayList<Component> out;
-  
-  //The able will really be replaced by an arraylist of components
-  
-  private float x = super.getX();
-  private float y = super.getY();
+  public ArrayList<Element> in = new ArrayList<Element>();
+  ArrayList<Element> out = new ArrayList<Element>();
   
   
-  public Node(float xf, float yf){
-    x = xf;
-    y = yf;
-    in = new ArrayList<Component>();
-    out = new ArrayList<Component>();
+  public Node(ArrayList<Element> in, ArrayList<Element> out){
+    in = this.in;
+    out = this.out;
+    
+  }
+  
+  
+  public Node(Element plugin, Element plugout){
+    in.add(plugin);
+    out.add(plugout);
+  }
+  
+  
+  public void addIn(Element input){
+    in.add(intput);
+  }
+  
+  public void addOut(Element Output){
+    out.add(Output);
   }
   
   
   
-  
-  
-  
-  
- 
-  //we forgot to add the in and out to the uml
-  public float voltage(){
-    //return in.voltage();
-    //we want to sum all the voltages coming in
-    return 0.0;
-  }
-  
-  public float current(){
-   // return in.current();
-    //Later we will have to fix this and calculate current for the whole curcuit
-    return 0.0;
-  }
-  
-  
-  public void display(){
-     polygon(x,y,5,6);
-  }
-  
-  public boolean placed(){
-    return super.placed();
-  }
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
- 
-  
-  
-}
-
-
-
-
-//This is just to help us draw stuff
-void polygon(float x, float y, float radius, int npoints) {
-  float angle = TWO_PI / npoints;
-  beginShape();
-  for (float a = 0; a < TWO_PI; a += angle) {
-    float sx = x + cos(a) * radius;
-    float sy = y + sin(a) * radius;
-    vertex(sx, sy);
-  }
-  endShape(CLOSE);
+  //Now we need a way of spreading voltage, and spreading current
 }
