@@ -1,4 +1,4 @@
-public class Wire extends Element{
+/*public class Wire extends Element{
   private float voltage;
   private Element in;
   private Element out;
@@ -20,8 +20,9 @@ public class Wire extends Element{
     this.y3 = y2;
   }
     
-  
-  }
+    
+    
+ 
  
   
   
@@ -31,11 +32,11 @@ public class Wire extends Element{
   
  
   //we forgot to add the in and out to the uml
-  public float voltage(){
+  //public float voltage(){
     //return in.voltage();
     //we want to sum all the voltages coming in
-    return 0.0;
-  }
+    //return 0.0;
+  //}
   
   public float current(){
    // return in.current();
@@ -51,7 +52,7 @@ public class Wire extends Element{
   public boolean placed(){
     return super.placed();
   }
-  
+  */
 
   
   
@@ -64,19 +65,3 @@ public class Wire extends Element{
  
   
   
-}
-
-
-
-
-//This is just to help us draw stuff
-void polygon(float x, float y, float radius, int npoints) {
-  float angle = TWO_PI / npoints;
-  beginShape();
-  for (float a = 0; a < TWO_PI; a += angle) {
-    float sx = x + cos(a) * radius;
-    float sy = y + sin(a) * radius;
-    vertex(sx, sy);
-  }
-  endShape(CLOSE);
-}

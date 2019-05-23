@@ -1,4 +1,4 @@
-public class Node extends Element{
+/*public class Node extends Element{
   public ArrayList<Element> in = new ArrayList<Element>();
   ArrayList<Element> out = new ArrayList<Element>();
   
@@ -25,6 +25,12 @@ public class Node extends Element{
   }
   
   
-  
   //Now we need a way of spreading voltage, and spreading current
-}
+  
+  public void updateVoltage(){
+  }
+  
+  
+  // OK, so loop through the arraylist of outs, and set all the voltages of wire equal to the voltage of the node, then, on top of that, set the voltage for the "IN" of components equal
+  //to the voltage of the node.
+} */

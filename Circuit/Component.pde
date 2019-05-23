@@ -1,4 +1,4 @@
-abstract class Component extends Element{
+/*abstract class Component extends Element{
    private ArrayList<Element> terminals;
    private boolean isSource = false;
    String type;
@@ -41,7 +41,7 @@ abstract class Component extends Element{
    
    
      
-   }
+   }*/
    
    
    

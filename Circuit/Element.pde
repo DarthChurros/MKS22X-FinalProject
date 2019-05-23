@@ -1,7 +1,7 @@
 abstract class Element{
-  private boolean isPlaced = false;;
-  private float x;
-  private float y;
+  boolean isPlaced = false;
+  float x;
+  float y;
   
   
   public float getX(){
