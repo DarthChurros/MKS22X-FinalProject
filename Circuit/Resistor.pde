@@ -1,10 +1,11 @@
 public class Resistor extends Component{
   Node input;
   Node output;
-  double resist;
+  float resist;
+  float current;
   //Everything is based off of the Node
   
-  public Resistor(Node in, Node out, double value){
+  public Resistor(Node in, Node out, float value){
     input = in;
     output = out;
     resist =  value;
@@ -19,14 +20,13 @@ public class Resistor extends Component{
   
   
   public float voltage(){
-    //need to do a calculation
-    return 0.0;
+   return output.voltage() - input.voltage();
   }
   
   
   public float current(){
-    //need to do a calculation
-    return 0.0;
+    current = voltage()/resist;
+    return voltage()/resist;
   }
   
   

@@ -24,7 +24,9 @@ abstract class Component extends Element{
    
    
  
-   
+   float current() {
+    return vToI.eval(voltage());
+  }
    
    
    public void addTerminal(Node n){

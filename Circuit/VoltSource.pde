@@ -1,14 +1,20 @@
 public class VoltSource extends Component{
   Node input;
   Node output;
-  double voltage;
+  float voltage;
   //Everything is based off of the Node
   
-  public VoltSource(Node in, Node out, double value){
+  public VoltSource(Node in, Node out, float value){
     input = in;
     output = out;
     voltage =  value;
     type = "VoltSource";
+    //were gonna have the ground just equal to 0, so now we have
+    //this is gonna just be the default, we can fix this later
+    input.setVoltage(0.0);
+    //this last part we can obviously keep
+    //adding more than one voltsource is gonna be hard
+    output.setVoltage(input.voltage() + voltage);
   }
   
   public void display(){

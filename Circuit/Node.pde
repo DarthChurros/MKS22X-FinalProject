@@ -29,6 +29,12 @@ public class Node extends Element{
   }
   
   
+   public float setVoltage(float value){
+    voltageIn = value;
+    return value;
+  }
+  
+  
   public float voltage(){
     return voltageIn;
   }
