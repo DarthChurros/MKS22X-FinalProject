@@ -1,8 +1,8 @@
 public class Wire extends Element{
   private float voltage;
   private float vertices;
-  private Element in;
-  private Element out;
+  private Node in;
+  private Node out;
   private int x = super.getX();
   private int y = super.getY();
  
@@ -18,7 +18,7 @@ public class Wire extends Element{
   
   
   public void display(){
-     polygon(x,y,5,6);
+     line(in.xcor,in.ycor,out.xcor,out.ycor);
   }
   
   public boolean placed(){
