@@ -30,6 +30,7 @@ public class VoltSource extends Component{
   
   public float current(){
     return 0.0;
+    //need to calculate the total resistance in order to do this
   }
   
   

@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 void setup(){
   size(1000,800);
   background(255);
@@ -35,6 +37,16 @@ void setup(){
   
 }
 
+
+public float totalResistance(){
+    return 0.0;
+    //idk how to do this but it seems like the only way to calculate the total resistance for a voltsource
+  }
+
+
+
+
+
 //these are for buttons
 boolean overRect(int x, int y, int width, int height)  {
   if (mouseX >= x && mouseX <= x+width && 
@@ -61,7 +73,8 @@ boolean overCircle(int x, int y, int diameter) {
 
 
 
-Element holder;
+Element holdera;
+Element holderb;
 
 
 
@@ -69,11 +82,19 @@ void draw(){
  Node Holderone;
  Node Holdertwo;
   //this is the default
-  if(mousePressed && holder == null){
+  if(mousePressed && holdera == null){
     //Holder one is for a new piece, holder 2 is for finishing an old piece
     //so the button commands work
     if (overRect(750,90,200,50)){
-     //Holder 
+      Scanner in = new Scanner(System.in);
+      System.out.print("How many ohms?");
+      String r = in.nextLine();
+      System.out.println(r);
+      //ok, first off we need a popup windo to get the value of the restor
+      
+    // holderb = new Resistor(Holderone, Holder2, 10); 
+     //Node Holderone = new Node(mouseX, mouseY, holdera,holderb);
+     //
     }
     
     if (overRect(750,190,10,50)){

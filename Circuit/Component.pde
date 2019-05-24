@@ -3,7 +3,7 @@ abstract class Component extends Element{
    private boolean isSource = false;
 //<<<<<<< HEAD
 //=======
-   Function VtoI;
+   Function vToI;
 //>>>>>>> master
    String type;
    int xStart;
