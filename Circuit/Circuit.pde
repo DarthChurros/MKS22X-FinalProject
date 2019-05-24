@@ -56,11 +56,35 @@ boolean overCircle(int x, int y, int diameter) {
 
 
 
+//need a within radius functions
 
+
+
+Element holder;
 
 
 
 void draw(){
+ Node Holderone;
+ Node Holdertwo;
+  //this is the default
+  if(mousePressed && holder == null){
+    //Holder one is for a new piece, holder 2 is for finishing an old piece
+    //so the button commands work
+    if (overRect(750,90,200,50)){
+     //Holder 
+    }
+    
+    if (overRect(750,190,10,50)){
+     //Holder  = new battery
+    }
+    
+    if (overRect(750,290,10,50)){
+     //holder  = new wire
+    }
+    
+  }
+  
   
   
   

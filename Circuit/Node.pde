@@ -1,36 +1,51 @@
-/*public class Node extends Element{
-  public ArrayList<Element> in = new ArrayList<Element>();
-  ArrayList<Element> out = new ArrayList<Element>();
+public class Node extends Element{
+  ArrayList<Element> inputs = new ArrayList<Element>();
+  ArrayList<Element> outputs = new ArrayList<Element>();
+  public int xcor;
+  public int ycor;
+  float voltageIn;
+  boolean placed = false;
+  public Node(int x, int y, ArrayList<Element> input, ArrayList<Element> output){
+    inputs = input;
+    outputs = output;
+    xcor = x;
+    ycor = y;
+  }
+  
+  public Node(int x, int y, Element input, Element output){
+    inputs.add(input);
+    outputs.add(output);
+    xcor = x;
+    ycor = y;
+  }
+  
+  //Constructors above
+  //Now were gonna do the display commands
   
   
-  public Node(ArrayList<Element> in, ArrayList<Element> out){
-    in = this.in;
-    out = this.out;
-    
+  public void display(){
+    ellipse(x,y,30,30);
+    fill(255);
   }
   
   
-  public Node(Element plugin, Element plugout){
-    in.add(plugin);
-    out.add(plugout);
+  public float voltage(){
+    return voltageIn;
   }
   
   
-  public void addIn(Element input){
-    in.add(intput);
-  }
-  
-  public void addOut(Element Output){
-    out.add(Output);
+  public float current(){
+    return 0.0;
   }
   
   
-  //Now we need a way of spreading voltage, and spreading current
-  
-  public void updateVoltage(){
-  }
   
   
-  // OK, so loop through the arraylist of outs, and set all the voltages of wire equal to the voltage of the node, then, on top of that, set the voltage for the "IN" of components equal
-  //to the voltage of the node.
-} */
+  
+  
+  
+  //A node must be associated with atleast 2 values
+  
+  
+  
+}

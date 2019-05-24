@@ -1,4 +1,4 @@
-/*abstract class Component extends Element{
+abstract class Component extends Element{
    private ArrayList<Element> terminals;
    private boolean isSource = false;
    String type;
@@ -9,16 +9,17 @@
    
    
    
-   
+  
    // the default will just focus like a regular wire until given further specifications
-  public Component(ArrayList<Element> terminal){
-     terminals = terminal;
-   }
+  
    
    
    public String whatType(){
      return type;
    }
+   
+   
+ 
    
    
    
@@ -31,17 +32,11 @@
      
      
    }
-   
-   
-   public void display(){
-     //this one will just look like a wire
-     
-   }
+
    
    
    
-     
-   }*/
+}
    
    
    
