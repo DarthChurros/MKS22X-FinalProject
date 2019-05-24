@@ -1,6 +1,10 @@
 abstract class Component extends Element{
    private ArrayList<Element> terminals;
    private boolean isSource = false;
+//<<<<<<< HEAD
+//=======
+   Function VtoI;
+//>>>>>>> master
    String type;
    int xStart;
    int yStart;
@@ -38,6 +42,7 @@ abstract class Component extends Element{
    
 }
    
+//<<<<<<< HEAD
    
    
    
@@ -47,3 +52,5 @@ abstract class Component extends Element{
     
     
   
+//=======
+//>>>>>>> master

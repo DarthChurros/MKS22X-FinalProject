@@ -1,3 +1,4 @@
+//<<<<<<< HEAD
 /*public class Wire extends Element{
   private float voltage;
   private Element in;
@@ -42,17 +43,43 @@
    // return in.current();
     //Later we will have to fix this and calculate current for the whole curcuit
     return 0.0;
+=======
+public class Wire extends Element{
+  private float voltage;
+  private float vertices;
+  private Node in;
+  private Node out;
+  private float x = super.getX();
+  private float y = super.getY();
+ 
+  //we forgot to add the in and out to the uml
+  public float voltage(){
+    return in.voltage();
+  }
+  
+  public float current(){
+    return in.current();
+    //Later we will have to fix this and calculate current for the whole curcuit
+>>>>>>> master
   }
   
   
   public void display(){
+<<<<<<< HEAD
     line(xi,yi,xf,yf);
+=======
+     line(in.xcor,in.ycor,out.xcor,out.ycor);
+>>>>>>> master
   }
   
   public boolean placed(){
     return super.placed();
   }
+<<<<<<< HEAD
   */
+//=======
+  
+//>>>>>>> master
 
   
   
@@ -65,3 +92,7 @@
  
   
   
+//<<<<<<< HEAD
+//=======
+
+//>>>>>>> master
