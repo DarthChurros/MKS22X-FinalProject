@@ -8,7 +8,8 @@ void setup(){
   fill(50);
   text(s, 770,100,100,100);
   
-  
+  //add
+  //add
   
   String g = "Press for a new Cell!";
   fill(255);
