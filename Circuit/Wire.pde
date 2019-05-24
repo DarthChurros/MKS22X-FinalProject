@@ -3,8 +3,8 @@ public class Wire extends Element{
   private float vertices;
   private Node in;
   private Node out;
-  private int x = super.getX();
-  private int y = super.getY();
+  private float x = super.getX();
+  private float y = super.getY();
  
   //we forgot to add the in and out to the uml
   public float voltage(){
