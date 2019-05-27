@@ -6,9 +6,11 @@ By: Leon
 DEVLOG
 
 Sunday 5/19: 
+Jude: This was the first day so I initialized all of the basic classes and added constructors and the structure of the simulator.
 
 
-Monday5/20:
+Monday 5/20:
+Jude: I added different methods to resistor but branched off to focus on component.
 
 
 5/22/19
@@ -20,6 +22,7 @@ work on a "component" that would act like a resistor, to test the class
 structure
 
 
-Thursday 5/23:
+Thursday 5/23:I worked heavily and almost finished resistor and voltSource, decided to eliminate the polarSource class and started working on some of the circuit class methods in order to calculate the voltage in the circuit.
+
 
 
