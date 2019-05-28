@@ -6,9 +6,9 @@ public class Resistor extends Component{
   //Everything is based off of the Node
   
   public Resistor(Node in, Node out, float value){
+    vToI = new Function("x " + value + " /");
     input = in;
     output = out;
-    resist =  value;
     type = "Resistor";
   }
   
@@ -20,14 +20,6 @@ public class Resistor extends Component{
   
   
   public float voltage(){
-   return output.voltage() - input.voltage();
+   return abs(output.voltage() - input.voltage());
   }
-  
-  
-  public float current(){
-    current = voltage()/resist;
-    return voltage()/resist;
-  }
-  
-  
 }
