@@ -6,4 +6,8 @@ abstract class Component extends Element {
   float current() {
     return vToI.eval(voltage());
   }
+  
+  void rotate() {
+    
+  }
 }
