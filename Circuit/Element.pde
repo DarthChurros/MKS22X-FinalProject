@@ -1,14 +1,14 @@
 abstract class Element{
-  private boolean isPlaced = false;;
-  private int x;
-  private int y;
+  boolean isPlaced = false;
+  float x;
+  float y;
   
   
-  public int getX(){
+  public float getX(){
     return x;
   }
   
-  public int getY(){
+  public float getY(){
     return y;
   }
   
