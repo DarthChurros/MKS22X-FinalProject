@@ -1,25 +1,45 @@
 public class VoltSource extends Component{
-  Node input;
-  Node output;
+  int inx;
+  int iny;
+  int outx;
+  int outy;
   float voltage;
+  ArrayList<Wire> input = new ArrayList<Wire>();
+  ArrayList<Wire> output = new ArrayList<Wire>();
   //Everything is based off of the Node
   
-  public VoltSource(Node in, Node out, float value){
-    input = in;
-    output = out;
+  public VoltSource(int x1, int y1, int x2, int y2, float value){
+    inx = x1;
+    iny = y1;
+    outx = x2;
+    outy = y2;
     voltage =  value;
     type = "VoltSource";
     //were gonna have the ground just equal to 0, so now we have
     //this is gonna just be the default, we can fix this later
-    input.setVoltage(0.0);
+    //input.setVoltage(0.0);
     //this last part we can obviously keep
     //adding more than one voltsource is gonna be hard
-    output.setVoltage(input.voltage() + voltage);
+    //output.setVoltage(input.voltage() + voltage);
+  }
+  
+  
+  public boolean addWire(Wire w, int x, int y){
+    if (x == inx && y == iny) {
+      input.add(w);
+      return true;
+    }
+    if (x == outx && y == outy) {
+      output.add(w);
+      return true;
+    }
+    return false;
+    
   }
   
   public void display(){
     //OK, now this is the hard part, we first need to figure out but im going to do a red line for now
-    line(input.xcor, input.ycor, output.xcor, output.ycor);
+    line(inx, iny, inx, iny);
     stroke(0,255,0);
   }
   
@@ -27,7 +47,8 @@ public class VoltSource extends Component{
  
   
   public float voltage(){
-    return input.voltageIn;
+    
+    return voltage;
   }
   
   

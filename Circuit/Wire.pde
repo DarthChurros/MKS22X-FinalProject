@@ -2,30 +2,36 @@
 public class Wire extends Element{
   private float voltage;
   private float vertices;
-  private Node in;
-  private Node out;
+  private int inx;
+  private int iny;
+  private int outx;
+  private int outy;
 
  
   //we forgot to add the in and out to the uml
   public float voltage(){
-    return in.voltage();
+    //the most complicated method
+    return voltage;
   }
   
   
-  public Wire(Node input, Node output){
-    in = input;
-    out = output;
+  public Wire(int x1, int y1, int x2, int y2){
+    inx = x1;
+    iny = y1;
+    outx = x2;
+    outy = y2;
   }
   
   public float current(){
-    return in.current();
-    //Later we will have to fix this and calculate current for the whole curcuit
+   return 0;
+   //fix tomoroow
+    
 
   }
   
   
   public void display(){
-     line(in.xcor,in.ycor,out.xcor,out.ycor);
+     line(inx,iny,outx,outy);
 
   }
   

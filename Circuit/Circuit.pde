@@ -11,10 +11,10 @@ void setup(){
   
   
   
-  VoltSource V = new VoltSource(o, t, 10);
-  Wire w = new Wire(t, tr);
-  Resistor r = new Resistor(tr, f, 10);
-  Wire v = new Wire(f, o);
+  VoltSource V = new VoltSource(100, 100, 200, 100, 10);
+  Wire w = new Wire(200, 100, 200, 200);
+  Resistor r = new Resistor(200, 200, 100, 200,10);
+  Wire v = new Wire(100, 200, 100, 100);
   
   
   
