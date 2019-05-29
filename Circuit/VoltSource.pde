@@ -20,8 +20,11 @@ public class VoltSource extends Component{
   public void display(){
     //OK, now this is the hard part, we first need to figure out but im going to do a red line for now
     line(input.xcor, input.ycor, output.xcor, output.ycor);
-    fill(0,255,0);
+    stroke(0,255,0);
   }
+  
+  
+ 
   
   public float voltage(){
     return input.voltageIn;

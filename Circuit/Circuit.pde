@@ -3,6 +3,26 @@ import java.util.Scanner;
 void setup(){
   size(1000,800);
   background(255);
+  Node o = new Node(100,100);
+  Node t = new Node(200, 100);
+  Node tr = new Node(200, 200);
+  Node f = new Node(100, 200);
+  
+  
+  
+  
+  VoltSource V = new VoltSource(o, t, 10);
+  Wire w = new Wire(t, tr);
+  Resistor r = new Resistor(tr, f, 10);
+  Wire v = new Wire(f, o);
+  
+  
+  
+  V.display();
+  r.display();
+  w.display();
+  v.display();
+  
   //we want to make little buttons on the bottom so that the user can choose which component they want to place in
   String s = "Press for a new Resistor!";
   fill(255);
@@ -23,11 +43,11 @@ void setup(){
   
   
   
-  String f = "Press for a new Wire!";
+  String h = "Press for a new Wire!";
   fill(255);
   rect(750,290,200,50);
   fill(50);
-  text(f, 770,290,100,100);
+  text(h, 770,290,100,100);
   
   
   
@@ -79,6 +99,8 @@ Element holderb;
 
 
 void draw(){
+  
+  
  Node Holderone;
  Node Holdertwo;
   //this is the default
@@ -86,10 +108,7 @@ void draw(){
     //Holder one is for a new piece, holder 2 is for finishing an old piece
     //so the button commands work
     if (overRect(750,90,200,50)){
-      Scanner in = new Scanner(System.in);
-      System.out.print("How many ohms?");
-      String r = in.nextLine();
-      System.out.println(r);
+     //holdera = new Resistor(Holderone, Holdertwo, )
       //ok, first off we need a popup windo to get the value of the restor
       
     // holderb = new Resistor(Holderone, Holder2, 10); 

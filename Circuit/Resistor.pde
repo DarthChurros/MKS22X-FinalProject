@@ -15,11 +15,13 @@ public class Resistor extends Component{
   public void display(){
     //OK, now this is the hard part, we first need to figure out but im going to do a red line for now
     line(input.xcor, input.ycor, output.xcor, output.ycor);
-    fill(255,0,0);
+    stroke(255,0,0);
   }
   
   
   public float voltage(){
    return abs(output.voltage() - input.voltage());
   }
+  
+ 
 }

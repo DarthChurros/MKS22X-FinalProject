@@ -19,6 +19,13 @@ public class Node extends Element{
     ycor = y;
   }
   
+  public Node(int x, int y){
+    inputs = new ArrayList<Element>();
+    outputs = new ArrayList<Element>();
+    xcor = x;
+    ycor = y;
+  }
+  
   //Constructors above
   //Now were gonna do the display commands
   
