@@ -15,10 +15,10 @@ void setup(){
   
   
   
-  V.display();
-  r.display();
-  w.display();
-  v.display();
+  //V.display();
+  //r.display();
+  //w.display();
+ // v.display();
   
   //we want to make little buttons on the bottom so that the user can choose which component they want to place in
   String s = "Press for a new Resistor!";
@@ -98,8 +98,8 @@ Element holderb;
 void draw(){
   
   
- Node Holderone;
- Node Holdertwo;
+ 
+ 
   //this is the default
   if(mousePressed && holdera == null){
     //Holder one is for a new piece, holder 2 is for finishing an old piece
