@@ -22,7 +22,32 @@ work on a "component" that would act like a resistor, to test the class
 structure
 
 
-Thursday 5/23:I worked heavily and almost finished resistor and voltSource, decided to eliminate the polarSource class and started working on some of the circuit class methods in order to calculate the voltage in the circuit.
+Thursday 5/23:
+Jude: I worked heavily and almost finished resistor and voltSource, decided to eliminate the polarSource class and started working on some of the circuit class methods in order to calculate the voltage in the circuit.
+
+
+Friday: 5/24:
+Jude: I tried to implment the display functions for every sinle component, staring off as just colored wires, trying to have each wire be connected by two nodes hich the user will place down two nodes and have the component form inbetween.
+
+
+
+
+
+Tuesday 5/28:
+Jude: I worked on making a circuit out of some basic lines, but weirdly enough i encountered a ton of bugs.
+
+
+Wedensday 5/29:
+Jude: I fixed most of he bugs and worked with Tejas on fixing the class structure problems that we've been encountering so far, we decided to delete the node class and slely implement the wire class as a preserver of a common voltage. We also decided that each component would have a wire going in and out and that junctions would work by wire methods
+
+
+Thursday 5/30:
+Jude: I implemted the more interactive button form of GUI
+
+
+
+
+
 
 
 
