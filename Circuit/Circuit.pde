@@ -91,9 +91,10 @@ boolean overCircle(int x, int y, int diameter) {
 
 
 Element holdera;
-Element holderb;
+Pvector v1;
+Pvector v2; 
 
-
+//These are the holder vectors for the gui
 
 void draw(){
   
@@ -105,20 +106,50 @@ void draw(){
     //Holder one is for a new piece, holder 2 is for finishing an old piece
     //so the button commands work
     if (overRect(750,90,200,50)){
-     //holdera = new Resistor(Holderone, Holdertwo, )
-      //ok, first off we need a popup windo to get the value of the restor
-      
-    // holderb = new Resistor(Holderone, Holder2, 10); 
-     //Node Holderone = new Node(mouseX, mouseY, holdera,holderb);
-     //
+      if(mouse.Clicked()){
+        
+        //so, we make the firsr and second pvectors as holder classes
+        if(v1 == null){
+        v1 = new Pvector(mouse.X, mouse.Y);
+        } else {
+        v2 = new Pvector(mouse.X, mouse.Y);
+        //ill add a button later
+        holdera = new Resistor(v1.x, v1.y, v2.x, v2.y, 10);
+        }
+      }
+    
     }
     
     if (overRect(750,190,10,50)){
-     //Holder  = new battery
+      if(mouse.Clicked()){
+        
+        //so, we make the firsr and second pvectors as holder classes
+        if(v1 == null){
+        v1 = new Pvector(mouse.X, mouse.Y);
+        } else {
+        v2 = new Pvector(mouse.X, mouse.Y);
+        //ill add a button later
+        holdera = new VoltSource(v1.x, v1.y, v2.x, v2.y, 10);
+        }
+      }
     }
     
     if (overRect(750,290,10,50)){
-     //holder  = new wire
+     if(mouse.Clicked()){
+        
+        //so, we make the firsr and second pvectors as holder classes
+        if(v1 == null){
+        v1 = new Pvector(mouse.X, mouse.Y);
+        } else {
+        v2 = new Pvector(mouse.X, mouse.Y);
+        //ill add a button later
+        holdera = new Wire(v1.x, v1.y, v2.x, v2.y, 10);
+        }
+      }
+    }
+    
+    
+    
     }
     
   }
