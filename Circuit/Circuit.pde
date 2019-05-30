@@ -3,10 +3,7 @@ import java.util.Scanner;
 void setup(){
   size(1000,800);
   background(255);
-  Node o = new Node(100,100);
-  Node t = new Node(200, 100);
-  Node tr = new Node(200, 200);
-  Node f = new Node(100, 200);
+  
   
   
   

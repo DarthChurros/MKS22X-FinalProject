@@ -32,6 +32,7 @@ public class Wire extends Element{
   
   public void display(){
      line(inx,iny,outx,outy);
+     stroke(0,0,0);
 
   }
   
