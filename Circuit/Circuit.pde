@@ -91,8 +91,8 @@ boolean overCircle(int x, int y, int diameter) {
 
 
 Element holdera;
-Pvector v1;
-Pvector v2; 
+int[] v1;
+int[] v2; 
 
 //These are the holder vectors for the gui
 
@@ -106,15 +106,16 @@ void draw(){
     //Holder one is for a new piece, holder 2 is for finishing an old piece
     //so the button commands work
     if (overRect(750,90,200,50)){
-      if(mouse.Clicked()){
+      if(mousePressed){
         
-        //so, we make the firsr and second pvectors as holder classes
+        //so, we make the firsr and second PVectors as holder classes
         if(v1 == null){
-        v1 = new Pvector(mouse.X, mouse.Y);
+        v1 = new int[2]{mouseX, mouseY};
         } else {
-        v2 = new Pvector(mouse.X, mouse.Y);
+        v2 = new int[2]{mouseX, mouseY};
+        
         //ill add a button later
-        holdera = new Resistor(v1.x, v1.y, v2.x, v2.y, 10);
+  holdera = new Resistor(v1[0], v1[1],v2[0], v2[1], 10)
         }
       }
     
@@ -123,13 +124,13 @@ void draw(){
     if (overRect(750,190,10,50)){
       if(mouse.Clicked()){
         
-        //so, we make the firsr and second pvectors as holder classes
+        //so, we make the firsr and second PVectors as holder classes
         if(v1 == null){
-        v1 = new Pvector(mouse.X, mouse.Y);
+        v1 = new int[2]{mouseX, mouseY};
         } else {
-        v2 = new Pvector(mouse.X, mouse.Y);
+        v2 = new int[2]{mouseX, mouseY};
         //ill add a button later
-        holdera = new VoltSource(v1.x, v1.y, v2.x, v2.y, 10);
+        holdera = new VoltSource(v1[0], v1[1],v2[0], v2[1], 10)
         }
       }
     }
@@ -137,13 +138,13 @@ void draw(){
     if (overRect(750,290,10,50)){
      if(mouse.Clicked()){
         
-        //so, we make the firsr and second pvectors as holder classes
+        //so, we make the firsr and second PVectors as holder classes
         if(v1 == null){
-        v1 = new Pvector(mouse.X, mouse.Y);
+        v1 = new int[2]{mouseX, mouseY}
         } else {
-        v2 = new Pvector(mouse.X, mouse.Y);
+        v2 = new int[2]{mouseX, mouseY}
         //ill add a button later
-        holdera = new Wire(v1.x, v1.y, v2.x, v2.y, 10);
+        holdera = new Wire(v1[0], v1[1],v2[0], v2[1], 10)
         }
       }
     }
@@ -163,5 +164,5 @@ void draw(){
   //if (mousePressed){
    // Node n = new Node(mouseX, mouseY);
     //n.display();
-  }
+  
   
