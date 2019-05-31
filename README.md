@@ -47,3 +47,6 @@ Tejas: Tested the algorithm (still on paper), it works for simple circuits but w
 Thursday 5/30:
 Jude: I implemted the more interactive button form of GUI
 Tejas: Finally sucked up his pride and looked at Google. Found a StackExchange post on how matrices can be used to solve systems of KCL equations, will work to implement.
+
+Friday 5/31:
+Tejas: Wrote a getNode() method that returns a list of all connected wires with a shared voltage. This method should replace the Node class for the purpose of calculations - worst case scenario, we make it a data structure. Not sure yet.
