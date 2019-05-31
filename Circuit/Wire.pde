@@ -6,6 +6,8 @@ public class Wire extends Element{
   private int iny;
   private int outx;
   private int outy;
+  Element in;
+  Element out;
 
  
   //we forgot to add the in and out to the uml
@@ -40,7 +42,24 @@ public class Wire extends Element{
     return super.placed();
   }
 
-
+  List<Wire> getNode() {
+    List<Wire> node = new ArrayList<Wire>();
+    getNodeH(node);
+    return node;
+  }
+  
+  void getNodeH(List<Wire> current) {
+    if (!current.contains(this)) {
+      current.add(this);
+      if (in instanceof Wire) {
+        Wire inWire = (Wire)in;
+        inWire.getNodeH(current);
+      }
+      if (out instanceof Wire) {
+        Wire outWire = (Wire)out;
+        outWire.getNodeH(current);
+    }
+  }
   
 }
   
