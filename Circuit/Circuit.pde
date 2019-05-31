@@ -91,9 +91,9 @@ void draw(){
   
   VoltSource V = new VoltSource(100, 100, 200, 100, 10);
   V.display();
-  Wire w = new Wire(200, 100, 200, 200);
+  Resistor r = new Resistor(200, 100, 200, 200,10);
   
-  Resistor r = new Resistor(200, 200, 100, 200,10);
+  Wire w  = new Wire(200, 200, 100, 200);
   r.display();
   Wire v = new Wire(100, 200, 100, 100);
   
