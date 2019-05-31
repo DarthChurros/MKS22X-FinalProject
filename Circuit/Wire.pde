@@ -58,6 +58,7 @@ public class Wire extends Element{
       if (out instanceof Wire) {
         Wire outWire = (Wire)out;
         outWire.getNodeH(current);
+      }
     }
   }
   

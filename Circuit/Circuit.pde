@@ -15,7 +15,7 @@ void setup(){
   
   
   
-  //V.display();
+  V.display();
   //r.display();
   //w.display();
  // v.display();
@@ -115,7 +115,7 @@ void draw(){
         v2 = new int[2]{mouseX, mouseY};
         
         //ill add a button later
-  holdera = new Resistor(v1[0], v1[1],v2[0], v2[1], 10)
+  holdera = new Resistor(v1[0], v1[1],v2[0], v2[1], 10);
         }
       }
     
@@ -130,7 +130,7 @@ void draw(){
         } else {
         v2 = new int[2]{mouseX, mouseY};
         //ill add a button later
-        holdera = new VoltSource(v1[0], v1[1],v2[0], v2[1], 10)
+        holdera = new VoltSource(v1[0], v1[1],v2[0], v2[1], 10);
         }
       }
     }
@@ -140,11 +140,11 @@ void draw(){
         
         //so, we make the firsr and second PVectors as holder classes
         if(v1 == null){
-        v1 = new int[2]{mouseX, mouseY}
+        v1 = new int[2]{mouseX, mouseY};
         } else {
-        v2 = new int[2]{mouseX, mouseY}
+        v2 = new int[2]{mouseX, mouseY};
         //ill add a button later
-        holdera = new Wire(v1[0], v1[1],v2[0], v2[1], 10)
+        holdera = new Wire(v1[0], v1[1],v2[0], v2[1], 10);
         }
       }
     }
