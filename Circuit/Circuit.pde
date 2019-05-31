@@ -8,17 +8,7 @@ void setup(){
   
   
   
-  VoltSource V = new VoltSource(100, 100, 200, 100, 10);
-  Wire w = new Wire(200, 100, 200, 200);
-  Resistor r = new Resistor(200, 200, 100, 200,10);
-  Wire v = new Wire(100, 200, 100, 100);
   
-  
-  
-  V.display();
-  //r.display();
-  //w.display();
- // v.display();
   
   //we want to make little buttons on the bottom so that the user can choose which component they want to place in
   String s = "Press for a new Resistor!";
@@ -99,7 +89,21 @@ int[] v2;
 void draw(){
   
   
+  VoltSource V = new VoltSource(100, 100, 200, 100, 10);
+  V.display();
+  Wire w = new Wire(200, 100, 200, 200);
+  
+  Resistor r = new Resistor(200, 200, 100, 200,10);
+  r.display();
+  Wire v = new Wire(100, 200, 100, 100);
+  
+  //line(100,100,200,100);
+  //stroke(0,255,0);
+  
+  
  
+  w.display();
+  v.display();
  
   //this is the default
   if(mousePressed && holdera == null){
