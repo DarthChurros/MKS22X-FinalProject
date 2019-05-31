@@ -110,9 +110,9 @@ void draw(){
         
         //so, we make the firsr and second PVectors as holder classes
         if(v1 == null){
-        v1 = new int[2]{mouseX, mouseY};
+        v1 = new int[]{mouseX, mouseY};
         } else {
-        v2 = new int[2]{mouseX, mouseY};
+        v2 = new int[]{mouseX, mouseY};
         
         //ill add a button later
   holdera = new Resistor(v1[0], v1[1],v2[0], v2[1], 10);
@@ -122,13 +122,13 @@ void draw(){
     }
     
     if (overRect(750,190,10,50)){
-      if(mouse.Clicked()){
+      if(mousePressed){
         
         //so, we make the firsr and second PVectors as holder classes
         if(v1 == null){
-        v1 = new int[2]{mouseX, mouseY};
+        v1 = new int[]{mouseX, mouseY};
         } else {
-        v2 = new int[2]{mouseX, mouseY};
+        v2 = new int[]{mouseX, mouseY};
         //ill add a button later
         holdera = new VoltSource(v1[0], v1[1],v2[0], v2[1], 10);
         }
@@ -136,15 +136,15 @@ void draw(){
     }
     
     if (overRect(750,290,10,50)){
-     if(mouse.Clicked()){
+     if(mousePressed){
         
         //so, we make the firsr and second PVectors as holder classes
         if(v1 == null){
-        v1 = new int[2]{mouseX, mouseY};
+        v1 = new int[]{mouseX, mouseY};
         } else {
-        v2 = new int[2]{mouseX, mouseY};
+        v2 = new int[]{mouseX, mouseY};
         //ill add a button later
-        holdera = new Wire(v1[0], v1[1],v2[0], v2[1], 10);
+        holdera = new Wire(v1[0], v1[1],v2[0], v2[1]);
         }
       }
     }
@@ -154,6 +154,7 @@ void draw(){
     }
     
   }
+  
   
   
   

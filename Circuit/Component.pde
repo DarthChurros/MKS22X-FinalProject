@@ -29,11 +29,7 @@ abstract class Component extends Element{
     
   }
    
-   
-   public void addTerminal(Node n){
-     terminals.add(n);
-   }
-   
+  
    public void place(float xstart, float ystart, float xend, float yend){
      isPlaced = true;
    }
