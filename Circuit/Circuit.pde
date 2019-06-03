@@ -115,12 +115,18 @@ int[] v1;
 int[] v2; 
 
 //These are the holder vectors for the gui
-
+int counter = -1;
+ArrayList<Element> components = new ArrayList<Element>();
+//this has to be an element otherwise we wont be able to add wires
 void draw(){
-  int counter = -1;
+  
+  
+  
+  
   if(overRect(750,90,200,50)){
     if(mousePressed){
       counter = 0;
+      System.out.println(counter);
     }
   }
   
@@ -128,6 +134,7 @@ void draw(){
    else if(overRect(750,190,200,50)){
     if(mousePressed){
       counter = 2;
+      //System.out.println("Pressed2");
     }
    }
    
@@ -140,12 +147,17 @@ void draw(){
    }
    
    
-   else if(mousePressed){
-     if (counter == 0){
-       int x = rounder(mouseX);
-       int y = rounder(mouseY);
-       v1 = new int[]{x, y};
-       counter = 1;
+   else if(counter == 0){
+     if(holdera == null){
+       holdera = new Resistor(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY), 10);
+     } else {
+       holdera.shift(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY));
+     }
+       holdera.display();
+     if (mousePressed){
+       
+       components.add(holdera);
+       counter = 0;
        
      } else if(counter == 1){
        int x = rounder(mouseX);
@@ -164,7 +176,7 @@ void draw(){
    }
    
     
- 
+   
   }
   //resistor
   

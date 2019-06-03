@@ -17,6 +17,14 @@ public class Wire extends Element{
   }
   
   
+  public void shift(int x1,  int y1, int x2, int y2){
+    inx = x1;
+    iny = y1;
+    outx = x2;
+    outy = y2;
+  }
+  
+  
   public Wire(int x1, int y1, int x2, int y2){
     inx = x1;
     iny = y1;
@@ -42,13 +50,13 @@ public class Wire extends Element{
     return super.placed();
   }
 
-  List<Wire> getNode() {
-    List<Wire> node = new ArrayList<Wire>();
+  ArrayList<Wire> getNode() {
+    ArrayList<Wire> node = new ArrayList<Wire>();
     getNodeH(node);
     return node;
   }
   
-  void getNodeH(List<Wire> current) {
+  void getNodeH(ArrayList<Wire> current) {
     if (!current.contains(this)) {
       current.add(this);
       if (in instanceof Wire) {

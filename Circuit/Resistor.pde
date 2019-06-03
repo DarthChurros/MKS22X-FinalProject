@@ -10,12 +10,22 @@ public class Resistor extends Component{
   //Everything is based off of the Node
   
   public Resistor(int x1, int y1, int x2, int y2, float value){
-    vToI = new Function("x " + value + " /");
+    //vToI = new Function("x " + value + " /");
     inx = x1;
     iny = y1;
     outx = x2;
     outy = y2;
     type = "Resistor";
+  }
+  
+  
+  
+  
+  public void shift(int x1,  int y1, int x2, int y2){
+    inx = x1;
+    iny = y1;
+    outx = x2;
+    outy = y2;
   }
   
   

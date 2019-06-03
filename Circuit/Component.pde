@@ -1,7 +1,7 @@
 abstract class Component extends Element{
    private ArrayList<Element> terminals;
    private boolean isSource = false;
-   Function vToI;
+   //Function vToI;
    String type;
    int xStart;
    int yStart;
@@ -22,7 +22,8 @@ abstract class Component extends Element{
    
  
    float current() {
-    return vToI.eval(voltage());
+    //return vToI.eval(voltage());
+    return 0.0;
   }
   
   void rotate() {
