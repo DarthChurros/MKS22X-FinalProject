@@ -1,7 +1,6 @@
 
 public class Wire extends Element{
   private float voltage;
-  private float vertices;
   private int inx;
   private int iny;
   private int outx;
@@ -42,13 +41,13 @@ public class Wire extends Element{
     return super.placed();
   }
 
-  List<Wire> getNode() {
-    List<Wire> node = new ArrayList<Wire>();
+  ArrayList<Wire> getNode() {
+    ArrayList<Wire> node = new ArrayList<Wire>();
     getNodeH(node);
     return node;
   }
   
-  void getNodeH(List<Wire> current) {
+  void getNodeH(ArrayList<Wire> current) {
     if (!current.contains(this)) {
       current.add(this);
       if (in instanceof Wire) {

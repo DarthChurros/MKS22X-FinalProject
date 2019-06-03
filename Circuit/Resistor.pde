@@ -1,16 +1,9 @@
 public class Resistor extends Component{
-  int inx;
-  int iny;
-  int outx;
-  int outy;
-  ArrayList<Wire> input = new ArrayList<Wire>();
-  ArrayList<Wire> output = new ArrayList<Wire>();
-  float resist;
-  float current;
+  float resistance;
   //Everything is based off of the Node
   
   public Resistor(int x1, int y1, int x2, int y2, float value){
-    vToI = new Function("x " + value + " /");
+    resistance = value;
     inx = x1;
     iny = y1;
     outx = x2;
@@ -44,5 +37,7 @@ public class Resistor extends Component{
    return abs(output.get(0).voltage() - input.get(0).voltage());
   }
   
- 
+  public float current() {
+    return voltage() / resistance;
+  }
 }

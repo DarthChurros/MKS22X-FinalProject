@@ -1,12 +1,12 @@
 abstract class Component extends Element{
-   private ArrayList<Element> terminals;
-   private boolean isSource = false;
-   Function vToI;
-   String type;
-   int xStart;
-   int yStart;
-   int xEnd;
-   int yEnd;
+  boolean isSource = false;
+  String type;
+  int inx;
+  int iny;
+  int outx;
+  int outy;
+  ArrayList<Wire> input = new ArrayList<Wire>();
+  ArrayList<Wire> output = new ArrayList<Wire>();
    
    
    
@@ -18,19 +18,8 @@ abstract class Component extends Element{
    public String whatType(){
      return type;
    }
-   
-   
- 
-   float current() {
-    return vToI.eval(voltage());
-  }
   
   void rotate() {
     
   }
-   
-  
-   public void place(float xstart, float ystart, float xend, float yend){
-     isPlaced = true;
-   }
 }
