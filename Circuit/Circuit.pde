@@ -45,6 +45,16 @@ void setup(){
 }
 
 
+
+public static int roundto20(int x){
+  if(x/20 >= 10){
+    return x/20 + 20;
+  } else {
+    return x/20;
+  }
+}
+
+
 public float totalResistance(){
     return 0.0;
     //idk how to do this but it seems like the only way to calculate the total resistance for a voltsource
