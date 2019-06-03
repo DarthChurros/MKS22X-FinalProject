@@ -2,7 +2,23 @@ import java.util.Scanner;
 
 void setup(){
   size(1000,800);
-  background(255);
+  background(0,191,255);
+  
+  
+  //ok lets make the grid
+  
+  for(int x = 15; x < 775; x +=40){
+    line(x,15, x, 735);
+    stroke(0,0,0);
+    
+    //just as a note - we need to round to the neares 40 then add 15
+  }
+  
+  for(int x = 15; x < 775; x +=40){
+    line(15, x, 735 , x);
+    stroke(0,0,0);
+  }
+  
   
   
   
@@ -45,14 +61,18 @@ void setup(){
 }
 
 
-
-public static int roundto20(int x){
-  if(x/20 >= 10){
-    return x/20 + 20;
+public static int rounder(int x){
+  int y = x - 15k
+  if(y % 40 < 20){
+    return y/40 + 15;
   } else {
-    return x/20;
+    return y/40 + 55;
   }
 }
+
+
+
+
 
 
 public float totalResistance(){
@@ -99,21 +119,8 @@ int[] v2;
 void draw(){
   
   
-  VoltSource V = new VoltSource(100, 100, 200, 100, 10);
-  V.display();
-  Resistor r = new Resistor(200, 100, 200, 200,10);
-  
-  Wire w  = new Wire(200, 200, 100, 200);
-  r.display();
-  Wire v = new Wire(100, 200, 100, 100);
-  
-  //line(100,100,200,100);
-  //stroke(0,255,0);
-  
-  
  
-  w.display();
-  v.display();
+  
  
   //this is the default
   if(mousePressed && holdera == null){
