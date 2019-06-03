@@ -61,8 +61,8 @@ void setup(){
 }
 
 
-public static int rounder(int x){
-  int y = x - 15k
+public static int rounder(float x){
+  int y = int(x - 15);
   if(y % 40 < 20){
     return y/40 + 15;
   } else {
@@ -117,64 +117,70 @@ int[] v2;
 //These are the holder vectors for the gui
 
 void draw(){
-  
-  
- 
-  
- 
-  //this is the default
-  if(mousePressed && holdera == null){
-    //Holder one is for a new piece, holder 2 is for finishing an old piece
-    //so the button commands work
-    if (overRect(750,90,200,50)){
-      if(mousePressed){
-        
-        //so, we make the firsr and second PVectors as holder classes
-        if(v1 == null){
-        v1 = new int[]{mouseX, mouseY};
-        } else {
-        v2 = new int[]{mouseX, mouseY};
-        
-        //ill add a button later
-  holdera = new Resistor(v1[0], v1[1],v2[0], v2[1], 10);
-        }
-      }
-    
+  int counter = -1;
+  if(overRect(750,90,200,50)){
+    if(mousePressed){
+      counter = 0;
     }
-    
-    if (overRect(750,190,10,50)){
-      if(mousePressed){
-        
-        //so, we make the firsr and second PVectors as holder classes
-        if(v1 == null){
-        v1 = new int[]{mouseX, mouseY};
-        } else {
-        v2 = new int[]{mouseX, mouseY};
-        //ill add a button later
-        holdera = new VoltSource(v1[0], v1[1],v2[0], v2[1], 10);
-        }
-      }
-    }
-    
-    if (overRect(750,290,10,50)){
-     if(mousePressed){
-        
-        //so, we make the firsr and second PVectors as holder classes
-        if(v1 == null){
-        v1 = new int[]{mouseX, mouseY};
-        } else {
-        v2 = new int[]{mouseX, mouseY};
-        //ill add a button later
-        holdera = new Wire(v1[0], v1[1],v2[0], v2[1]);
-        }
-      }
-    }
-    
-    
-    
-    }
-    
   }
+  
+   
+   else if(overRect(750,190,200,50)){
+    if(mousePressed){
+      counter = 2;
+    }
+   }
+   
+   
+   
+   else if(overRect(750,290,200,50)){
+    if(mousePressed){
+      counter = 4;
+    }
+   }
+   
+   
+   else if(mousePressed){
+     if (counter == 0){
+       int x = rounder(mouseX);
+       int y = rounder(mouseY);
+       v1 = new int[]{x, y};
+       counter = 1;
+       
+     } else if(counter == 1){
+       int x = rounder(mouseX);
+       int y = rounder(mouseY);
+       v2 = new int[]{x, y};
+       Resistor r = new Resistor(v1[0], v1[1], v2[0], v2[1], 10);
+       r.display();
+       
+       
+     }
+     
+     
+       
+     
+     
+   }
+   
+    
+ 
+  }
+  //resistor
+  
+  
+ 
+  
+ 
+  
+ 
+    
+    
+    
+    
+    
+    
+ 
   
   
   
