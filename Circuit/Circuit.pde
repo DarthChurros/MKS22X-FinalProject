@@ -150,6 +150,7 @@ void draw(){
    else if(counter == 0){
      if(holdera == null){
        holdera = new Resistor(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY), 10);
+       System.out.println("null");
      } else {
        holdera.shift(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY));
      }

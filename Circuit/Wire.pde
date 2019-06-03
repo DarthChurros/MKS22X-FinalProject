@@ -1,7 +1,6 @@
 
 public class Wire extends Element{
   private float voltage;
-  private float vertices;
   private int inx;
   private int iny;
   private int outx;

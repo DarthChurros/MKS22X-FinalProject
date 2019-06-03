@@ -9,6 +9,7 @@ public class VoltSource extends Component{
   //Everything is based off of the Node
   
   public VoltSource(int x1, int y1, int x2, int y2, float value){
+    isSource = true;
     inx = x1;
     iny = y1;
     outx = x2;
@@ -21,14 +22,6 @@ public class VoltSource extends Component{
     //this last part we can obviously keep
     //adding more than one voltsource is gonna be hard
     //output.setVoltage(input.voltage() + voltage);
-  }
-  
-  
-  public void shift(int x1,  int y1, int x2, int y2){
-    inx = x1;
-    iny = y1;
-    outx = x2;
-    outy = y2;
   }
   
   
