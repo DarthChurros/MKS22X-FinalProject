@@ -36,7 +36,47 @@ public class Resistor extends Component{
 
     stroke(255,0,0);
     strokeWeight(4);
-    line(inx, iny, inx + 80, iny);
+    line(inx, iny, inx + 15, iny);
+    
+    
+    stroke(255,0,0);
+    strokeWeight(4);
+    line(inx + 15, iny, inx + 20, iny+20);
+    
+    stroke(255,0,0);
+    strokeWeight(4);
+    line(inx + 20, iny + 20, inx + 30, iny-20);
+    
+    stroke(255,0,0);
+    strokeWeight(4);
+    line(inx + 30, iny - 20, inx + 40, iny + 20);
+    
+    stroke(255,0,0);
+    strokeWeight(4);
+    line(inx + 40, iny + 20, inx + 50, iny - 20);
+    
+    stroke(255,0,0);
+    strokeWeight(4);
+    line(inx + 50, iny - 20, inx + 60, iny + 20);
+    
+    stroke(255,0,0);
+    strokeWeight(4);
+    line(inx + 60, iny + 20, inx + 65, iny);
+    
+    stroke(255,0,0);
+    strokeWeight(4);
+    line(inx + 65, iny, inx + 80, iny);
+    
+    stroke(0,0,0);
+    strokeWeight(1);
+    fill(255,255,255);
+    ellipse(inx, iny, 10, 10);
+    
+    stroke(0,0,0);
+    strokeWeight(1);
+    fill(255,255,255);
+    ellipse(inx +80, iny, 10, 10);
+    
     
   }
   
