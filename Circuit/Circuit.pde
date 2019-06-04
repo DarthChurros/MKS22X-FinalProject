@@ -242,6 +242,8 @@ void draw() {
       updateMatrix = true;
     }
   }
+  
+  if (updateMatrix) updateVoltages();
 }
 //resistor
 
