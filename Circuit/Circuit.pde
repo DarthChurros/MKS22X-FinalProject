@@ -203,12 +203,36 @@ void draw(){
      } 
      
      
-       
-     
-     
    }
    
  
+ 
+      else if(counter == 4){
+     //placing wires
+     if(holdera == null){
+       holdera = new Wire(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY));
+       System.out.println("null");
+     } else {
+       holdera.shift(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY));
+     }
+       holdera.display();
+     if (mousePressed){
+       counter = -1;
+       int x = rounder(mouseX);
+       int y = rounder(mouseY);
+       System.out.println(x);
+       System.out.println(y);
+       Wire w = new Wire(x, y, x + 20, y);
+       w.place();
+       w.display();
+       System.out.println("test");
+       //nodes.add(w);
+       
+       
+     } 
+     
+     
+   }
    
     
    
