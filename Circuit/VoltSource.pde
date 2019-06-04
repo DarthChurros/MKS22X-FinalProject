@@ -90,7 +90,30 @@ public class VoltSource extends Component{
       
     strokeWeight(4);
     stroke(0,255,0);
-    line(inx, iny, inx, iny+80);
+    line(inx, iny, inx, iny+30);
+    
+    strokeWeight(4);
+    stroke(0,255,0);
+    line(inx - 20, iny + 20, inx + 20, iny+20);
+    
+    strokeWeight(4);
+    stroke(0,255,0);
+    line(inx - 30, iny + 50, inx + 30, iny+50);
+    
+    strokeWeight(4);
+    stroke(0,255,0);
+    line(inx, iny + 50, inx, iny+80);
+    
+    stroke(0,0,0);
+    strokeWeight(1);
+    fill(255,255,255);
+    ellipse(inx, iny, 10, 10);
+    
+    stroke(0,0,0);
+    strokeWeight(1);
+    fill(255,255,255);
+    ellipse(inx, iny + 80, 10, 10);
+    
     }
     
   }
