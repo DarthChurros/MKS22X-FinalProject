@@ -42,7 +42,7 @@ public class Wire extends Element{
   public void display(){
     stroke(255,255,255);
     strokeWeight(4);
-    line(inx, iny, inx + 80, iny);
+    line(inx, iny, inx + 40, iny);
      
      
     stroke(0,0,0);
@@ -53,7 +53,7 @@ public class Wire extends Element{
     stroke(0,0,0);
     strokeWeight(1);
     fill(255,255,255);
-    ellipse(inx +80, iny, 10, 10);
+    ellipse(inx +40, iny, 10, 10);
 
   }
   
