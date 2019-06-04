@@ -47,6 +47,7 @@ public class VoltSource extends Component{
   public void display(){
     //OK, now this is the hard part, we first need to figure out but im going to do a green line for now
     //
+    strokeWeight(4);
     stroke(0,255,0);
     line(inx, iny, inx + 80, iny);
     

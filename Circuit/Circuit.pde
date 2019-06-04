@@ -65,15 +65,19 @@ void draw(){
   //ok lets make the grid
   
   for(int x = 15; x < 775; x +=40){
-    line(x,15, x, 735);
     stroke(0,0,0);
+    strokeWeight(4);
+    line(x,15, x, 735);
+    
     
     //just as a note - we need to round to the neares 40 then add 15
   }
   
   for(int x = 15; x < 775; x +=40){
-    line(15, x, 735 , x);
     stroke(0,0,0);
+    strokeWeight(4);
+    line(15, x, 735 , x);
+   ;
   }
   
   
@@ -98,6 +102,8 @@ void draw(){
   //we want to make little buttons on the bottom so that the user can choose which component they want to place in
   String s = "Press for a new Resistor!";
   fill(255);
+  stroke(0,0,0);
+  strokeWeight(4);
   rect(750,90,200,50);
   fill(50);
   text(s, 770,100,100,100);
@@ -107,6 +113,8 @@ void draw(){
   
   String g = "Press for a new Cell!";
   fill(255);
+  stroke(0,0,0);
+  strokeWeight(4);
   rect(750,190,200,50);
   fill(50);
   text(g, 770,190,100,100);
@@ -114,6 +122,8 @@ void draw(){
   
   String h = "Press for a new Wire!";
   fill(255);
+  stroke(0,0,0);
+  strokeWeight(4);
   rect(750,290,200,50);
   fill(50);
   text(h, 770,290,100,100);

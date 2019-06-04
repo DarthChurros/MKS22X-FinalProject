@@ -33,7 +33,9 @@ public class Resistor extends Component{
   
   public void display(){
     //OK, now this is the hard part, we first need to figure out but im going to do a red line for now
+
     stroke(255,0,0);
+    strokeWeight(4);
     line(inx, iny, inx + 80, iny);
     
   }
