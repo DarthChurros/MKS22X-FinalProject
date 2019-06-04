@@ -1,12 +1,13 @@
 public class VoltSource extends Component {
-  int inx;
-  int iny;
-  int outx;
-  int outy;
+  boolean rot = false;
   float voltage;
   //Everything is based off of the Node
-
-  public VoltSource(int x1, int y1, int x2, int y2, float value) {
+  
+  
+  public void rotate(){
+    rot = !rot;
+  }
+  public VoltSource(int x1, int y1, int x2, int y2, float value){
     isSource = true;
     inx = x1;
     iny = y1;
@@ -44,7 +45,7 @@ public class VoltSource extends Component {
     //OK, now this is the hard part, we first need to figure out but im going to do a green line for now
     //
     
-    
+    if(!rot){
     strokeWeight(4);
     stroke(0,255,0);
     line(inx, iny, inx + 30, iny);
@@ -77,7 +78,12 @@ public class VoltSource extends Component {
     fill(255,255,255);
     ellipse(inx +80, iny, 10, 10);
     
-    
+    } else {
+      
+    strokeWeight(4);
+    stroke(0,255,0);
+    line(inx, iny, inx, iny+80);
+    }
     
   }
 
