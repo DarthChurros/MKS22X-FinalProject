@@ -163,8 +163,10 @@ void draw(){
      } else {
        holdera.shift(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY));
      }
+       stroke(255,0,0);
        holdera.display();
      if (mousePressed){
+       holdera = null;
        counter = -1;
        int x = rounder(mouseX);
        
@@ -195,8 +197,10 @@ void draw(){
      } else {
        holdera.shift(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY));
      }
+       stroke(0,255,0);
        holdera.display();
      if (mousePressed){
+       holdera = null;
        counter = -1;
        int x = rounder(mouseX);
        
@@ -227,6 +231,7 @@ void draw(){
      }
        holdera.display();
      if (mousePressed){
+       holdera = null;
        counter = -1;
        int x = rounder(mouseX);
        int y = rounder(mouseY);
