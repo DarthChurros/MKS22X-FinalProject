@@ -42,8 +42,25 @@ public class Wire extends Element{
     ArrayList<Component> components = adjacent();
     
     float[] row = new float[circuit.size()];
+    for (Component c : components) {
+      for (int i = 0; i < circuit.size(); i++) {
+        if (circuit.get(i).contains(c.in())
+        || circuit.get(i).contains(c.out())) {
+          row[i] = -1 / ((Resistor)c).resistance();
+        }
+      }
+    }
     
-    return row;
+    for (int i = 0; i < circuit.size(); i++) {
+      if (circuit.get(i).contains(this)) {
+        row[i] = 0;
+        for (int j = 0; i < row.length; j++) {
+          row[i] -= row[j];
+        }
+        return row;
+      }
+    }
+    return null;
   }
   
   ArrayList<Component> adjacent() {
