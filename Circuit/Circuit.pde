@@ -83,9 +83,6 @@ void draw(){
   
    for(int i = 0; i < components.size(); i++){
     components.get(i).display();
-    if(components.get(i) != null){
-      System.out.println("hyurd");
-    }
   }
   
   for (int i = 0; i < sources.size(); i++) {
