@@ -76,8 +76,9 @@ public class Wire extends Element{
   }
   
   public void display(){
-     line(inx,iny,outx,outy);
-     stroke(0,0,0);
+    stroke(255,255,255);
+    line(inx,iny,outx,outy);
+     
 
   }
   
