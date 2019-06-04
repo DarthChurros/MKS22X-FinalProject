@@ -1,4 +1,4 @@
-abstract class Component extends Element{
+abstract class Component extends Element {
   boolean isSource = false;
   int inx;
   int iny;
@@ -6,22 +6,21 @@ abstract class Component extends Element{
   int outy;
   Wire input;
   Wire output;
-   
-   
-   
-  
-   // the default will just focus like a regular wire until given further specifications
-  
-   
-  
+
+
+
+
+  // the default will just focus like a regular wire until given further specifications
+
+
+
   void rotate() {
-    
   }
-  
+
   Wire in() {
     return input;
   }
-  
+
   Wire out() {
     return output;
   }
