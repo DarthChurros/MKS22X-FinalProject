@@ -80,10 +80,12 @@ public class Wire extends Element {
 
     return components;
   }
-
-  public void display() {
-    stroke(255, 255, 255);
-    line(inx, iny, outx, outy);
+  
+  
+  public void display(){
+    stroke(255,255,255);
+    strokeWeight(4);
+    line(inx, iny, inx + 80, iny);
   }
 
   public boolean placed() {
