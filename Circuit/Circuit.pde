@@ -163,17 +163,14 @@ void draw(){
    
    
    else if(counter == 0){
-     if(holdera == null){
+     
        //placing resistors
        
        
        holdera = new Resistor(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY), 10);
        if(rot) holdera.rotate();
       
-       System.out.println("null");
-     } else {
-       holdera.shift(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY));
-     }
+      
        stroke(255,0,0);
        holdera.display();
        
@@ -206,13 +203,9 @@ void draw(){
    
    else if(counter == 2){
      //placing cells
-     if(holdera == null){
+   
        holdera = new VoltSource(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY), 10);
        if(rot) holdera.rotate();
-       System.out.println("null");
-     } else {
-       holdera.shift(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY));
-     }
        
        holdera.display();
      if (mousePressed){
@@ -242,14 +235,10 @@ void draw(){
  
       else if(counter == 4){
      //placing wires
-     if(holdera == null){
+     
        holdera = new Wire(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY));
        if(rot) holdera.rotate();
-       System.out.println("null");
-     } else {
-       holdera.shift(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY));
-     }
-     
+       //System.out.println("null");
        holdera.display();
      if (mousePressed){
        holdera = null;
