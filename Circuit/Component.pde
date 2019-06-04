@@ -2,8 +2,8 @@ abstract class Component extends Element {
   boolean isSource = false;
   int outx;
   int outy;
-  Wire input;
-  Wire output;
+  ArrayList<Wire> input;
+  ArrayList<Wire> output;
 
   boolean isSource() {
     return isSource;
@@ -17,11 +17,11 @@ abstract class Component extends Element {
   void rotate() {
   }
 
-  Wire in() {
+  ArrayList<Wire> in() {
     return input;
   }
 
-  Wire out() {
+  ArrayList<Wire> out() {
     return output;
   }
 }

@@ -32,11 +32,11 @@ public class VoltSource extends Component {
 
   public boolean addWire(Wire w, int x, int y) {
     if (x == inx && y == iny) {
-      input = w;
+      input.add(w);
       return true;
     }
     if (x == outx && y == outy) {
-      output = w;
+      output.add(w);
       return true;
     }
     return false;

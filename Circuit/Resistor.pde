@@ -29,11 +29,11 @@ public class Resistor extends Component {
 
   public boolean setWire(Wire w, int x, int y) {
     if (x == inx && y == iny) {
-      input = w;
+      input.add(w);
       return true;
     }
     if (x == outx && y == outy) {
-      output = w;
+      output.add(w);
       return true;
     }
     return false;
@@ -134,8 +134,8 @@ public class Resistor extends Component {
 
 
   public float voltage() {
-    if (output == null || input == null) return 0;
-    return abs(output.voltage() - input.voltage());
+    if (output.size() == 0 || input.size() == 0) return 0;
+    return abs(output.get(0).voltage() - input.get(0).voltage());
   }
 
   public float current() {

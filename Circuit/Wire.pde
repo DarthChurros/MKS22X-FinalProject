@@ -1,8 +1,6 @@
 
 public class Wire extends Element {
   private float voltage;
-  private int inx;
-  private int iny;
   private int outx;
   private int outy;
   Element in;
@@ -49,13 +47,13 @@ public class Wire extends Element {
       for (int i = 0; i < circuit.size(); i++) {
         if (circuit.get(i).contains(c.in())) {
           row[i] = -1 / ((Resistor)c).resistance();
-          if (c.out() == this && c.isSource()) {
+          if (c.out().contains(this) && c.isSource()) {
             row[i] = ((VoltSource)c).voltage();
           }
         }
         if (circuit.get(i).contains(c.out())) {
           row[i] = -1 / ((Resistor)c).resistance();
-          if (c.in() == this && c.isSource()) {
+          if (c.in().contains(this) && c.isSource()) {
             row[i] = -1 * ((VoltSource)c).voltage();
           }
         }
