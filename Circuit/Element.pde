@@ -12,6 +12,10 @@ abstract class Element{
     return y;
   }
   
+  
+
+  
+  
   public boolean placed(){
     return isPlaced;
   }
