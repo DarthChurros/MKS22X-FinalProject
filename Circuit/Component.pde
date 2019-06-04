@@ -5,8 +5,8 @@ abstract class Component extends Element{
   int iny;
   int outx;
   int outy;
-  ArrayList<Wire> input = new ArrayList<Wire>();
-  ArrayList<Wire> output = new ArrayList<Wire>();
+  Wire input;
+  Wire output;
    
    
    
@@ -21,5 +21,13 @@ abstract class Component extends Element{
   
   void rotate() {
     
+  }
+  
+  Wire in() {
+    return input;
+  }
+  
+  Wire out() {
+    return output;
   }
 }
