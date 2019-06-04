@@ -52,6 +52,7 @@ Element holdera;
 //These are the holder vectors for the gui
 int counter = -1;
 ArrayList<Component> components = new ArrayList<Component>();
+ArrayList<Component> sources = new ArrayList<Component>();
 ArrayList<ArrayList<Wire>> nodes = new ArrayList<ArrayList<Wire>>();
 //this has to be an element otherwise we wont be able to add wires
 void draw(){
@@ -81,6 +82,10 @@ void draw(){
     if(components.get(i) != null){
       System.out.println("hyurd");
     }
+  }
+  
+  for (int i = 0; i < sources.size(); i++) {
+    sources.get(i).display();
   }
   
   for (int i = 0; i < nodes.size(); i++) {
@@ -192,7 +197,7 @@ void draw(){
        v.place();
        v.display();
        System.out.println("test");
-       components.add(v);
+       sources.add(v);
        
        
      } 
