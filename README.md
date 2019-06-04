@@ -50,3 +50,6 @@ Tejas: Finally sucked up his pride and looked at Google. Found a StackExchange p
 
 Friday 5/31:
 Tejas: Wrote a getNode() method that returns a list of all connected wires with a shared voltage. This method should replace the Node class for the purpose of calculations - worst case scenario, we make it a data structure. Not sure yet.
+
+Monday 6/3:
+Tejas: Starting to regret storing node data in ArrayLists, it's starting to become unwieldy but I'd like the code to work before I mess with efficiency. Worked on using getNode() to construct a matrix that can be used to isolate voltages through Gaussian elimination.
