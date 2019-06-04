@@ -1,5 +1,6 @@
 public class Resistor extends Component{
   float resistance;
+  boolean rot = false;
   //Everything is based off of the Node
   
   public Resistor(int x1, int y1, int x2, int y2, float value){
@@ -9,6 +10,11 @@ public class Resistor extends Component{
     outx = x2;
     outy = y2;
     type = "Resistor";
+  }
+  
+  
+  public void rotate(){
+    rot = !rot;
   }
   
   public void shift(int x1,  int y1, int x2, int y2){
@@ -33,7 +39,7 @@ public class Resistor extends Component{
   
   public void display(){
     //OK, now this is the hard part, we first need to figure out but im going to do a red line for now
-
+  if(!rot){
     stroke(255,0,0);
     strokeWeight(4);
     line(inx, iny, inx + 15, iny);
@@ -76,9 +82,17 @@ public class Resistor extends Component{
     strokeWeight(1);
     fill(255,255,255);
     ellipse(inx +80, iny, 10, 10);
+  } else {
     
+    stroke(255,0,0);
+    strokeWeight(4);
+    line(inx, iny, inx, iny+ 80);
     
   }
+    
+  }
+  
+  
   
   
   public float voltage(){

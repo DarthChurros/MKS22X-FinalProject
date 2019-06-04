@@ -8,7 +8,13 @@ public class Wire extends Element{
   Element in;
   Element out;
 
+
+  boolean rot = false;
  
+ 
+   public void rotate(){
+     rot = !rot;
+   }
   //we forgot to add the in and out to the uml
   public float voltage(){
     //the most complicated method
@@ -40,6 +46,7 @@ public class Wire extends Element{
   
   
   public void display(){
+    if(!rot){
     stroke(255,255,255);
     strokeWeight(4);
     line(inx, iny, inx + 40, iny);
@@ -54,8 +61,17 @@ public class Wire extends Element{
     strokeWeight(1);
     fill(255,255,255);
     ellipse(inx +40, iny, 10, 10);
+    
+    } else {
+    stroke(255,255,255);
+    strokeWeight(4);
+    line(inx, iny, inx, iny + 40);
+    }
 
   }
+  
+  
+  
   
   public boolean placed(){
     return super.placed();

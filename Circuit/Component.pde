@@ -1,8 +1,7 @@
 abstract class Component extends Element{
   boolean isSource = false;
   String type;
-  int inx;
-  int iny;
+  
   int outx;
   int outy;
   Wire input;

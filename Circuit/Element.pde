@@ -2,7 +2,11 @@ abstract class Element{
   boolean isPlaced = false;
   float x;
   float y;
+  public int inx;
+  public int iny;
   
+  public void rotate(){
+  }
   
   public float getX(){
     return x;

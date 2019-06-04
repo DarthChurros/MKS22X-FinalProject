@@ -16,6 +16,16 @@ public static int rounder(float x){
   }
 }
 
+boolean rot = false;
+
+void keyPressed(){
+  if (key == 'r' || key == 'R'){
+    rot = !rot;
+    //System.out.println('l');
+  }
+}
+
+
 
 
 
@@ -131,7 +141,7 @@ void draw(){
   if(overRect(750,90,200,50)){
     if(mousePressed){
       counter = 0;
-      System.out.println(counter);
+     // System.out.println(counter);
     }
   }
   
@@ -155,22 +165,30 @@ void draw(){
    else if(counter == 0){
      if(holdera == null){
        //placing resistors
+       
+       
        holdera = new Resistor(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY), 10);
+       if(rot) holdera.rotate();
+      
        System.out.println("null");
      } else {
        holdera.shift(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY));
      }
        stroke(255,0,0);
        holdera.display();
+       
+       
+       
      if (mousePressed){
        holdera = null;
        counter = -1;
        int x = rounder(mouseX);
        
        int y = rounder(mouseY);
-       System.out.println(x);
-       System.out.println(y);
+       //System.out.println(x);
+       //System.out.println(y);
        Resistor r = new Resistor(x, y, x + 20, y, 10);
+       if(rot) r.rotate();
        r.place();
        r.display();
        System.out.println("test");
@@ -205,6 +223,9 @@ void draw(){
        System.out.println(x);
        System.out.println(y);
        VoltSource v = new VoltSource(x, y, x + 20, y, 10);
+       if(rot){
+         v.rotate();
+       }
        v.place();
        v.display();
        System.out.println("test");
@@ -235,6 +256,7 @@ void draw(){
        System.out.println(x);
        System.out.println(y);
        Wire w = new Wire(x, y, x + 20, y);
+       if(rot) w.rotate();
        w.place();
        w.display();
        System.out.println("test");
