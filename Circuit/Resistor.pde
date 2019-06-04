@@ -15,6 +15,10 @@ public class Resistor extends Component {
   public void rotate() {
     rot = !rot;
   }
+  
+  float resistance() {
+    return resistance;
+  }
 
   public void shift(int x1, int y1, int x2, int y2) {
     inx = x1;
