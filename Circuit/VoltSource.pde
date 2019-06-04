@@ -44,11 +44,42 @@ public class VoltSource extends Component{
     
   }
   
-  public void display(){
+ public void display(){
     //OK, now this is the hard part, we first need to figure out but im going to do a green line for now
     //
+    
+    
+    strokeWeight(4);
     stroke(0,255,0);
-    line(inx, iny, inx + 80, iny);
+    line(inx, iny, inx + 30, iny);
+    //line to the left^^
+    
+    stroke(0,0,0);
+    strokeWeight(1);
+    fill(255,255,255);
+    ellipse(inx, iny, 10, 10);
+    
+    strokeWeight(4);
+    stroke(0,255,0);
+    line(inx+30, iny + 20, inx + 30, iny - 20);
+    //first line (smaller)
+    
+    
+    strokeWeight(4);
+    stroke(0,255,0);
+    line(inx+50, iny +30 , inx +50, iny - 30);
+    //second line (bigger)
+    
+    
+    strokeWeight(4);
+    stroke(0,255,0);
+    line(inx+50, iny, inx + 80, iny);
+    //line to the left^^
+    
+    stroke(0,0,0);
+    strokeWeight(1);
+    fill(255,255,255);
+    ellipse(inx +80, iny, 10, 10);
     
     
     

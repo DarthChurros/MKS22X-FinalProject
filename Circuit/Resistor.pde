@@ -33,8 +33,54 @@ public class Resistor extends Component{
   
   public void display(){
     //OK, now this is the hard part, we first need to figure out but im going to do a red line for now
+
     stroke(255,0,0);
-    line(inx, iny, inx + 80, iny);
+    strokeWeight(4);
+    line(inx, iny, inx + 15, iny);
+    
+    
+    stroke(255,0,0);
+    strokeWeight(4);
+    line(inx + 15, iny, inx + 20, iny+20);
+    
+    stroke(255,0,0);
+    strokeWeight(4);
+    line(inx + 20, iny + 20, inx + 30, iny-20);
+    
+    stroke(255,0,0);
+    strokeWeight(4);
+    line(inx + 30, iny - 20, inx + 40, iny + 20);
+    
+    stroke(255,0,0);
+    strokeWeight(4);
+    line(inx + 40, iny + 20, inx + 50, iny - 20);
+    
+    stroke(255,0,0);
+    strokeWeight(4);
+    line(inx + 50, iny - 20, inx + 60, iny + 20);
+    
+    stroke(255,0,0);
+    strokeWeight(4);
+    line(inx + 60, iny + 20, inx + 65, iny);
+    
+    stroke(255,0,0);
+    strokeWeight(4);
+    line(inx + 65, iny, inx + 80, iny);
+    
+    stroke(0,0,0);
+    strokeWeight(1);
+    fill(255,255,255);
+    ellipse(inx, iny, 10, 10);
+    
+    stroke(0,0,0);
+    strokeWeight(1);
+    fill(255,255,255);
+    ellipse(inx +80, iny, 10, 10);
+    
+    
+    outx = inx + 80;
+    outy = iny;
+    
     
   }
   
