@@ -6,7 +6,6 @@ void setup(){
 
 }
 
-boolean rotator = false;
 
 
 public static int rounder(float x){
@@ -24,14 +23,6 @@ void keyPressed(){
   if (key == 'r' || key == 'R'){
     rot = !rot;
     //System.out.println('l');
-  }
-}
-
-
-
-void keyPressed(){
-  if(key == 'r' || key == 'R'){
-    rotator = !rotator;
   }
 }
 
