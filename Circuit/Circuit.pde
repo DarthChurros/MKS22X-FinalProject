@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 void setup() {
   size(1000, 800);
@@ -38,7 +39,13 @@ boolean overRect(int x, int y, int width, int height) {
   }
 }
 
-
+void updateVoltages() {
+  float[][] matrix = new float[nodes.size()][nodes.size()];
+  for (int i = 0; i < nodes.size(); i++) {
+    matrix[i] = nodes.get(i).get(0).relations(nodes);
+  }
+  System.out.println(Arrays.deepToString(matrix));
+}
 
 
 //need a within radius functions
@@ -52,7 +59,6 @@ int counter = -1;
 ArrayList<Component> components = new ArrayList<Component>();
 ArrayList<Component> sources = new ArrayList<Component>();
 ArrayList<ArrayList<Wire>> nodes = new ArrayList<ArrayList<Wire>>();
-float[][] calcMatrix;
 
 void draw() {
 
@@ -218,7 +224,7 @@ void draw() {
   }
   
   if (updateMatrix) {
-    calcMatrix = new float[nodes.size()][nodes.size()];
+    updateVoltages();
   }
   
 }
