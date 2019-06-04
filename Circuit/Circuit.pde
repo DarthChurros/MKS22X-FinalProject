@@ -9,10 +9,10 @@ void setup(){
 
 public static int rounder(float x){
   int y = int(x - 15);
-  if(y % 40 < 20){
-    return y/40 + 15;
+  if(y % 40 < 20){ 
+    return y/40 * 40 + 15;
   } else {
-    return y/40 + 55;
+    return y/40 * 40 + 55;
   }
 }
 
