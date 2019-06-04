@@ -38,25 +38,13 @@ public class Wire extends Element{
 
   }
   
-  /*float[] relations(ArrayList<ArrayList<Wire>> circuit) {
-    ArrayList<Wire> node = getNode();
-    ArrayList<Component> components = new ArrayList<Component>();
-    
-    for (Wire w : node) {
-      if (w.in instanceof Component) components.add((Component)w.in);
-      if (w.out instanceof Component) components.add((Component)w.out);
-    }
-    
-    for (ArrayList<Wire> n : circuit) {
-      if (n.contains(components.in()) {
-        
-      }
-    }
+  float[] relations(ArrayList<ArrayList<Wire>> circuit) {
+    ArrayList<Component> components = adjacent();
     
     float[] row = new float[circuit.size()];
     
     return row;
-  */}
+  }
   
   ArrayList<Component> adjacent() {
     ArrayList<Wire> node = getNode();
