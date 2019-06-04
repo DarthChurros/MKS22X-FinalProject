@@ -7,7 +7,9 @@ abstract class Component extends Element {
   Wire input;
   Wire output;
 
-
+  boolean isSource() {
+    return isSource;
+  }
 
 
   // the default will just focus like a regular wire until given further specifications
