@@ -66,6 +66,18 @@ public class Wire extends Element{
     stroke(255,255,255);
     strokeWeight(4);
     line(inx, iny, inx, iny + 40);
+    
+    stroke(0,0,0);
+    strokeWeight(1);
+    fill(255,255,255);
+    ellipse(inx, iny, 10, 10);
+    
+    stroke(0,0,0);
+    strokeWeight(1);
+    fill(255,255,255);
+    ellipse(inx, iny + 40, 10, 10);
+    
+    
     }
 
   }

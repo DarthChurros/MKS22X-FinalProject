@@ -208,11 +208,12 @@ void draw(){
      //placing cells
      if(holdera == null){
        holdera = new VoltSource(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY), 10);
+       if(rot) holdera.rotate();
        System.out.println("null");
      } else {
        holdera.shift(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY));
      }
-       stroke(0,255,0);
+       
        holdera.display();
      if (mousePressed){
        holdera = null;
@@ -243,10 +244,12 @@ void draw(){
      //placing wires
      if(holdera == null){
        holdera = new Wire(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY));
+       if(rot) holdera.rotate();
        System.out.println("null");
      } else {
        holdera.shift(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY));
      }
+     
        holdera.display();
      if (mousePressed){
        holdera = null;
