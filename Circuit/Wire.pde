@@ -104,11 +104,6 @@ public class Wire extends Element {
     strokeWeight(1);
     fill(255,255,255);
     ellipse(inx +40, iny, 10, 10);
-<<<<<<< HEAD
-  }
-
-  public boolean placed() {
-=======
     
     } else {
     stroke(255,255,255);
@@ -116,14 +111,6 @@ public class Wire extends Element {
     line(inx, iny, inx, iny + 40);
     }
 
-  }
-  
-  
-  
-  
-  public boolean placed(){
->>>>>>> 5ff16ed... rotate
-    return super.placed();
   }
 
   ArrayList<Wire> getNode() {
