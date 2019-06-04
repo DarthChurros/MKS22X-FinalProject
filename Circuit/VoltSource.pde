@@ -15,7 +15,6 @@ public class VoltSource extends Component{
     outx = x2;
     outy = y2;
     voltage =  value;
-    type = "VoltSource";
     //were gonna have the ground just equal to 0, so now we have
     //this is gonna just be the default, we can fix this later
     //input.setVoltage(0.0);

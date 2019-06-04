@@ -8,7 +8,6 @@ public class Resistor extends Component{
     iny = y1;
     outx = x2;
     outy = y2;
-    type = "Resistor";
   }
   
   public void shift(int x1,  int y1, int x2, int y2){
@@ -29,6 +28,10 @@ public class Resistor extends Component{
     }
     return false;
     
+  }
+  
+  float resistance() {
+    return resistance();
   }
   
   public void display(){

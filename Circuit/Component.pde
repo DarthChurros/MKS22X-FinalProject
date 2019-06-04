@@ -1,6 +1,5 @@
 abstract class Component extends Element{
   boolean isSource = false;
-  String type;
   int inx;
   int iny;
   int outx;
@@ -14,10 +13,6 @@ abstract class Component extends Element{
    // the default will just focus like a regular wire until given further specifications
   
    
-   
-   public String whatType(){
-     return type;
-   }
   
   void rotate() {
     
