@@ -226,8 +226,19 @@ void draw(){
        w.place();
        w.display();
        System.out.println("test");
-       //nodes.add(w);
-       
+       ArrayList temp = w.getNode();
+       boolean makeNode = true;
+       for (ArrayList<Wire> n : nodes) {
+         if (n.contains(temp.get(0))) {
+           n.add(w);
+           makeNode = false;
+         }
+       }
+       if (makeNode) {
+         ArrayList<Wire> newNode = new ArrayList<Wire>();
+         newNode.add(w);
+         nodes.add(newNode);
+       }
        
      } 
      
