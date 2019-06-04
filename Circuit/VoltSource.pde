@@ -4,8 +4,6 @@ public class VoltSource extends Component {
   int outx;
   int outy;
   float voltage;
-  ArrayList<Wire> input = new ArrayList<Wire>();
-  ArrayList<Wire> output = new ArrayList<Wire>();
   //Everything is based off of the Node
 
   public VoltSource(int x1, int y1, int x2, int y2, float value) {
