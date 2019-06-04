@@ -11,6 +11,12 @@ public class Resistor extends Component{
     type = "Resistor";
   }
   
+  public void shift(int x1,  int y1, int x2, int y2){
+    inx = x1;
+    iny = y1;
+    outx = x2;
+    outy = y2;
+  }
   
   public boolean addWire(Wire w, int x, int y){
     if (x == inx && y == iny) {
