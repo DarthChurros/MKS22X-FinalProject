@@ -40,8 +40,8 @@ public class Resistor extends Component{
   
   
   public float voltage(){
-    if(output.size() == 0 || input.size() == 0) return 0;
-   return abs(output.get(0).voltage() - input.get(0).voltage());
+    if(output == null || input == null) return 0;
+   return abs(output.voltage() - input.voltage());
   }
   
   public float current() {
