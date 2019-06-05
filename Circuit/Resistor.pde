@@ -133,16 +133,11 @@ public class Resistor extends Component {
       stroke(255, 0, 0);
       strokeWeight(4);
       line(inx, iny+65, inx, iny+80);
+      
+      a.display();
+      b.display();
 
-      stroke(0, 0, 0);
-      strokeWeight(1);
-      fill(255, 255, 255);
-      ellipse(inx, iny, 10, 10);
-
-      stroke(0, 0, 0);
-      strokeWeight(1);
-      fill(255, 255, 255);
-      ellipse(inx, iny + 80, 10, 10);
+      
     }
   }
 

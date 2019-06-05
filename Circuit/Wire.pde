@@ -18,11 +18,11 @@ public class Wire extends Element {
     rot = !rot;
     if(rot){
       outx = inx;
-      outy = iny + 80;
+      outy = iny + 40;
       b = new junction(outx, outy);
       
     } else {
-      outx = inx + 80;
+      outx = inx + 40;
       outy = iny;
       b = new junction(outx, outy);
     }
@@ -47,6 +47,8 @@ public class Wire extends Element {
     iny = y1;
     outx = x2;
     outy = y2;
+    a = new junction(inx, iny);
+    b = new junction(outx, outy);
   }
 
   public float current() {
@@ -107,29 +109,17 @@ public class Wire extends Element {
       line(inx, iny, inx + 40, iny);
 
 
-      stroke(0, 0, 0);
-      strokeWeight(1);
-      fill(255, 255, 255);
-      ellipse(inx, iny, 10, 10);
-
-      stroke(0, 0, 0);
-      strokeWeight(1);
-      fill(255, 255, 255);
-      ellipse(inx +40, iny, 10, 10);
+      a.display();
+      b.display();
+      
+      
     } else {
       stroke(255, 255, 255);
       strokeWeight(4);
       line(inx, iny, inx, iny + 40);
 
-      stroke(0, 0, 0);
-      strokeWeight(1);
-      fill(255, 255, 255);
-      ellipse(inx, iny, 10, 10);
-
-      stroke(0, 0, 0);
-      strokeWeight(1);
-      fill(255, 255, 255);
-      ellipse(inx, iny + 40, 10, 10);
+      a.display();
+      b.display();
     }
   }
 

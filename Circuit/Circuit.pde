@@ -60,6 +60,8 @@ Element holdera;
 
 //These are the holder vectors for the gui
 int counter = -1;
+ArrayList<junction> junctions = new ArrayList<junction>();
+//above well use these arraylists for junctions
 ArrayList<Component> components = new ArrayList<Component>();
 ArrayList<Component> sources = new ArrayList<Component>();
 ArrayList<ArrayList<Wire>> nodes = new ArrayList<ArrayList<Wire>>();
@@ -176,6 +178,8 @@ void draw() {
       //System.out.println(y);
       Resistor r = new Resistor(x, y, x + 80, y, 10);
       if (rot) r.rotate();
+      junctions.add(r.a);
+      junctions.add(r.b);
       r.place();
       r.display();
       System.out.println("test");
@@ -197,10 +201,13 @@ void draw() {
       int y = rounder(mouseY);
       System.out.println(x);
       System.out.println(y);
-      VoltSource v = new VoltSource(x, y, x + 20, y, 10);
+      VoltSource v = new VoltSource(x, y, x + 80, y, 10);
+      
       if (rot) {
         v.rotate();
       }
+      junctions.add(v.a);
+      junctions.add(v.b);
       v.place();
       v.display();
       System.out.println("test");
@@ -210,7 +217,7 @@ void draw() {
   } else if (counter == 4) {
     //placing wires
 
-    holdera = new Wire(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY));
+    holdera = new Wire(int(mouseX), int(mouseY), int(mouseX) + 40, int(mouseY));
     if (rot) holdera.rotate();
     //System.out.println("null");
     holdera.display();
@@ -221,8 +228,10 @@ void draw() {
       int y = rounder(mouseY);
       System.out.println(x);
       System.out.println(y);
-      Wire w = new Wire(x, y, x + 20, y);
+      Wire w = new Wire(x, y, x + 40, y);
       if (rot) w.rotate();
+      junctions.add(w.a);
+      junctions.add(w.b);
       w.place();
       w.display();
       System.out.println("test");

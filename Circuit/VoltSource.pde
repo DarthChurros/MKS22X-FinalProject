@@ -27,6 +27,9 @@ public class VoltSource extends Component {
     outx = x2;
     outy = y2;
     voltage =  value;
+    
+    a = new junction(inx, iny);
+    b = new junction(outx, outy);
     //were gonna have the ground just equal to 0, so now we have
     //this is gonna just be the default, we can fix this later
     //input.setVoltage(0.0);
@@ -64,10 +67,6 @@ public class VoltSource extends Component {
     line(inx, iny, inx + 30, iny);
     //line to the left^^
 
-    stroke(0,0,0);
-    strokeWeight(1);
-    fill(255,255,255);
-    ellipse(inx, iny, 10, 10);
 
     strokeWeight(4);
     stroke(0,255,0);
@@ -86,10 +85,9 @@ public class VoltSource extends Component {
     line(inx+50, iny, inx + 80, iny);
     //line to the left^^
 
-    stroke(0,0,0);
-    strokeWeight(1);
-    fill(255,255,255);
-    ellipse(inx +80, iny, 10, 10);
+     a.display();
+     b.display();
+     
     } else {
 
     strokeWeight(4);
@@ -108,15 +106,8 @@ public class VoltSource extends Component {
     stroke(0,255,0);
     line(inx, iny + 50, inx, iny+80);
 
-    stroke(0,0,0);
-    strokeWeight(1);
-    fill(255,255,255);
-    ellipse(inx, iny, 10, 10);
-
-    stroke(0,0,0);
-    strokeWeight(1);
-    fill(255,255,255);
-    ellipse(inx, iny + 80, 10, 10);
+    a.display();
+    b.display();
 
     }
   }
