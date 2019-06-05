@@ -82,7 +82,7 @@ String totalResistance = "";
 void draw() {
   
   
-  
+  String ans = "";
   
   background(0, 191, 255);
   //this is the connector for all the junctions
@@ -101,10 +101,34 @@ void draw() {
   fill(50);
   text(run, 825, 405, 100, 100);
   
-  
-  
-    //NOW WE HAVE ALL THE JUNCTIONS IN A LIST
+   //NOW WE HAVE ALL THE JUNCTIONS IN A LIST
   //WE CAN MAKE A RUN BUTTON FOR WHEN THE CIRCUIT IS DONE, AND THE JUNCTIONS WILL BE IN ORDER
+  
+  if(overRect(750,390,200,50)){
+    if(mousePressed){
+      //this is the run function
+      //lets solve the circuit
+      //first step to nodal analysis --> Pick a ground
+      //lets make that the first junction thats connected to a volageSource
+      try{
+      //for(int i 
+      } catch (Exception e){
+        
+      }
+    }
+  }
+  
+  
+  
+  
+  
+  fill(255);
+  stroke(0, 0, 0);
+  strokeWeight(4);
+  rect(750, 490, 200, 50);
+  fill(50);
+  text(ans, 825, 505, 100, 100);
+   
  
   //System.out.println(junctions.size());
   

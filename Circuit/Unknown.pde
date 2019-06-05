@@ -8,8 +8,9 @@ public class Unknown{
     value = -1;
   }
   
-  public solve(int ans){
+  public boolean solve(int ans){
    value = ans;
    solved = true;
+   return solved;
   }
 }
