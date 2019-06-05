@@ -56,51 +56,6 @@ public class Wire extends Element {
     //fix tomoroow
   }
 
-  float[] relations(ArrayList<ArrayList<Wire>> circuit) {
-    ArrayList<Component> components = adjacent();
-
-    float[] row = new float[circuit.size()];
-    for (Component c : components) {
-      for (int i = 0; i < circuit.size(); i++) {
-        if (circuit.get(i).contains(c.in())) {
-          row[i] = -1 / ((Resistor)c).resistance();
-          if (c.out() == this && c.isSource()) {
-            row[i] = ((VoltSource)c).voltage();
-          }
-        }
-        if (circuit.get(i).contains(c.out())) {
-          row[i] = -1 / ((Resistor)c).resistance();
-          if (c.in() == this && c.isSource()) {
-            row[i] = -1 * ((VoltSource)c).voltage();
-          }
-        }
-      }
-    }
-
-    for (int i = 0; i < circuit.size(); i++) {
-      if (circuit.get(i).contains(this)) {
-        row[i] = 0;
-        for (int j = 0; j < row.length; j++) {
-          row[i] -= row[j];
-        }
-        return row;
-      }
-    }
-    return null;
-  }
-
-  ArrayList<Component> adjacent() {
-    ArrayList<Wire> node = getNode();
-    ArrayList<Component> components = new ArrayList<Component>();
-
-   for (Wire w : node) {
-      if (w.in instanceof Component) components.add((Component)w.in);
-      if (w.out instanceof Component) components.add((Component)w.out);
-    }
-
-    return components;
-  }
-
 
   public void display() {
     if (!rot) {
@@ -128,25 +83,5 @@ public class Wire extends Element {
 
   public boolean placed() {
     return super.placed();
-  }
-
-  ArrayList<Wire> getNode() {
-    ArrayList<Wire> node = new ArrayList<Wire>();
-    getNodeH(node);
-    return node;
-  }
-
-  void getNodeH(ArrayList<Wire> current) {
-    if (!current.contains(this)) {
-      current.add(this);
-      if (in instanceof Wire) {
-        Wire inWire = (Wire)in;
-        inWire.getNodeH(current);
-      }
-      if (out instanceof Wire) {
-        Wire outWire = (Wire)out;
-        outWire.getNodeH(current);
-      }
-    }
   }
 }

@@ -14,9 +14,9 @@ public class Resistor extends Component {
     outx = x2;
     outy = y2;
     a = new junction(inx, iny);
-    a.addOut(this);
+    a.add(this);
     b = new junction(outx, outy);
-    b.addIn(this);
+    b.add(this);
   }
 
 
@@ -26,13 +26,13 @@ public class Resistor extends Component {
       outx = inx;
       outy = iny + 80;
       b = new junction(outx, outy);
-      b.addIn(this);
+      b.add(this);
       
     } else {
       outx = inx + 80;
       outy = iny;
       b = new junction(outx, outy);
-      b.addIn(this);
+      b.add(this);
     }
     
   }
@@ -48,9 +48,9 @@ public class Resistor extends Component {
     outy = y2;
   }
 
-  public boolean setWire(Wire w, int x, int y) {
+  /*public boolean setWire(Wire w, int x, int y) {
     if (x == inx && y == iny) {
-      input = w;
+       input = w;
       return true;
     }
     if (x == outx && y == outy) {
@@ -58,7 +58,7 @@ public class Resistor extends Component {
       return true;
     }
     return false;
-  }
+  }*/
 
   public void display() {
     //OK, now this is the hard part, we first need to figure out but im going to do a red line for now
@@ -150,7 +150,7 @@ public class Resistor extends Component {
 
   public float voltage() {
     if (output == null || input == null) return 0;
-    return abs(output.voltage() - input.voltage());
+    return abs(a.relativeVoltage - b.relativeVoltage);
   }
 
   public float current() {
