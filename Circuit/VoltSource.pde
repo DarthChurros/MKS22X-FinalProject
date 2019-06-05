@@ -12,13 +12,13 @@ public class VoltSource extends Component {
       outx = inx;
       outy = iny + 80;
       b = new junction(outx, outy);
-      b.addIn(this);
+      b.add(this);
       
     } else {
       outx = inx + 80;
       outy = iny;
       b = new junction(outx, outy);
-      b.addIn(this);
+      b.add(this);
     }
   }
   
@@ -31,9 +31,9 @@ public class VoltSource extends Component {
     voltage =  value;
     
     a = new junction(inx, iny);
-    a.addOut(this);
+    a.add(this);
     b = new junction(outx, outy);
-    b.addIn(this);
+    b.add(this);
     //were gonna have the ground just equal to 0, so now we have
     //this is gonna just be the default, we can fix this later
     //input.setVoltage(0.0);
@@ -49,7 +49,7 @@ public class VoltSource extends Component {
     outy = y2;
   }
 
-  public boolean addWire(Wire w, int x, int y) {
+  /*public boolean addWire(Wire w, int x, int y) {
     if (x == inx && y == iny) {
       input = w;
       a.addIn(w);
@@ -61,7 +61,7 @@ public class VoltSource extends Component {
       return true;
     }
     return false;
-  }
+  } */
 
   public void display() {
     //OK, now this is the hard part, we first need to figure out but im going to do a green line for now
