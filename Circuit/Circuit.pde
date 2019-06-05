@@ -77,6 +77,8 @@ ArrayList<Component> sources = new ArrayList<Component>();
 ArrayList<ArrayList<Wire>> nodes = new ArrayList<ArrayList<Wire>>();
 //this has to be an element otherwise we wont be able to add wires
 
+String totalResistance = "";
+
 void draw() {
   
   
@@ -97,32 +99,19 @@ void draw() {
   strokeWeight(4);
   rect(750, 390, 200, 50);
   fill(50);
-  text(run, 770, 390, 100, 100);
+  text(run, 825, 405, 100, 100);
+  
+  
   
     //NOW WE HAVE ALL THE JUNCTIONS IN A LIST
   //WE CAN MAKE A RUN BUTTON FOR WHEN THE CIRCUIT IS DONE, AND THE JUNCTIONS WILL BE IN ORDER
-  
-  
-
-  
-  
-
-  
-  
-  
  
-  
   //System.out.println(junctions.size());
   
   
   //ok it links 
   
   //setup
-
-  
-  
-  
-
 
   //ok lets make the grid
 
