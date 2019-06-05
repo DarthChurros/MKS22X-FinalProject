@@ -1,13 +1,13 @@
 public class junction{
   //this will function as a node for the sake of nodal analysis
-  public ArrayList<Element> input;
-  public ArrayList<Element> output;
-  String type;
-  int x;
-  int y;
-  float relativeVoltage;
-  float relativeCurrent;
-  
+  public ArrayList<Element> input = new ArrayList<Element>();
+  public ArrayList<Element> output = new ArrayList<Element>();
+  public String type;
+  public int x;
+  public int y;
+  public float relativeVoltage;
+  public float relativeCurrent;
+
   public junction(int c, int d){
     type = "series";
     x = c;
@@ -28,6 +28,16 @@ public class junction{
   public void addOut(Element a){
     output.add(a);
   }
+  
+  public boolean voltsOut(){
+    for(int i = 0; i < output.size(); i++){
+      if(output.get(i) instanceof VoltSource) return true;
+    }
+    return false;
+    
+  }
+  
+ 
   
   public void merge(junction b){
     

@@ -65,6 +65,8 @@ void updateVoltages() {
 }
 
 
+String ans = "";
+
 //need a within radius functions
 Element holdera;
 
@@ -76,6 +78,8 @@ ArrayList<Component> components = new ArrayList<Component>();
 ArrayList<Component> sources = new ArrayList<Component>();
 ArrayList<ArrayList<Wire>> nodes = new ArrayList<ArrayList<Wire>>();
 //this has to be an element otherwise we wont be able to add wires
+
+String totalResistance = "";
 
 void draw() {
   
@@ -97,32 +101,64 @@ void draw() {
   strokeWeight(4);
   rect(750, 390, 200, 50);
   fill(50);
-  text(run, 770, 390, 100, 100);
+  text(run, 825, 405, 100, 100);
   
-    //NOW WE HAVE ALL THE JUNCTIONS IN A LIST
+   //NOW WE HAVE ALL THE JUNCTIONS IN A LIST
   //WE CAN MAKE A RUN BUTTON FOR WHEN THE CIRCUIT IS DONE, AND THE JUNCTIONS WILL BE IN ORDER
   
+  if(overRect(750,390,200,50)){
+    if(mousePressed){
+      //this is the run function
+      //lets solve the circuit
+      //first step to nodal analysis --> Pick a ground
+      //lets make that the first junction thats connected to a volageSource
+      try{
+        int groundJunct = 0;
+        boolean hasBattery = false;
+        for(int i = 0; i < junctions.size(); i++){
+         if(junctions.get(i).voltsOut()){
+           hasBattery = true;
+           groundJunct = i;
+           break;
+         }
+        }
+        if(!hasBattery){
+          throw new NullPointerException();
+        }
+        
+        junctions.get(groundJunct).relativeVoltage = 0;
+        //at this point we've now defined out ground, so its time do do step two, which is to find the easy nodes
+        //basically these are all the ones where we don't have to cross a resistor
+        //since the node we picked has the output as a voltagesource, obv the next node will just be trivially up by the voltage
+        junctions.get(groundJunct + 1).relativeVoltage = junctions.get(groundJunct).output.get(0).voltage();
+        
+        
+        
+      } catch (Exception e){
+        ans = "Enter a valid circuit";
+        
+      }
+    }
+  }
   
-
-  
-  
-
   
   
   
+  
+  fill(255);
+  stroke(0, 0, 0);
+  strokeWeight(4);
+  rect(750, 490, 200, 50);
+  fill(50);
+  text(ans, 820, 500, 100, 100);
+   
  
-  
   //System.out.println(junctions.size());
   
   
   //ok it links 
   
   //setup
-
-  
-  
-  
-
 
   //ok lets make the grid
 

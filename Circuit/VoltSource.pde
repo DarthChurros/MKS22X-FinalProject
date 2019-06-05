@@ -12,11 +12,13 @@ public class VoltSource extends Component {
       outx = inx;
       outy = iny + 80;
       b = new junction(outx, outy);
+      b.addIn(this);
       
     } else {
       outx = inx + 80;
       outy = iny;
       b = new junction(outx, outy);
+      b.addIn(this);
     }
   }
   
@@ -29,7 +31,9 @@ public class VoltSource extends Component {
     voltage =  value;
     
     a = new junction(inx, iny);
+    a.addOut(this);
     b = new junction(outx, outy);
+    b.addIn(this);
     //were gonna have the ground just equal to 0, so now we have
     //this is gonna just be the default, we can fix this later
     //input.setVoltage(0.0);
@@ -48,10 +52,12 @@ public class VoltSource extends Component {
   public boolean addWire(Wire w, int x, int y) {
     if (x == inx && y == iny) {
       input = w;
+      a.addIn(w);
       return true;
     }
     if (x == outx && y == outy) {
       output = w;
+      b.addOut(w);
       return true;
     }
     return false;
