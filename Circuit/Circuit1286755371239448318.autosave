@@ -1,6 +1,5 @@
-
+import java.util.Scanner;
 import java.util.Arrays;
-import static javax.swing.JOptionPane.*;
 
 
 
@@ -123,6 +122,13 @@ void draw() {
            break;
          }
         }
+        
+        //checking some validity arguments for our circuit here
+        for(int i = 0; i < junctions.size(); i++){
+         if(junctions.get(i).input.size() == 0 || junctions.get(i).output.size() == 0 ){
+          throw new NullPointerException();
+         }
+        }
         if(!hasBattery){
           throw new NullPointerException();
         }
@@ -135,9 +141,6 @@ void draw() {
         
         
         
-        //oh, its also important what we want to output in our results box
-        //basically, we can loop through the list of junctions and give each junction a number
-        //then, in the box, we can output each junction, their voltage relative to ground, and their current value
       } catch (Exception e){
         ans = "Enter a valid circuit";
         
@@ -266,9 +269,7 @@ void draw() {
       int y = rounder(mouseY);
       //System.out.println(x);
       //System.out.println(y);
-      String value = showInputDialog("How many ohms of resistance would you like? ");
-      float val = Float.parseFloat(value);
-      Resistor r = new Resistor(x, y, x + 80, y, val);
+      Resistor r = new Resistor(x, y, x + 80, y, 10);
       if (rot) r.rotate();
       junctions.add(r.a);
       junctions.add(r.b);
@@ -293,9 +294,7 @@ void draw() {
       int y = rounder(mouseY);
       System.out.println(x);
       System.out.println(y);
-      String value = showInputDialog("How many ohms of resistance would you like? ");
-      float val = Float.parseFloat(value);
-      VoltSource v = new VoltSource(x, y, x + 80, y, val);
+      VoltSource v = new VoltSource(x, y, x + 80, y, 10);
       
       if (rot) {
         v.rotate();
