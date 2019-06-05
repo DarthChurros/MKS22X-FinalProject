@@ -2,18 +2,35 @@ public class Resistor extends Component {
   float resistance;
   boolean rot = false;
   //Everything is based off of the Node
+  public junction a;
+  public junction b;
 
+  //i used to think these would be in and out but current can flow through both ways depending on the circuit
+  
   public Resistor(int x1, int y1, int x2, int y2, float value) {
     resistance = value;
     inx = x1;
     iny = y1;
     outx = x2;
     outy = y2;
+    a = new junction(inx, iny);
+    b = new junction(outx, outy);
   }
 
 
   public void rotate() {
     rot = !rot;
+    if(rot){
+      outx = inx;
+      outy = iny + 80;
+      b = new junction(outx, outy);
+      
+    } else {
+      outx = inx + 80;
+      outy = iny;
+      b = new junction(outx, outy);
+    }
+    
   }
   
   float resistance() {

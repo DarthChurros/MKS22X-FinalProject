@@ -5,14 +5,25 @@ public class Wire extends Element {
   private int iny;
   private int outx;
   private int outy;
-  Element in;
-  Element out;
+  public junction a;
+  public junction b;
+ 
 
 
   boolean rot = false;
 
   public void rotate() {
     rot = !rot;
+    if(rot){
+      outx = inx;
+      outy = iny + 80;
+      b = new junction(outx, outy);
+      
+    } else {
+      outx = inx + 80;
+      outy = iny;
+      b = new junction(outx, outy);
+    }
   }
   //we forgot to add the in and out to the uml
   public float voltage() {

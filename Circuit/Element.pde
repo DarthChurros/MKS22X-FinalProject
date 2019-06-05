@@ -4,6 +4,8 @@ abstract class Element {
   float y;
   public int inx;
   public int iny;
+  public junction a;
+  public junction b;
   
   public void rotate(){
   }
