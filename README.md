@@ -45,10 +45,13 @@ structure
 **Tejas:** Finally sucked up his pride and looked at Google. Found a StackExchange post on how matrices can be used to solve systems of KCL equations, will work to implement.  
 
 ###### Friday 5/31:  
+**Jude:** I kep trying to make a drag and drop function for the resistors and voltsources and such but could only get a line, and on top of that the line keeps dragging all over the place. Working on fixing that last issue.
 **Tejas:** Wrote a getNode() method that returns a list of all connected wires with a shared voltage. This method should replace the Node class for the purpose of calculations - worst case scenario, we make it a data structure. Not sure yet.  
 
-###### Monday 6/3:  
+###### Monday 6/3:   
+**Jude:** Fixed the placing problems, moved on to iplementing rotate into thhe gui, which is tricky, but since we;re only doing snapons I figured the only valuable rotation will be 90 degrees.
 **Tejas:** Starting to regret storing node data in ArrayLists, it's starting to become unwieldy but I'd like the code to work before I mess with efficiency. Worked on using getNode() to construct a matrix that can be used to isolate voltages through Gaussian elimination.  
 
 ###### Tuesday 6/4:  
+**Jude:** Fixed rotate and now the GUI looks complete but I have to do some under the hood stuff in order to figure out how the compoenents will technically "connect", running into a lot of difficulty with the "in" and "out" coordinates of the componenets because current can technicaly flow either way.
 **Tejas:** The construction of the matrix is complete (in theory) but very difficult to test without a working GUI, so I decided to help Jude with connecting components in the GUI so that they can be identified as working together. Having some trouble with that though. Hopefully we get an extension on this because I think finding a good calculation algorithm has been eating up most of our time.  
