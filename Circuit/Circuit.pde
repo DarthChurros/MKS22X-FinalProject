@@ -65,6 +65,8 @@ void updateVoltages() {
 }
 
 
+String ans = "";
+
 //need a within radius functions
 Element holdera;
 
@@ -82,7 +84,7 @@ String totalResistance = "";
 void draw() {
   
   
-  String ans = "";
+  
   
   background(0, 191, 255);
   //this is the connector for all the junctions
@@ -111,8 +113,18 @@ void draw() {
       //first step to nodal analysis --> Pick a ground
       //lets make that the first junction thats connected to a volageSource
       try{
-      //for(int i 
+        boolean hasBattery = false;
+        for(int i = 0; i < junctions.size(); i++){
+         if(junctions.get(i).voltsIn()){
+           hasBattery = true;
+           break;
+         }
+        }
+        if(!hasBattery){
+          throw new NullPointerException();
+        }
       } catch (Exception e){
+        ans = "Enter a valid circuit";
         
       }
     }
@@ -127,7 +139,7 @@ void draw() {
   strokeWeight(4);
   rect(750, 490, 200, 50);
   fill(50);
-  text(ans, 825, 505, 100, 100);
+  text(ans, 820, 500, 100, 100);
    
  
   //System.out.println(junctions.size());

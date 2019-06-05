@@ -7,8 +7,7 @@ public class junction{
   public int y;
   public float relativeVoltage;
   public float relativeCurrent;
- 
-  
+
   public junction(int c, int d){
     type = "series";
     x = c;
@@ -28,6 +27,14 @@ public class junction{
   
   public void addOut(Element a){
     output.add(a);
+  }
+  
+  public boolean voltsIn(){
+    for(int i = 0; i < input.size(); i++){
+      if(input.get(i) instanceof VoltSource) return true;
+    }
+    return false;
+    
   }
   
  
