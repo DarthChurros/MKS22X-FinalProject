@@ -1,4 +1,4 @@
-public class junction{
+public class junction {
   //this will function as a node for the sake of nodal analysis
   public ArrayList<Element> terminals;
   public String type;
@@ -7,47 +7,45 @@ public class junction{
   public float relativeVoltage;
   public float relativeCurrent;
 
-  public junction(int c, int d){
+  public junction(int c, int d) {
     terminals = new ArrayList<Element>();
     x = c;
     y = d;
   }
-  
-  public void add(Element a){
+
+  public void add(Element a) {
     terminals.add(a);
   }
-  
-  public boolean voltsOut(){
-    for(int i = 0; i < terminals.size(); i++){
-      if(terminals.get(i) instanceof VoltSource && terminals.get(i).output == this) return true;
+
+  public boolean voltsOut() {
+    for (int i = 0; i < terminals.size(); i++) {
+      if (terminals.get(i) instanceof VoltSource && terminals.get(i).output == this) return true;
     }
     return false;
-    
   }
-  
- 
-  
-  public void merge(junction b){
-    
-    for(int i = 0; i < b.terminals.size(); i++){
+
+
+
+  public void merge(junction b) {
+
+    for (int i = 0; i < b.terminals.size(); i++) {
       terminals.add(b.terminals.get(i));
     }
-    
+
     b = null;
-    
   }
-  
-  
-  
-  
+
+
+
+
   //type can be one of 4 things
   //base, series, open, or closed
-  
-  
-  public void setType(String t){
+
+
+  public void setType(String t) {
     type = t;
   }
-  
+
   ArrayList<junction> getNode() {
     ArrayList<junction> node = new ArrayList<junction>();
     getNodeH(node);
@@ -68,14 +66,24 @@ public class junction{
       }
     }
   }
-  
-  
-  public void display(){
+
+  ArrayList<Component> adjacent() {
+    ArrayList<junction> node = getNode();
+    ArrayList<Component> components = new ArrayList<Component>();
+
+    for (junction j : node) {
+      for (Element e : j.terminals) {
+        if (e instanceof Component) components.add((Component)e);
+      }
+    }
+    return components;
+  }
+
+
+  public void display() {
     stroke(0);
     strokeWeight(1);
     fill(255);
-    ellipse(x,y,10,10);
+    ellipse(x, y, 10, 10);
   }
-  
-  
 }
