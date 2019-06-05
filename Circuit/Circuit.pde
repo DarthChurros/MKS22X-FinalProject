@@ -174,7 +174,7 @@ void draw() {
       int y = rounder(mouseY);
       //System.out.println(x);
       //System.out.println(y);
-      Resistor r = new Resistor(x, y, x + 20, y, 10);
+      Resistor r = new Resistor(x, y, x + 80, y, 10);
       if (rot) r.rotate();
       r.place();
       r.display();

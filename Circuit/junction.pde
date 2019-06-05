@@ -31,9 +31,12 @@ public class junction{
   
   
   
-  public void diplay(){
+  public void display(){
     stroke(255,255,255);
     strokeWeight(1);
+    fill(255);
     ellipse(x,y,10,10);
   }
+  
+  
 }
