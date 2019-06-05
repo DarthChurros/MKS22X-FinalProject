@@ -36,7 +36,8 @@ public float totalResistance() {
 public static int hasDups(ArrayList<junction> a, int f){
   junction j = a.get(f);
   for(int i = 0; i < a.size() ; i++){
-    if(a.get(i) == j && i != f){
+    if(a.get(i).x == j.x && a.get(i).y == j.y && i != f){
+      //they have the same coords
       return i;
     }
   }
@@ -77,11 +78,50 @@ ArrayList<ArrayList<Wire>> nodes = new ArrayList<ArrayList<Wire>>();
 //this has to be an element otherwise we wont be able to add wires
 
 void draw() {
+  
+  
+  
+  
+  background(0, 191, 255);
   //this is the connector for all the junctions
+  //i have this in the draw loop so it constantly merges all the annoying
+  for(int i = 0; i < junctions.size(); i++){
+    if(hasDups(junctions, i) > 0){
+      junctions.remove(hasDups(junctions, i));
+    }
+  }
+  
+  String run = "RUN";
+  fill(255);
+  stroke(0, 0, 0);
+  strokeWeight(4);
+  rect(750, 390, 200, 50);
+  fill(50);
+  text(run, 770, 390, 100, 100);
+  
+    //NOW WE HAVE ALL THE JUNCTIONS IN A LIST
+  //WE CAN MAKE A RUN BUTTON FOR WHEN THE CIRCUIT IS DONE, AND THE JUNCTIONS WILL BE IN ORDER
+  
+  
+
+  
+  
+
+  
+  
+  
+ 
+  
+  //System.out.println(junctions.size());
+  
+  
+  //ok it links 
   
   //setup
 
-  background(0, 191, 255);
+  
+  
+  
 
 
   //ok lets make the grid
