@@ -59,7 +59,9 @@ public class Wire extends Element {
 
   public void display() {
     if (!rot) {
-      stroke(255, 255, 255);
+      
+      
+      stroke(255);
       strokeWeight(4);
       line(inx, iny, inx + 40, iny);
 
