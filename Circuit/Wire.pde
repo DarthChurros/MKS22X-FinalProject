@@ -3,8 +3,8 @@ public class Wire extends Element {
   private float voltage;
   private int outx;
   private int outy;
-  Element in;
-  Element out;
+  ArrayList<Element> in;
+  ArrayList<Element> out;
 
 
   boolean rot = false;
@@ -77,8 +77,12 @@ public class Wire extends Element {
     ArrayList<Component> components = new ArrayList<Component>();
 
     for (Wire w : node) {
-      if (w.in instanceof Component) components.add((Component)w.in);
-      if (w.out instanceof Component) components.add((Component)w.out);
+      for (Element e : w.in) {
+        if (e instanceof Component) components.add((Component)e);
+      }
+      for (Element e : w.out) {
+        if (e instanceof Component) components.add((Component)e);
+      }  
     }
 
     return components;
@@ -134,13 +138,15 @@ public class Wire extends Element {
   void getNodeH(ArrayList<Wire> current) {
     if (!current.contains(this)) {
       current.add(this);
-      if (in instanceof Wire) {
-        Wire inWire = (Wire)in;
-        inWire.getNodeH(current);
+      for (Element e : in) {
+        if (e instanceof Wire) {
+          ((Wire)e).getNodeH(current);
+        }
       }
-      if (out instanceof Wire) {
-        Wire outWire = (Wire)out;
-        outWire.getNodeH(current);
+      for (Element e : out) {
+        if (e instanceof Wire) {
+          ((Wire)e).getNodeH(current);
+        }
       }
     }
   }
