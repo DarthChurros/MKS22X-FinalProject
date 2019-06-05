@@ -29,10 +29,9 @@ public class junction {
   public void merge(junction b) {
 
     for (int i = 0; i < b.terminals.size(); i++) {
-      terminals.add(b.terminals.get(i));
+      terminals.add(b.terminals.remove(i));
     }
-
-    b = null;
+    
   }
 
 
@@ -55,12 +54,13 @@ public class junction {
   void getNodeH(ArrayList<junction> current) {
     if (!current.contains(this)) {
       current.add(this);
+      return;
     }
     for (Element e : terminals) {
       if (e instanceof Wire) {
         if (((Wire)e).a == this) {
           ((Wire)e).b.getNodeH(current);
-        } else {
+        } else if (((Wire)e).b == this) {
           ((Wire)e).a.getNodeH(current);
         }
       }

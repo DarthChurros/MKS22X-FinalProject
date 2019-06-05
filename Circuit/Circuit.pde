@@ -179,21 +179,7 @@ String totalResistance = "";
 
 void draw() {
   
-  for(ArrayList<junction> list : nodes){
-    for(junction j : list){
-      for(ArrayList<junction> lis : nodes){
-        for(junction k : lis){
-          if(j.x == k.x && j.y == k.y){
-         j.merge(k);
-        }
-      }
-     }
-   }
-  }
-  
-  
   background(0, 191, 255);
-  //this is the connector for all the junctions
   //i have this in the draw loop so it constantly merges all the annoying
   for(int i = 0; i < junctions.size(); i++){
     if(hasDups(junctions, i) > 0){
@@ -287,17 +273,12 @@ void draw() {
   }
 
 
-  for (int i = 0; i < components.size(); i++) {
-    components.get(i).display();
-  }
-
-  for (int i = 0; i < sources.size(); i++) {
-    sources.get(i).display();
-  }
-
-  for (int i = 0; i < nodes.size(); i++) {
-    for (junction w : nodes.get(i)) {
-      w.display();
+  for (ArrayList<junction> node : nodes) {
+    for (junction j : node) {
+      //System.out.println(j.terminals);
+      for (Element e : j.terminals) {
+        e.display();
+      }
     }
   }
 
@@ -329,6 +310,8 @@ void draw() {
   rect(750, 290, 200, 50);
   fill(50);
   text(h, 770, 290, 100, 100);
+  
+  text("Number of nodes: "+nodes.size(), 770, 600, 100, 100);
 
   //setup end
 
@@ -379,7 +362,7 @@ void draw() {
       junctions.add(r.b);
       r.place();
       r.display();
-      System.out.println("test");
+      //System.out.println("test");
       components.add(r);
       updateMatrix = true;
     }
@@ -432,15 +415,20 @@ void draw() {
       junctions.add(w.a);
       junctions.add(w.b);
       w.place();
-      
-      System.out.println("test");
-      ArrayList temp = w.a.getNode();
+
       boolean makeNode = true;
       for (ArrayList<junction> n : nodes) {
-        if (n.contains(temp.get(0))) {
-          n.add(w.a);
-          n.add(w.b);
-          makeNode = false;
+        for (junction j : n) {
+          if (rounder(j.x) == rounder(w.a.x)
+          && rounder(j.y) == rounder(w.a.y)) {
+            j.merge(w.a);
+            makeNode = false;
+          }
+          if (rounder(j.x) == rounder(w.b.x)
+          && rounder(j.y) == rounder(w.b.y)) {
+            j.merge(w.b);
+            makeNode = false;
+          }
         }
       }
       if (makeNode) {

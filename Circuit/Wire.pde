@@ -49,6 +49,8 @@ public class Wire extends Element {
     outy = y2;
     a = new junction(inx, iny);
     b = new junction(outx, outy);
+    a.add(this);
+    b.add(this);
   }
 
   public float current() {
