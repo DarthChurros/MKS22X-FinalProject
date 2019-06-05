@@ -179,7 +179,17 @@ String totalResistance = "";
 
 void draw() {
   
-  
+  for(ArrayList<junction> list : nodes){
+    for(junction j : list){
+      for(ArrayList<junction> lis : nodes){
+        for(junction k : lis){
+          if(j.x == k.x && j.y == k.y){
+         j.merge(k);
+        }
+      }
+     }
+   }
+  }
   
   
   background(0, 191, 255);
@@ -422,7 +432,7 @@ void draw() {
       junctions.add(w.a);
       junctions.add(w.b);
       w.place();
-      w.display();
+      
       System.out.println("test");
       ArrayList temp = w.a.getNode();
       boolean makeNode = true;
@@ -440,6 +450,7 @@ void draw() {
         nodes.add(newNode);
       }
       updateMatrix = true;
+      w.display();
     }
   }
   
