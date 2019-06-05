@@ -172,7 +172,7 @@ ArrayList<junction> junctions = new ArrayList<junction>();
 //above well use these arraylists for junctions
 ArrayList<Component> components = new ArrayList<Component>();
 ArrayList<Component> sources = new ArrayList<Component>();
-ArrayList<ArrayList<Wire>> nodes = new ArrayList<ArrayList<Wire>>();
+ArrayList<ArrayList<junction>> nodes = new ArrayList<ArrayList<junction>>();
 //this has to be an element otherwise we wont be able to add wires
 
 String totalResistance = "";
@@ -286,7 +286,7 @@ void draw() {
   }
 
   for (int i = 0; i < nodes.size(); i++) {
-    for (Wire w : nodes.get(i)) {
+    for (junction w : nodes.get(i)) {
       w.display();
     }
   }
@@ -424,9 +424,9 @@ void draw() {
       w.place();
       w.display();
       System.out.println("test");
-      ArrayList temp = junctions.getNode();
+      ArrayList temp = w.a.getNode();
       boolean makeNode = true;
-      for (ArrayList<junctions> n : nodes) {
+      for (ArrayList<junction> n : nodes) {
         if (n.contains(temp.get(0))) {
           n.add(w.a);
           n.add(w.b);
