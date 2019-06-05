@@ -1,6 +1,9 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
+
+
+
 void setup() {
   size(1000, 800);
 }
@@ -30,7 +33,16 @@ public float totalResistance() {
 }
 
 
-
+public static int hasDups(ArrayList<junction> a, int f){
+  junction j = a.get(f);
+  for(int i = 0; i < a.size() ; i++){
+    if(a.get(i) == j && i != f){
+      return i;
+    }
+  }
+  
+  return -1;
+}
 
 
 //these are for buttons
@@ -53,9 +65,6 @@ void updateVoltages() {
 
 
 //need a within radius functions
-
-
-
 Element holdera;
 
 //These are the holder vectors for the gui
@@ -68,7 +77,8 @@ ArrayList<ArrayList<Wire>> nodes = new ArrayList<ArrayList<Wire>>();
 //this has to be an element otherwise we wont be able to add wires
 
 void draw() {
-
+  //this is the connector for all the junctions
+  
   //setup
 
   background(0, 191, 255);

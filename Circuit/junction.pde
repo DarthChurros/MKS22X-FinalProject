@@ -20,16 +20,16 @@ public class junction{
     y = d;
   }
   
-  public addIn(Element a){
+  public void addIn(Element a){
     input.add(a);
   }
   
   
-  public addOut(Element a){
+  public void addOut(Element a){
     output.add(a);
   }
   
-  public merge(junction b){
+  public void merge(junction b){
     
     for(int i = 0; i < b.input.size(); i++){
       input.add(b.input.get(i));
