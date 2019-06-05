@@ -113,16 +113,27 @@ void draw() {
       //first step to nodal analysis --> Pick a ground
       //lets make that the first junction thats connected to a volageSource
       try{
+        int groundJunct = 0;
         boolean hasBattery = false;
         for(int i = 0; i < junctions.size(); i++){
-         if(junctions.get(i).voltsIn()){
+         if(junctions.get(i).voltsOut()){
            hasBattery = true;
+           groundJunct = i;
            break;
          }
         }
         if(!hasBattery){
           throw new NullPointerException();
         }
+        
+        junctions.get(groundJunct).relativeVoltage = 0;
+        //at this point we've now defined out ground, so its time do do step two, which is to find the easy nodes
+        //basically these are all the ones where we don't have to cross a resistor
+        //since the node we picked has the output as a voltagesource, obv the next node will just be trivially up by the voltage
+        junctions.get(groundJunct + 1).relativeVoltage = junctions.get(groundJunct).output.get(0).voltage();
+        
+        
+        
       } catch (Exception e){
         ans = "Enter a valid circuit";
         

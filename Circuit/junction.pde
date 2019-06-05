@@ -29,9 +29,9 @@ public class junction{
     output.add(a);
   }
   
-  public boolean voltsIn(){
-    for(int i = 0; i < input.size(); i++){
-      if(input.get(i) instanceof VoltSource) return true;
+  public boolean voltsOut(){
+    for(int i = 0; i < output.size(); i++){
+      if(output.get(i) instanceof VoltSource) return true;
     }
     return false;
     
