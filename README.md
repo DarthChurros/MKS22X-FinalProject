@@ -39,7 +39,7 @@ Tuesday 5/28:
 Jude: I worked on making a circuit out of some basic lines, but weirdly enough i encountered a ton of bugs.
 Tejas: Tried a new version of the algorithm - there's an issue with Wheatstone bridges that we don't know how to fix.
 
-Wedensday 5/29:
+Wednesday 5/29:
 Jude: I fixed most of he bugs and worked with Tejas on fixing the class structure problems that we've been encountering so far, we decided to delete the node class and slely implement the wire class as a preserver of a common voltage. We also decided that each component would have a wire going in and out and that junctions would work by wire methods
 Tejas: Tested the algorithm (still on paper), it works for simple circuits but we're not sure how well it holds up. Will try to streamline.
 
@@ -53,3 +53,6 @@ Tejas: Wrote a getNode() method that returns a list of all connected wires with 
 
 Monday 6/3:
 Tejas: Starting to regret storing node data in ArrayLists, it's starting to become unwieldy but I'd like the code to work before I mess with efficiency. Worked on using getNode() to construct a matrix that can be used to isolate voltages through Gaussian elimination.
+
+Tuesday 6/4:
+Tejas: The construction of the matrix is complete (in theory) but very difficult to test without a working GUI, so I decided to help Jude with connecting components in the GUI so that they can be identified as working together. Having some trouble with that though. Hopefully we get an extension on this because I think finding a good calculation algorithm has been eating up most of our time.
