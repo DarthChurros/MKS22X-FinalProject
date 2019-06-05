@@ -1,7 +1,6 @@
 public class junction{
   //this will function as a node for the sake of nodal analysis
-  public ArrayList<Element> input = new ArrayList<Element>();
-  public ArrayList<Element> output = new ArrayList<Element>();
+  public ArrayList<Element> terminals;
   public String type;
   public int x;
   public int y;
@@ -9,29 +8,18 @@ public class junction{
   public float relativeCurrent;
 
   public junction(int c, int d){
-    type = "series";
+    terminals = new ArrayList<Element>();
     x = c;
     y = d;
   }
   
-  public junction(int c, int d, String typ){
-    type = typ;
-    x = c;
-    y = d;
-  }
-  
-  public void addIn(Element a){
-    input.add(a);
-  }
-  
-  
-  public void addOut(Element a){
-    output.add(a);
+  public void add(Element a){
+    terminals.add(a);
   }
   
   public boolean voltsOut(){
-    for(int i = 0; i < output.size(); i++){
-      if(output.get(i) instanceof VoltSource) return true;
+    for(int i = 0; i < terminals.size(); i++){
+      if(terminals.get(i) instanceof VoltSource && terminals.get(i).output == this) return true;
     }
     return false;
     
@@ -41,12 +29,8 @@ public class junction{
   
   public void merge(junction b){
     
-    for(int i = 0; i < b.input.size(); i++){
-      input.add(b.input.get(i));
-    }
-    
-    for(int i = 0; i < b.output.size(); i++){
-      output.add(b.output.get(i));
+    for(int i = 0; i < b.terminals.size(); i++){
+      terminals.add(b.terminals.get(i));
     }
     
     b = null;
@@ -64,7 +48,26 @@ public class junction{
     type = t;
   }
   
-  
+  ArrayList<junction> getNode() {
+    ArrayList<junction> node = new ArrayList<junction>();
+    getNodeH(node);
+    return node;
+  }
+
+  void getNodeH(ArrayList<junction> current) {
+    if (!current.contains(this)) {
+      current.add(this);
+    }
+    for (Element e : terminals) {
+      if (e instanceof Wire) {
+        if (((Wire)e).a == this) {
+          ((Wire)e).b.getNodeH(current);
+        } else {
+          ((Wire)e).a.getNodeH(current);
+        }
+      }
+    }
+  }
   
   
   public void display(){
