@@ -19,7 +19,7 @@ public class junction {
 
   public boolean voltsOut() {
     for (int i = 0; i < terminals.size(); i++) {
-      if (terminals.get(i) instanceof VoltSource && terminals.get(i).output == this) return true;
+      if (terminals.get(i) instanceof VoltSource && terminals.get(i).a == this) return true;
     }
     return false;
   }

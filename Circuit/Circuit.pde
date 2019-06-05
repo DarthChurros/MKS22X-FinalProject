@@ -388,7 +388,7 @@ void draw() {
       int y = rounder(mouseY);
       System.out.println(x);
       System.out.println(y);
-      String value = showInputDialog("How many ohms of resistance would you like? ");
+      String value = showInputDialog("How many volts would you like? ");
       float val = Float.parseFloat(value);
       VoltSource v = new VoltSource(x, y, x + 80, y, val);
       
