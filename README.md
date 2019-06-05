@@ -15,7 +15,7 @@ A Processing-based circuit simulator
 **Tejas:** Wrote a function to display v-i relationships.  
 
 ###### 5/22/19  
-**Jude:** We have a basic element class.
+**Jude:** We have a basic element class. This class has all the methods specified in the UML diagram and will be used to help us base the rest of our components as child classes.
 
 **Tejas:** Wrote a function to display v-i relationships.
 Later we hope to get cross-component absolute voltage calculations functional, and Tejas will start
