@@ -15,7 +15,7 @@ A Processing-based circuit simulator
 **Tejas:** Wrote a function to display v-i relationships.  
 
 ###### 5/22/19  
-**Jude:** We have a basic element class.
+**Jude:** We have a basic element class. This class has all the methods specified in the UML diagram and will be used to help us base the rest of our components as child classes.
 
 **Tejas:** Wrote a function to display v-i relationships.
 Later we hope to get cross-component absolute voltage calculations functional, and Tejas will start
@@ -64,3 +64,8 @@ structure
 **Jude:** Fixed rotate and now the GUI looks complete but I have to do some under the hood stuff in order to figure out how the compoenents will technically "connect", running into a lot of difficulty with the "in" and "out" coordinates of the componenets because current can technicaly flow either way.
 
 **Tejas:** The construction of the matrix is complete (in theory) but very difficult to test without a working GUI, so I decided to help Jude with connecting components in the GUI so that they can be identified as working together. Having some trouble with that though. Hopefully we get an extension on this because I think finding a good calculation algorithm has been eating up most of our time.  
+
+###### Wednesday 6/5:  
+**Jude:** Stayed up all night doing the following: I created a class for junctions. This class has a few methods but I had to add it to every single type of compontent we have as well as adding it to the circuit. Junctions merge if they have the same x and y and look like little circles and I used this to connect the components which was the problem Tejas and I had in setting up the circuit. In addition, I made the resistance values and Voltage values customizable, and on top of that I added two boxes to the left, a button to run the circuit (when you click run it checks to see if the circuit is valid) and a result box where the results will be input.
+
+**Tejas:** 
