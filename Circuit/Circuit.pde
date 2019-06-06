@@ -24,7 +24,7 @@ boolean rot = false;
 void keyPressed() {
   if (key == 'r' || key == 'R') {
     rot = !rot;
-    System.out.println('l');
+    //System.out.println('l');
   }
 }
 
@@ -487,23 +487,23 @@ void draw() {
         }
       }
       if (makeNodeA && makeNodeB) {
-        System.out.println("making a new node");
+        //System.out.println("making a new node");
         ArrayList<junction> newNode = new ArrayList<junction>();
         newNode.add(w.a);
         newNode.add(w.b);
         nodes.add(newNode);
       } else if (makeNodeA) {
-        System.out.println("adding junction A to node");
+        //System.out.println("adding junction A to node");
         for (int i = 0; i < nodes.size(); i++) {
           if (nodes.get(i).contains(w.b)) {
-            System.out.println("found node, adding...");
+            //System.out.println("found node, adding...");
             nodes.get(i).add(w.a);
             i = nodes.size();
           }
         }
       } else if (makeNodeB) {
         for (int i = 0; i < nodes.size(); i++) {
-          System.out.println("adding junction B to node");
+          //System.out.println("adding junction B to node");
           if (nodes.get(i).contains(w.a)) {
             nodes.get(i).add(w.b);
             i = nodes.size();
@@ -519,14 +519,14 @@ void draw() {
     updateVoltages();
     for (int i = 0; i < nodes.size(); i++) {
       if (nodes.get(i).size() < 1) {
-        System.out.println("removing node " + nodes.remove(i));
+        //System.out.println("removing node " + nodes.remove(i));
         i--;
-      }
+      }/*
       for (junction j : nodes.get(i)) {
         System.out.println(j);
       }
     }
-    System.out.println("______");
+    System.out.println("______");*/
   }
 }
 //resistor
