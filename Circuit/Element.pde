@@ -9,6 +9,7 @@ abstract class Element {
   int size;
   junction a;
   junction b;
+  boolean rot = false;
   
   void rotate() {
     rot = !rot;
