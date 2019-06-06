@@ -2,8 +2,6 @@
 public class VoltSource extends Component {
   boolean rot = false;
   float voltage;
-  public junction a;
-  public junction b;
   //Everything is based off of the Node
   
   public void rotate(){

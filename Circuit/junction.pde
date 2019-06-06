@@ -1,11 +1,11 @@
-public class junction {
+class junction {
   //this will function as a node for the sake of nodal analysis
-  public ArrayList<Element> terminals;
-  public String type;
-  public int x;
-  public int y;
-  public float relativeVoltage;
-  public float relativeCurrent;
+  ArrayList<Element> terminals;
+  String type;
+  int x;
+  int y;
+  float relativeVoltage;
+  float relativeCurrent;
 
   public junction(int c, int d) {
     terminals = new ArrayList<Element>();

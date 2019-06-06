@@ -2,8 +2,6 @@ public class Resistor extends Component {
   float resistance;
   boolean rot = false;
   //Everything is based off of the Node
-  public junction a;
-  public junction b;
 
   //i used to think these would be in and out but current can flow through both ways depending on the circuit
   

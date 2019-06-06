@@ -2,10 +2,10 @@ abstract class Element {
   boolean isPlaced = false;
   float x;
   float y;
-  public int inx;
-  public int iny;
-  public junction a;
-  public junction b;
+  int inx;
+  int iny;
+  junction a;
+  junction b;
   
   public void rotate(){
   }

@@ -1,14 +1,10 @@
 
-public class Wire extends Element {
-  private float voltage;
-  private int inx;
-  private int iny;
-  private int outx;
-  private int outy;
-  Element in;
-  Element out;
-  public junction a;
-  public junction b;
+class Wire extends Element {
+  float voltage;
+  int inx;
+  int iny;
+  int outx;
+  int outy;
  
 
 

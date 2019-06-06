@@ -2,8 +2,6 @@ abstract class Component extends Element {
   boolean isSource = false;
   int outx;
   int outy;
-  junction input;
-  junction output;
 
   boolean isSource() {
     return isSource;
