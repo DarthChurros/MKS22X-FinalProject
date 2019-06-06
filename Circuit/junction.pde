@@ -91,15 +91,15 @@ class junction {
     float[] row = new float[circuit.size()];
     for (Component c : components) {
       for (int i = 0; i < circuit.size(); i++) {
-        if (circuit.get(i).contains(c.in())) {
+        if (circuit.get(i).contains(c.a)) {
           row[i] = -1 / ((Resistor)c).resistance();
-          if (c.out() == this && c.isSource()) {
+          if (c.b == this && c.isSource()) {
             row[i] = ((VoltSource)c).voltage();
           }
         }
-        if (circuit.get(i).contains(c.out())) {
+        if (circuit.get(i).contains(c.b)) {
           row[i] = -1 / ((Resistor)c).resistance();
-          if (c.in() == this && c.isSource()) {
+          if (c.a == this && c.isSource()) {
             row[i] = -1 * ((VoltSource)c).voltage();
           }
         }

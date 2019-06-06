@@ -143,7 +143,7 @@ public class Resistor extends Component {
 
 
   public float voltage() {
-    if (output == null || input == null) return 0;
+    if (a == null || b == null) return 0;
     return abs(a.relativeVoltage - b.relativeVoltage);
   }
 
