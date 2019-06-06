@@ -496,6 +496,7 @@ void draw() {
         System.out.println("adding junction A to node");
         for (int i = 0; i < nodes.size(); i++) {
           if (nodes.get(i).contains(w.b)) {
+            System.out.println("found node, adding...");
             nodes.get(i).add(w.a);
             i = nodes.size();
           }
@@ -518,7 +519,7 @@ void draw() {
     updateVoltages();
     for (int i = 0; i < nodes.size(); i++) {
       if (nodes.get(i).size() < 1) {
-        nodes.remove(i);
+        System.out.println("removing node " + nodes.remove(i));
         i--;
       }
       for (junction j : nodes.get(i)) {
