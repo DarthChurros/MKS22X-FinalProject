@@ -470,26 +470,41 @@ void draw() {
       junctions.add(w.b);
       w.place();
 
-      boolean makeNode = true;
+      boolean makeNodeA = true;
+      boolean makeNodeB = true;
       for (ArrayList<junction> n : nodes) {
         for (junction j : n) {
           if (rounder(j.x) == rounder(w.a.x)
           && rounder(j.y) == rounder(w.a.y)) {
             j.merge(w.a);
-            makeNode = false;
+            makeNodeA = false;
           }
           if (rounder(j.x) == rounder(w.b.x)
           && rounder(j.y) == rounder(w.b.y)) {
             j.merge(w.b);
-            makeNode = false;
+            makeNodeA = false;
           }
         }
       }
-      if (makeNode) {
+      if (makeNodeA && makeNodeB) {
         ArrayList<junction> newNode = new ArrayList<junction>();
         newNode.add(w.a);
         newNode.add(w.b);
         nodes.add(newNode);
+      } else if (makeNodeA) {
+        for (int i = 0; i < nodes.size(); i++) {
+          if (nodes.get(i).contains(w.b)) {
+            nodes.get(i).add(w.a);
+            i = nodes.size();
+          }
+        }
+      } else if (makeNodeB) {
+        for (int i = 0; i < nodes.size(); i++) {
+          if (nodes.get(i).contains(w.a)) {
+            nodes.get(i).add(w.b);
+            i = nodes.size();
+          }
+        }
       }
       updateMatrix = true;
       w.display();
