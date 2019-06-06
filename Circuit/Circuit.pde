@@ -24,7 +24,7 @@ boolean rot = false;
 void keyPressed() {
   if (key == 'r' || key == 'R') {
     rot = !rot;
-    //System.out.println('l');
+    System.out.println('l');
   }
 }
 

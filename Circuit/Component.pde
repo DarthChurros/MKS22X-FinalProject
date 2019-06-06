@@ -8,8 +8,4 @@ abstract class Component extends Element {
 
   // the default will just focus like a regular wire until given further specifications
   //VERY IMPORTANT!!!, INPUT IS TO THE LEFT OR ABOVE, OUTPUT IS TO THE RIGHT OR BELOW
-
-
-  void rotate() {
-  }
 }
