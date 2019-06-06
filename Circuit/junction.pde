@@ -129,7 +129,7 @@ public class junction {
   String toString() {
     String ans = "junction linking:\n";
     for (Element e : terminals) {
-      ans += e.getClass().getName()+"\n";
+      ans += e+"\n";
     }
     return ans;
   }
