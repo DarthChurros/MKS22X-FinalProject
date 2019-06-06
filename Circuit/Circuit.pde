@@ -482,16 +482,18 @@ void draw() {
           if (rounder(j.x) == rounder(w.b.x)
           && rounder(j.y) == rounder(w.b.y)) {
             j.merge(w.b);
-            makeNodeA = false;
+            makeNodeB = false;
           }
         }
       }
       if (makeNodeA && makeNodeB) {
+        System.out.println("making a new node");
         ArrayList<junction> newNode = new ArrayList<junction>();
         newNode.add(w.a);
         newNode.add(w.b);
         nodes.add(newNode);
       } else if (makeNodeA) {
+        System.out.println("adding junction A to node");
         for (int i = 0; i < nodes.size(); i++) {
           if (nodes.get(i).contains(w.b)) {
             nodes.get(i).add(w.a);
@@ -500,6 +502,7 @@ void draw() {
         }
       } else if (makeNodeB) {
         for (int i = 0; i < nodes.size(); i++) {
+          System.out.println("adding junction B to node");
           if (nodes.get(i).contains(w.a)) {
             nodes.get(i).add(w.b);
             i = nodes.size();
