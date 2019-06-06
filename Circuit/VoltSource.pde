@@ -1,21 +1,7 @@
 
 public class VoltSource extends Component {
-  boolean rot = false;
   float voltage;
   //Everything is based off of the Node
-  
-  public void rotate(){
-    rot = !rot;
-    if(rot){
-      outx = inx;
-      outy = iny + 80;
-    } else {
-      outx = inx + 80;
-      outy = iny;
-    }
-    b.x = outx;
-    b.y = outy;
-  }
   
   public VoltSource(int x1, int y1, int x2, int y2, float value){
     isSource = true;
@@ -23,6 +9,7 @@ public class VoltSource extends Component {
     iny = y1;
     outx = x2;
     outy = y2;
+    size = 2;
     voltage =  value;
     
     a = new junction(inx, iny);

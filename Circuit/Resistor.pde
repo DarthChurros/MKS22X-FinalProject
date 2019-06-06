@@ -1,6 +1,5 @@
 public class Resistor extends Component {
   float resistance;
-  boolean rot = false;
   //Everything is based off of the Node
 
   //i used to think these would be in and out but current can flow through both ways depending on the circuit
@@ -11,25 +10,13 @@ public class Resistor extends Component {
     iny = y1;
     outx = x2;
     outy = y2;
+    size = 2;
     a = new junction(inx, iny);
     a.add(this);
     b = new junction(outx, outy);
     b.add(this);
   }
 
-
-  public void rotate() {
-    rot = !rot;
-    if(rot){
-      outx = inx;
-      outy = iny + 80;
-    } else {
-      outx = inx + 80;
-      outy = iny;
-    }
-    b.x = outx;
-    b.y = outy;
-  }
   
   float resistance() {
     return resistance;

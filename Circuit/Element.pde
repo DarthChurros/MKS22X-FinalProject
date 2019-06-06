@@ -4,10 +4,23 @@ abstract class Element {
   float y;
   int inx;
   int iny;
+  int outx;
+  int outy;
+  int size;
   junction a;
   junction b;
   
-  public void rotate(){
+  void rotate() {
+    rot = !rot;
+    if(rot){
+      outx = inx;
+      outy = iny + 40 * size;
+    } else {
+      outx = inx + 40 * size;
+      outy = iny;
+    }
+    b.x = outx;
+    b.y = outy;
   }
   
   public float getX(){

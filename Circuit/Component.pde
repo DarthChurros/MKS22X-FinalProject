@@ -1,7 +1,5 @@
 abstract class Component extends Element {
   boolean isSource = false;
-  int outx;
-  int outy;
 
   boolean isSource() {
     return isSource;

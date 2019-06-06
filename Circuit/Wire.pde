@@ -1,27 +1,8 @@
 
 class Wire extends Element {
   float voltage;
-  int inx;
-  int iny;
-  int outx;
-  int outy;
- 
 
 
-  boolean rot = false;
-
-  public void rotate() {
-    rot = !rot;
-    if(rot){
-      outx = inx;
-      outy = iny + 40;
-    } else {
-      outx = inx + 40;
-      outy = iny;
-    }
-    b.x = outx;
-    b.y = outy;
-  }
   //we forgot to add the in and out to the uml
   public float voltage() {
     //the most complicated method
@@ -42,6 +23,7 @@ class Wire extends Element {
     iny = y1;
     outx = x2;
     outy = y2;
+    size = 1;
     a = new junction(inx, iny);
     b = new junction(outx, outy);
     a.add(this);
