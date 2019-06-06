@@ -364,6 +364,34 @@ void draw() {
       r.display();
       //System.out.println("test");
       components.add(r);
+      
+      boolean makeNodeA = true;
+      boolean makeNodeB = true;
+      for (ArrayList<junction> n : nodes) {
+        for (junction j : n) {
+          if (rounder(j.x) == rounder(r.a.x)
+          && rounder(j.y) == rounder(r.a.y)) {
+            j.merge(r.a);
+            makeNodeA = false;
+          }
+          if (rounder(j.x) == rounder(r.b.x)
+          && rounder(j.y) == rounder(r.b.y)) {
+            j.merge(r.b);
+            makeNodeB = false;
+          }
+        }
+      }
+      if (makeNodeA) {
+        ArrayList<junction> newNode = new ArrayList<junction>();
+        newNode.add(r.a);
+        nodes.add(newNode);
+      }
+      if (makeNodeB) {
+        ArrayList<junction> newNode = new ArrayList<junction>();
+        newNode.add(r.b);
+        nodes.add(newNode);
+      }
+      
       updateMatrix = true;
     }
   } else if (counter == 2) {
