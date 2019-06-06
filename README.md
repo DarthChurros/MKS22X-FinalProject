@@ -68,4 +68,4 @@ structure
 ###### Wednesday 6/5:  
 **Jude:** Stayed up all night doing the following: I created a class for junctions. This class has a few methods but I had to add it to every single type of compontent we have as well as adding it to the circuit. Junctions merge if they have the same x and y and look like little circles and I used this to connect the components which was the problem Tejas and I had in setting up the circuit. In addition, I made the resistance values and Voltage values customizable, and on top of that I added two boxes to the left, a button to run the circuit (when you click run it checks to see if the circuit is valid) and a result box where the results will be input.
 
-**Tejas:** 
+**Tejas:** Worked with Jude in the morning to figure out junction merging, which wasn't working - fixed in the case of Wires, will do the other elements soon. We still have a bug with placement of wires in certain orientations, so hopefully that gets resolved by tomorrow at the latest. To that point: last night's code broke the Wire's display, and that's mostly been dealt with now.
