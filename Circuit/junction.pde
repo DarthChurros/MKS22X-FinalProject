@@ -108,8 +108,8 @@ class junction {
       }
     }
 
-    for (int i = 0; i < circuit.size(); i++) {
-      if (circuit.get(i).contains(this)) {
+    for (int i = 0; i < nodes.size(); i++) {
+      if (nodes.get(i).contains(this)) {
         row[i] = 0;
         for (int j = 0; j < row.length; j++) {
           row[i] -= row[j];
