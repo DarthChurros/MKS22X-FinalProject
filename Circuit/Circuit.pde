@@ -392,8 +392,34 @@ void draw() {
       junctions.add(v.b);
       v.place();
       v.display();
-      System.out.println("test");
       sources.add(v);
+      
+      boolean makeNodeA = true;
+      boolean makeNodeB = true;
+      for (ArrayList<junction> n : nodes) {
+        for (junction j : n) {
+          if (rounder(j.x) == rounder(v.a.x)
+          && rounder(j.y) == rounder(v.a.y)) {
+            j.merge(v.a);
+            makeNodeA = false;
+          }
+          if (rounder(j.x) == rounder(v.b.x)
+          && rounder(j.y) == rounder(v.b.y)) {
+            j.merge(v.b);
+            makeNodeB = false;
+          }
+        }
+      }
+      if (makeNodeA) {
+        ArrayList<junction> newNode = new ArrayList<junction>();
+        newNode.add(v.a);
+        nodes.add(newNode);
+      }
+      if (makeNodeB) {
+        ArrayList<junction> newNode = new ArrayList<junction>();
+        newNode.add(v.b);
+        nodes.add(newNode);
+      }
       updateMatrix = true;
     }
   } else if (counter == 4) {
