@@ -509,6 +509,15 @@ void draw() {
             i = nodes.size();
           }
         }
+      } else {
+        ArrayList nodeA = new ArrayList();
+        ArrayList nodeB = new ArrayList();
+        for (ArrayList<junction> node : nodes) {
+          if (node.contains(w.a)) nodeA = node;
+          if (node.contains(w.b)) nodeB = node;
+        }
+        nodeA.addAll(nodeB);
+        nodeB.clear();
       }
       updateMatrix = true;
       w.display();
@@ -518,11 +527,12 @@ void draw() {
   if (updateMatrix) {
     for (int i = 0; i < nodes.size(); i++) {
       if (nodes.get(i).size() < 1) {
+        nodes.remove(i);
         i--;
       }
     }
-    System.out.println(nodes);
-    System.out.println("______");
+    //System.out.println(nodes);
+    //System.out.println("______");
     updateVoltages();
   }
 }
