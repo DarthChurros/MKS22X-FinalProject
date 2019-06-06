@@ -524,9 +524,9 @@ void draw() {
       }/*
       for (junction j : nodes.get(i)) {
         System.out.println(j);
-      }
+      }*/
     }
-    System.out.println("______");*/
+    //System.out.println("______");
   }
 }
 //resistor
