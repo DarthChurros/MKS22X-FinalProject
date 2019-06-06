@@ -9,15 +9,12 @@ public class VoltSource extends Component {
     if(rot){
       outx = inx;
       outy = iny + 80;
-      b = new junction(outx, outy);
-      b.add(this);
-      
     } else {
       outx = inx + 80;
       outy = iny;
-      b = new junction(outx, outy);
-      b.add(this);
     }
+    b.x = outx;
+    b.y = outy;
   }
   
   public VoltSource(int x1, int y1, int x2, int y2, float value){

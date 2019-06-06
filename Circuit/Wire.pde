@@ -15,13 +15,12 @@ class Wire extends Element {
     if(rot){
       outx = inx;
       outy = iny + 40;
-      b = new junction(outx, outy);
-      
     } else {
       outx = inx + 40;
       outy = iny;
-      b = new junction(outx, outy);
     }
+    b.x = outx;
+    b.y = outy;
   }
   //we forgot to add the in and out to the uml
   public float voltage() {

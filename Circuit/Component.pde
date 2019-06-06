@@ -14,12 +14,4 @@ abstract class Component extends Element {
 
   void rotate() {
   }
-
-  junction in() {
-    return input;
-  }
-
-  junction out() {
-    return output;
-  }
 }
