@@ -94,14 +94,14 @@ class junction {
         if (nodes.get(i).contains(c.a)) {
           if (c.b == this && c.isSource()) {
             row[i] = ((VoltSource)c).voltage();
-          } else {
+          } else if (!c.isSource()) {
             row[i] = -1 / ((Resistor)c).resistance();
           }
         }
         if (nodes.get(i).contains(c.b)) {
           if (c.a == this && c.isSource()) {
             row[i] = -1 * ((VoltSource)c).voltage();
-          } else {
+          } else if (!c.isSource()) {
             row[i] = -1 / ((Resistor)c).resistance();
           }
         }
