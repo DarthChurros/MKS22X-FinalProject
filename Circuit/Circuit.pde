@@ -498,8 +498,12 @@ void draw() {
   
   if (updateMatrix) {
     updateVoltages();
-    for (ArrayList<junction> node : nodes) {
-      for (junction j : node) {
+    for (int i = 0; i < nodes.size(); i++) {
+      if (nodes.get(i).size() < 1) {
+        nodes.remove(i);
+        i--;
+      }
+      for (junction j : nodes.get(i)) {
         System.out.println(j);
       }
     }
