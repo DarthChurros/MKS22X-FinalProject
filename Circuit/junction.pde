@@ -85,22 +85,24 @@ class junction {
     return components;
   }
   
-  float[] relations(ArrayList<ArrayList<junction>> circuit) {
+  float[] relations() {
     ArrayList<Component> components = adjacent();
 
-    float[] row = new float[circuit.size()];
+    float[] row = new float[nodes.size()];
     for (Component c : components) {
-      for (int i = 0; i < circuit.size(); i++) {
-        if (circuit.get(i).contains(c.a)) {
-          row[i] = -1 / ((Resistor)c).resistance();
+      for (int i = 0; i < nodes.size(); i++) {
+        if (nodes.get(i).contains(c.a)) {
           if (c.b == this && c.isSource()) {
             row[i] = ((VoltSource)c).voltage();
+          } else {
+            row[i] = -1 / ((Resistor)c).resistance();
           }
         }
-        if (circuit.get(i).contains(c.b)) {
-          row[i] = -1 / ((Resistor)c).resistance();
+        if (nodes.get(i).contains(c.b)) {
           if (c.a == this && c.isSource()) {
             row[i] = -1 * ((VoltSource)c).voltage();
+          } else {
+            row[i] = -1 / ((Resistor)c).resistance();
           }
         }
       }

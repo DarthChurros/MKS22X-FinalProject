@@ -155,7 +155,7 @@ boolean overRect(int x, int y, int width, int height) {
 void updateVoltages() {
   float[][] matrix = new float[nodes.size()][nodes.size()];
   for (int i = 0; i < nodes.size(); i++) {
-    matrix[i] = nodes.get(i).get(0).relations(nodes);
+    matrix[i] = nodes.get(i).get(0).relations();
   }
   //System.out.println(Arrays.deepToString(matrix));
 }
