@@ -52,9 +52,13 @@ class junction {
   }
 
   ArrayList<junction> getNode() {
-    ArrayList<junction> node = new ArrayList<junction>();
-    getNodeH(node);
-    return node;
+    //ArrayList<junction> node = new ArrayList<junction>();
+    //getNodeH(node);
+    //return node;
+    for (ArrayList<junction> node : nodes) {
+      if (node.contains(this)) return node;
+    }
+    return null;
   }
 
   void getNodeH(ArrayList<junction> current) {

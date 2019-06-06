@@ -516,17 +516,14 @@ void draw() {
   }
   
   if (updateMatrix) {
-    updateVoltages();
     for (int i = 0; i < nodes.size(); i++) {
       if (nodes.get(i).size() < 1) {
-        //System.out.println("removing node " + nodes.remove(i));
         i--;
-      }/*
-      for (junction j : nodes.get(i)) {
-        System.out.println(j);
-      }*/
+      }
     }
-    //System.out.println("______");
+    System.out.println(nodes);
+    System.out.println("______");
+    updateVoltages();
   }
 }
 //resistor
