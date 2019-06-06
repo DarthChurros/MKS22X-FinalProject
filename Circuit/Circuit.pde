@@ -157,7 +157,7 @@ void updateVoltages() {
   for (int i = 0; i < nodes.size(); i++) {
     matrix[i] = nodes.get(i).get(0).relations(nodes);
   }
-  System.out.println(Arrays.deepToString(matrix));
+  //System.out.println(Arrays.deepToString(matrix));
 }
 
 
@@ -496,7 +496,15 @@ void draw() {
     }
   }
   
-  if (updateMatrix) updateVoltages();
+  if (updateMatrix) {
+    updateVoltages();
+    for (ArrayList<junction> node : nodes) {
+      for (junction j : node) {
+        System.out.println(j);
+      }
+    }
+    System.out.println("______");
+  }
 }
 //resistor
 

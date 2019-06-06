@@ -119,4 +119,12 @@ public class junction {
     fill(255);
     ellipse(x, y, 10, 10);
   }
+  
+  String toString() {
+    String ans = "junction linking:\n";
+    for (Element e : terminals) {
+      ans += e.getClass().getName()+"\n";
+    }
+    return ans;
+  }
 }
