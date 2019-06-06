@@ -407,8 +407,8 @@ void draw() {
       int x = rounder(mouseX);
 
       int y = rounder(mouseY);
-      System.out.println(x);
-      System.out.println(y);
+      //System.out.println(x);
+      //System.out.println(y);
       String value = showInputDialog("How many volts would you like? ");
       float val = Float.parseFloat(value);
       VoltSource v = new VoltSource(x, y, x + 80, y, val);
@@ -462,8 +462,8 @@ void draw() {
       counter = -1;
       int x = rounder(mouseX);
       int y = rounder(mouseY);
-      System.out.println(x);
-      System.out.println(y);
+      //System.out.println(x);
+      //System.out.println(y);
       Wire w = new Wire(x, y, x + 40, y);
       if (rot) w.rotate();
       junctions.add(w.a);
