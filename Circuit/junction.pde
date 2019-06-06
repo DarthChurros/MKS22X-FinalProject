@@ -29,9 +29,15 @@ public class junction {
   public void merge(junction b) {
 
     for (int i = 0; i < b.terminals.size(); i++) {
-      terminals.add(b.terminals.remove(i));
+      terminals.add(b.terminals.get(i));
+      if (b.terminals.get(i).a == b) {
+        b.terminals.get(i).a = this;
+      }
+      if (b.terminals.get(i).b == b) {
+        b.terminals.get(i).b = this;
+      }
     }
-    
+  b.terminals = null;
   }
 
 
