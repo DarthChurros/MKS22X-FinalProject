@@ -352,6 +352,7 @@ void draw() {
     if (mousePressed) {
       holdera = null;
       counter = -1;
+      pressed = '-';
       int x = rounder(mouseX);
 
       int y = rounder(mouseY);
@@ -407,6 +408,7 @@ void draw() {
     if (mousePressed) {
       holdera = null;
       counter = -1;
+       pressed = '-';
       int x = rounder(mouseX);
 
       int y = rounder(mouseY);
@@ -455,12 +457,13 @@ void draw() {
     }
   } else if (counter == 4 || pressed == 'w' || pressed == 'W') {
     //placing wires
-
+    
     holdera = new Wire(int(mouseX), int(mouseY), int(mouseX) + 40, int(mouseY));
     if (rot) holdera.rotate();
     //System.out.println("null");
     holdera.display();
     if (mousePressed) {
+       pressed = '-';
       holdera = null;
       counter = -1;
       int x = rounder(mouseX);
