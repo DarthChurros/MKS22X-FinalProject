@@ -358,8 +358,18 @@ void draw() {
       int y = rounder(mouseY);
       //System.out.println(x);
       //System.out.println(y);
+      
+     
+      float val = 0;
+      while(val <= 1){
       String value = showInputDialog("How many ohms of resistance would you like? ");
-      float val = Float.parseFloat(value);
+      try{
+      val = Float.parseFloat(value);
+      } catch(Exception e){
+        System.out.println("NO");
+      }
+      }
+    
       Resistor r = new Resistor(x, y, x + 80, y, val);
       if (rot) r.rotate();
       junctions.add(r.a);
@@ -414,8 +424,15 @@ void draw() {
       int y = rounder(mouseY);
       //System.out.println(x);
       //System.out.println(y);
-      String value = showInputDialog("How many volts would you like? ");
-      float val = Float.parseFloat(value);
+      float val = 0;
+      while(val <= 1){
+      String value = showInputDialog("How many ohms of resistance would you like? ");
+      try{
+      val = Float.parseFloat(value);
+      } catch(Exception e){
+        System.out.println("NO");
+      }
+      }
       VoltSource v = new VoltSource(x, y, x + 80, y, val);
       
       if (rot) {
