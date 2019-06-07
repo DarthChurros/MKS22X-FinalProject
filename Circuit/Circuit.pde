@@ -20,10 +20,13 @@ public static int rounder(float x) {
 }
 
 boolean rot = false;
-
+char pressed;
 void keyPressed() {
   if (key == 'r' || key == 'R') {
     rot = !rot;
+  }
+  if(key == 'v' || key == 'V' || key == 'a' || key == 'A' || key == 'w' || key == 'W'){
+    pressed = key;
     //System.out.println('l');
   }
 }
@@ -332,7 +335,7 @@ void draw() {
     if (mousePressed) {
       counter = 4;
     }
-  } else if (counter == 0) {
+  } else if (counter == 0 || pressed == 'a' || pressed == 'A') {
 
     //placing resistors
 
@@ -394,7 +397,7 @@ void draw() {
       
       updateMatrix = true;
     }
-  } else if (counter == 2) {
+  } else if (counter == 2 || pressed == 'v' || pressed == 'V') {
     //placing cells
 
     holdera = new VoltSource(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY), 10);
@@ -450,7 +453,7 @@ void draw() {
       }
       updateMatrix = true;
     }
-  } else if (counter == 4) {
+  } else if (counter == 4 || pressed == 'w' || pressed == 'W') {
     //placing wires
 
     holdera = new Wire(int(mouseX), int(mouseY), int(mouseX) + 40, int(mouseY));
