@@ -14,13 +14,10 @@ A Processing-based circuit simulator
 
 **Tejas:** Wrote a function to display v-i relationships.  
 
-###### 5/22/19  
+###### Wednesday 5/22
 **Jude:** We have a basic element class. This class has all the methods specified in the UML diagram and will be used to help us base the rest of our components as child classes.
 
-**Tejas:** Wrote a function to display v-i relationships.
-Later we hope to get cross-component absolute voltage calculations functional, and Tejas will start
-work on a "component" that would act like a resistor, to test the class
-structure  
+**Tejas:** Wrote a function to display v-i relationships. Later we hope to get cross-component absolute voltage calculations functional, and I will start work on a "component" that would act like a resistor, to test the class structure.
 
 
 ###### Thursday 5/23:  
@@ -66,6 +63,9 @@ structure
 **Tejas:** The construction of the matrix is complete (in theory) but very difficult to test without a working GUI, so I decided to help Jude with connecting components in the GUI so that they can be identified as working together. Having some trouble with that though. Hopefully we get an extension on this because I think finding a good calculation algorithm has been eating up most of our time.  
 
 ###### Wednesday 6/5:  
-**Jude:** Stayed up all night doing the following: I created a class for junctions. This class has a few methods but I had to add it to every single type of compontent we have as well as adding it to the circuit. Junctions merge if they have the same x and y and look like little circles and I used this to connect the components which was the problem Tejas and I had in setting up the circuit. In addition, I made the resistance values and Voltage values customizable, and on top of that I added two boxes to the left, a button to run the circuit (when you click run it checks to see if the circuit is valid) and a result box where the results will be input.
+**Jude:** Stayed up all night doing the following: I created a class for junctions. This class has a few methods but I had to add it to every single type of compontent we have as well as adding it to the circuit. Junctions merge if they have the same x and y and look like little circles and I used this to connect the components which was the problem Tejas and I had in setting up the circuit. In addition, I made the resistance values and Voltage values customizable, and on top of that I added two boxes to the left, a button to run the circuit (when you click run it checks to see if the circuit is valid) and a result box where the results will be input.  
 
-**Tejas:** Worked with Jude in the morning to figure out junction merging, which wasn't working - fixed in the case of Wires, will do the other elements soon. We still have a bug with placement of wires in certain orientations, so hopefully that gets resolved by tomorrow at the latest. To that point: last night's code broke the Wire's display, and that's mostly been dealt with now.
+**Tejas:** Worked with Jude in the morning to figure out junction merging, which wasn't working - fixed in the case of Wires, will do the other elements soon. We still have a bug with placement of wires in certain orientations, so hopefully that gets resolved by tomorrow at the latest. To that point: last night's code broke the Wire's display, and that's mostly been dealt with now.  
+
+###### Thursday 6/6:
+**Tejas:** Spent basically the whole day fixing Jude's old code, working on connections between junctions and accounting for nodes with each element placement. Now that that's been resolved (as far as I can tell), I plan to finally fix the relations() method tomorrow so that we have a valid matrix to use. This is going to be the hardest part of the project, I think, so fingers crossed. Hallelujah.  
