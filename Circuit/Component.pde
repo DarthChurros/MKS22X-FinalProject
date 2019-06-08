@@ -7,8 +7,8 @@ abstract class Component {
   int outx;
   int outy;
   int size;
-  junction a;
-  junction b;
+  Junction a;
+  Junction b;
   boolean rot;
   
   void rotate() {

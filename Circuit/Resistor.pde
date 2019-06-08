@@ -11,9 +11,9 @@ public class Resistor extends Component {
     outx = x2;
     outy = y2;
     size = 2;
-    a = new junction(inx, iny);
+    a = new Junction(inx, iny);
     a.add(this);
-    b = new junction(outx, outy);
+    b = new Junction(outx, outy);
     b.add(this);
   }
 

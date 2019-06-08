@@ -1,6 +1,6 @@
 import java.util.NoSuchElementException;
 
-class junction {
+class Junction {
   //this will function as a node for the sake of nodal analysis
   ArrayList<Component> terminals;
   String type;
@@ -9,7 +9,7 @@ class junction {
   float relativeVoltage;
   float relativeCurrent;
 
-  public junction(int c, int d) {
+  public Junction(int c, int d) {
     terminals = new ArrayList<Component>();
     x = c;
     y = d;
@@ -28,7 +28,7 @@ class junction {
 
 
 
-  public void merge(junction b) {
+  public void merge(Junction b) {
 
     for (int i = 0; i < b.terminals.size(); i++) {
       terminals.add(b.terminals.get(i));
@@ -53,17 +53,17 @@ class junction {
     type = t;
   }
 
-  ArrayList<junction> getNode() {
-    //ArrayList<junction> node = new ArrayList<junction>();
+  ArrayList<Junction> getNode() {
+    //ArrayList<Junction> node = new ArrayList<Junction>();
     //getNodeH(node);
     //return node;
-    for (ArrayList<junction> node : nodes) {
+    for (ArrayList<Junction> node : nodes) {
       if (node.contains(this)) return node;
     }
     return null;
   }
 
-  void getNodeH(ArrayList<junction> current) {
+  void getNodeH(ArrayList<Junction> current) {
     if (!current.contains(this)) {
       current.add(this);
       return;
@@ -80,10 +80,10 @@ class junction {
   }
 
   ArrayList<Component> adjacent() {
-    ArrayList<junction> node = getNode();
+    ArrayList<Junction> node = getNode();
     ArrayList<Component> components = new ArrayList<Component>();
 
-    for (junction j : node) {
+    for (Junction j : node) {
       for (Component e : j.terminals) {
         if (e instanceof Component) components.add((Component)e);
       }
@@ -140,7 +140,7 @@ class junction {
   }
   
   String toString() {
-    String ans = "junction linking:\n";
+    String ans = "Junction linking:\n";
     for (Component e : terminals) {
       ans += e+"\n";
     }

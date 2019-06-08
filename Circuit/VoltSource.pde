@@ -11,9 +11,9 @@ public class VoltSource extends Component {
     size = 2;
     voltage =  value;
     
-    a = new junction(inx, iny);
+    a = new Junction(inx, iny);
     a.add(this);
-    b = new junction(outx, outy);
+    b = new Junction(outx, outy);
     b.add(this);
     //were gonna have the ground just equal to 0, so now we have
     //this is gonna just be the default, we can fix this later

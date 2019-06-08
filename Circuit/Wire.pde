@@ -41,8 +41,8 @@ class Wire extends Component {
     outx = x2;
     outy = y2;
     size = 1;
-    a = new junction(inx, iny);
-    b = new junction(outx, outy);
+    a = new Junction(inx, iny);
+    b = new Junction(outx, outy);
     a.add(this);
     b.add(this);
   }

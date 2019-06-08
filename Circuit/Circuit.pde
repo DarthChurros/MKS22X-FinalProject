@@ -38,8 +38,8 @@ public float totalResistance() {
 }
 
 
-public static int hasDups(ArrayList<junction> a, int f){
-  junction j = a.get(f);
+public static int hasDups(ArrayList<Junction> a, int f){
+  Junction j = a.get(f);
   for(int i = 0; i < a.size() ; i++){
     if(a.get(i).x == j.x && a.get(i).y == j.y && i != f){
       //they have the same coords
@@ -78,12 +78,12 @@ Component holdera;
 
 //These are the holder vectors for the gui
 int counter = -1;
-ArrayList<junction> junctions = new ArrayList<junction>();
+ArrayList<Junction> junctions = new ArrayList<Junction>();
 //above well use these arraylists for only one purpose - to check for duplicates
 ArrayList<Resistor> components = new ArrayList<Resistor>();
 ArrayList<VoltSource> sources = new ArrayList<VoltSource>();
 ArrayList<Wire> wires = new ArrayList<Wire>();
-ArrayList<ArrayList<junction>> nodes = new ArrayList<ArrayList<junction>>();
+ArrayList<ArrayList<Junction>> nodes = new ArrayList<ArrayList<Junction>>();
 //this has to be an Component otherwise we wont be able to add wires
 
 String totalResistance = "";
@@ -106,8 +106,8 @@ void draw() {
   fill(50);
   text(run, 825, 405, 100, 100);
   
-   //NOW WE HAVE ALL THE JUNCTIONS IN A LIST
-  //WE CAN MAKE A RUN BUTTON FOR WHEN THE CIRCUIT IS DONE, AND THE JUNCTIONS WILL BE IN ORDER
+   //NOW WE HAVE ALL THE junctions IN A LIST
+  //WE CAN MAKE A RUN BUTTON FOR WHEN THE CIRCUIT IS DONE, AND THE junctions WILL BE IN ORDER
   
   if(overRect(750,390,200,50)){
     if(mousePressed){
@@ -115,7 +115,7 @@ void draw() {
       //this is the run function
       //lets solve the circuit
       //first step to nodal analysis --> Pick a ground
-      //lets make that the first junction thats connected to a volageSource
+      //lets make that the first Junction thats connected to a volageSource
       try{
         int groundJunct = 0;
         boolean hasBattery = false;
@@ -139,8 +139,8 @@ void draw() {
         
         
         //oh, its also important what we want to output in our results box
-        //basically, we can loop through the list of junctions and give each junction a number
-        //then, in the box, we can output each junction, their voltage relative to ground, and their current value
+        //basically, we can loop through the list of junctions and give each Junction a number
+        //then, in the box, we can output each Junction, their voltage relative to ground, and their current value
       } catch (Exception e){
         ans = "Enter a valid circuit";
         
@@ -185,8 +185,8 @@ void draw() {
   }
 
 
-  for (ArrayList<junction> node : nodes) {
-    for (junction j : node) {
+  for (ArrayList<Junction> node : nodes) {
+    for (Junction j : node) {
       //System.out.println(j.terminals);
       for (Component e : j.terminals) {
         e.display();
@@ -295,8 +295,8 @@ void draw() {
       
       boolean makeNodeA = true;
       boolean makeNodeB = true;
-      for (ArrayList<junction> n : nodes) {
-        for (junction j : n) {
+      for (ArrayList<Junction> n : nodes) {
+        for (Junction j : n) {
           if (rounder(j.x) == rounder(r.a.x)
           && rounder(j.y) == rounder(r.a.y)) {
             j.merge(r.a);
@@ -310,12 +310,12 @@ void draw() {
         }
       }
       if (makeNodeA) {
-        ArrayList<junction> newNode = new ArrayList<junction>();
+        ArrayList<Junction> newNode = new ArrayList<Junction>();
         newNode.add(r.a);
         nodes.add(newNode);
       }
       if (makeNodeB) {
-        ArrayList<junction> newNode = new ArrayList<junction>();
+        ArrayList<Junction> newNode = new ArrayList<Junction>();
         newNode.add(r.b);
         nodes.add(newNode);
       }
@@ -361,8 +361,8 @@ void draw() {
       
       boolean makeNodeA = true;
       boolean makeNodeB = true;
-      for (ArrayList<junction> n : nodes) {
-        for (junction j : n) {
+      for (ArrayList<Junction> n : nodes) {
+        for (Junction j : n) {
           if (rounder(j.x) == rounder(v.a.x)
           && rounder(j.y) == rounder(v.a.y)) {
             j.merge(v.a);
@@ -376,12 +376,12 @@ void draw() {
         }
       }
       if (makeNodeA) {
-        ArrayList<junction> newNode = new ArrayList<junction>();
+        ArrayList<Junction> newNode = new ArrayList<Junction>();
         newNode.add(v.a);
         nodes.add(newNode);
       }
       if (makeNodeB) {
-        ArrayList<junction> newNode = new ArrayList<junction>();
+        ArrayList<Junction> newNode = new ArrayList<Junction>();
         newNode.add(v.b);
         nodes.add(newNode);
       }
@@ -412,8 +412,8 @@ void draw() {
 
       boolean makeNodeA = true;
       boolean makeNodeB = true;
-      for (ArrayList<junction> n : nodes) {
-        for (junction j : n) {
+      for (ArrayList<Junction> n : nodes) {
+        for (Junction j : n) {
           if (rounder(j.x) == rounder(w.a.x)
           && rounder(j.y) == rounder(w.a.y)) {
             j.merge(w.a);
@@ -428,12 +428,12 @@ void draw() {
       }
       if (makeNodeA && makeNodeB) {
         //System.out.println("making a new node");
-        ArrayList<junction> newNode = new ArrayList<junction>();
+        ArrayList<Junction> newNode = new ArrayList<Junction>();
         newNode.add(w.a);
         newNode.add(w.b);
         nodes.add(newNode);
       } else if (makeNodeA) {
-        //System.out.println("adding junction A to node");
+        //System.out.println("adding Junction A to node");
         for (int i = 0; i < nodes.size(); i++) {
           if (nodes.get(i).contains(w.b)) {
             //System.out.println("found node, adding...");
@@ -443,7 +443,7 @@ void draw() {
         }
       } else if (makeNodeB) {
         for (int i = 0; i < nodes.size(); i++) {
-          //System.out.println("adding junction B to node");
+          //System.out.println("adding Junction B to node");
           if (nodes.get(i).contains(w.a)) {
             nodes.get(i).add(w.b);
             i = nodes.size();
@@ -452,7 +452,7 @@ void draw() {
       } else {
         ArrayList nodeA = new ArrayList();
         ArrayList nodeB = new ArrayList();
-        for (ArrayList<junction> node : nodes) {
+        for (ArrayList<Junction> node : nodes) {
           if (node.contains(w.a)) nodeA = node;
           if (node.contains(w.b)) nodeB = node;
         }
