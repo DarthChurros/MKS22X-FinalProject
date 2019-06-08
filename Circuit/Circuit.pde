@@ -157,7 +157,7 @@ void updateVoltages() {
   for (int i = 0; i < nodes.size(); i++) {
     matrix[i] = nodes.get(i).get(0).relations();
   }
-  //System.out.println(Arrays.deepToString(matrix));
+  System.out.println(Arrays.deepToString(matrix));
 }
 
 

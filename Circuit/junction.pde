@@ -97,14 +97,18 @@ class junction {
       for (int i = 0; i < nodes.size(); i++) {
         if (nodes.get(i).contains(c.a)) {
           if (c.b == this && c.isSource()) {
+            row = new float[nodes.size()];
             row[i] = ((VoltSource)c).voltage();
+            return row;
           } else if (!c.isSource()) {
             row[i] = -1 / ((Resistor)c).resistance();
           }
         }
         if (nodes.get(i).contains(c.b)) {
           if (c.a == this && c.isSource()) {
+            row = new float[nodes.size()];
             row[i] = -1 * ((VoltSource)c).voltage();
+            return row;
           } else if (!c.isSource()) {
             row[i] = -1 / ((Resistor)c).resistance();
           }
