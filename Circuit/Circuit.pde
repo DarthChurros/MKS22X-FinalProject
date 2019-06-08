@@ -67,11 +67,27 @@ void updateVoltages() {
   for (int i = 1; i < nodes.size(); i++) {
     matrix[i] = nodes.get(i).get(0).relations();
   }
+  System.out.println(Arrays.deepToString(matrix) + "\n|\n|\n|\nV");
+  toIdentity(matrix);
   System.out.println(Arrays.deepToString(matrix) + "\n___________");
 }
 
 void toIdentity(float[][] matrix) {
   if (!matrixValid(matrix)) throw new IllegalArgumentException ("Matrix dimensions invalid!");
+
+  for (int i = 0; i < matrix.length; i++) {
+    for (int j = 0; j < matrix.length; j++) {
+      if (j != i && matrix[j][i] != 0) {
+        matrixMultiply(matrix, j, -1*matrix[i][i]/matrix[j][i]);
+        matrixAdd(matrix, j, i);
+      }
+    }
+    System.out.println(Arrays.deepToString(matrix) + "\n|\n|\n|\nV");
+  }
+  
+  for (int i = 0; i < matrix.length; i++) {
+    matrixMultiply(matrix, i, 1/matrix[i][i]);
+  }
 }
 
 void matrixAdd(float[][] matrix, int r1, int r2) {
