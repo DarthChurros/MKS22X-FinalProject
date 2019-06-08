@@ -204,6 +204,7 @@ void draw() {
   
   if(overRect(750,390,200,50)){
     if(mousePressed){
+      mousePressed = false;
       //this is the run function
       //lets solve the circuit
       //first step to nodal analysis --> Pick a ground
@@ -315,7 +316,7 @@ void draw() {
   fill(50);
   text(h, 770, 290, 100, 100);
   
-  text("Number of nodes: "+nodes.size(), 770, 600, 100, 100);
+  text("Number of nodes: "+nodes.size() +" "+ pressed + " " + mousePressed, 770, 600, 100, 100);
 
   //setup end
 
@@ -354,6 +355,7 @@ void draw() {
       holdera = null;
       counter = -1;
       pressed = '-';
+      mousePressed = false;
       int x = rounder(mouseX);
 
       int y = rounder(mouseY);
@@ -421,6 +423,7 @@ void draw() {
 
     holdera.display();
     if (mousePressed) {
+      mousePressed = false;
       holdera = null;
       counter = -1;
        pressed = '-';
@@ -488,6 +491,7 @@ void draw() {
        pressed = '-';
       holdera = null;
       counter = -1;
+      mousePressed = false;
       int x = rounder(mouseX);
       int y = rounder(mouseY);
       //System.out.println(x);
@@ -551,9 +555,10 @@ void draw() {
       w.display();
     }
   } else if(pressed == BACKSPACE) {
-    
+    //THIS IS THE DELETE SECTION
+    //STARTS WITH RESISTORS
     if(mousePressed){
-      System.out.println("ab");
+      mousePressed = false;
       //ok so basically now we need to see if this thing is over some sort of component
       for(int i = 0; i < components.size(); i++){
         //check the resistors
@@ -562,44 +567,94 @@ void draw() {
         if(overRect(hitbox[0], hitbox[1], hitbox[2], hitbox[3])){
           
           String ans = components.get(i).deleteCheck();
-          System.out.println(ans);
-          if(ans == ""){
+          
+         //System.out.println(ans + "1");
+          if(ans.equals("")){
             //THE TERMINALS JUDE
-            //System.out.println("work");
+            System.out.println("work");
             components.get(i).a.terminals.remove(components.get(i));
-            System.out.println(components.get(i).a.terminals.get(0));
+           
             components.get(i).b.terminals.remove(components.get(i));
-            System.out.println(components.get(i).b.terminals.get(0));
+            
             components.remove(i); 
             i--;
             //keep the junctions there
           }
           
-          if(ans == "ab"){
-            
+          //^^that delete works
+          
+          if(ans.equals("ab")){
+            for(int j = 0; j < nodes.size(); j++){
            //ok we need to do some searching for the junctions and remove them)
-            if(nodes.get(i).contains(components.get(i).a)){
-              nodes.get(i).remove(components.get(i).a);
+           
+            if(nodes.get(j).contains(components.get(i).a)){
+              System.out.println("branch");
+              nodes.get(j).remove(components.get(i).a);
+              junctions.remove(components.get(i).a);
+              
             }
-            if(nodes.get(i).contains(components.get(i).b)){
-              nodes.get(i).remove(components.get(i).b);
+            if(nodes.get(j).contains(components.get(i).b)){
+              nodes.get(j).remove(components.get(i).b);
+              junctions.remove(components.get(i).b);
             }
+            }
+            
+            for(int j = 0; j < nodes.size(); j++){
+              if(nodes.get(j).size() == 0){
+                nodes.remove(j);
+                j--;
+              }
+            }
+            
             
             components.remove(i); 
             i--;
             
             
            }
-            
            
+           
+           
+           
+           if(ans.equals("a")){
+            for(int j = 0; j < nodes.size(); j++){
+           //ok we need to do some searching for the junctions and remove them)
+           
+            if(nodes.get(j).contains(components.get(i).a)){
+              System.out.println("branch");
+              nodes.get(j).remove(components.get(i).a);
+              junctions.remove(components.get(i).a);
+              
+            }
             
             
+            if(nodes.get(j).contains(components.get(i).b)){
+              components.get(i).b.terminals.remove(components.get(i));
+              //removing this from the b terminal so that it doesnt display anymore
+            }
+           
+            }
             
-            //keep the junctions tho
-          }
+            for(int j = 0; j < nodes.size(); j++){
+              if(nodes.get(j).size() == 0){
+                nodes.remove(j);
+                j--;
+              }
+            }
+            
+            
+            components.remove(i); 
+            i--;
+            
+            
+           }
+           
+           
+           
+         
           }
         }
-        
+    }
         
         
       }
