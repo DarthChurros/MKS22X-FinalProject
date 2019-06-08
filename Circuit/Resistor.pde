@@ -1,5 +1,5 @@
 public class Resistor extends Component {
-  float resistance;
+  public float resistance;
   //Everything is based off of the Node
 
   //i used to think these would be in and out but current can flow through both ways depending on the circuit
@@ -40,7 +40,26 @@ public class Resistor extends Component {
     }
     return false;
   }*/
+  
+  
+  public int[] hitBox(){
+    return new int[]{inx - 10 , iny - 10, Math.abs(outx - inx) + 20 , Math.abs(outy - iny) + 20};
+  }
 
+
+  public String deleteCheck(){
+    String ans = "";
+    //checks the junctions to see if the junctions are merged, and if they are dont delete them
+    if(a.terminals.size() == 1){
+      ans += "a";
+    }
+    if(b.terminals.size() == 1){
+      ans += "b";
+    }
+    return ans;
+  }
+  
+  
   public void display() {
     //OK, now this is the hard part, we first need to figure out but im going to do a red line for now
     if (!rot) {
@@ -85,6 +104,8 @@ public class Resistor extends Component {
       
       a.display();
       b.display();
+      
+      
     } else {
 
       stroke(255, 0, 0);

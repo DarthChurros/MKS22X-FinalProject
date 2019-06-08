@@ -1,6 +1,6 @@
-class junction {
+public class junction {
   //this will function as a node for the sake of nodal analysis
-  ArrayList<Element> terminals;
+  public ArrayList<Element> terminals;
   String type;
   int x;
   int y;

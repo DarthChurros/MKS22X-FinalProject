@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 import java.util.Arrays;
 import static javax.swing.JOptionPane.*;
 
@@ -25,10 +25,11 @@ void keyPressed() {
   if (key == 'r' || key == 'R') {
     rot = !rot;
   }
-  if(key == 'v' || key == 'V' || key == 'a' || key == 'A' || key == 'w' || key == 'W'){
+  if(key == 'v' || key == 'V' || key == 'a' || key == 'A' || key == 'w' || key == 'W' || key == BACKSPACE){
     pressed = key;
     //System.out.println('l');
   }
+ 
 }
 
 public float totalResistance() {
@@ -172,8 +173,8 @@ Element holdera;
 //These are the holder vectors for the gui
 int counter = -1;
 ArrayList<junction> junctions = new ArrayList<junction>();
-//above well use these arraylists for junctions
-ArrayList<Component> components = new ArrayList<Component>();
+//above well use these arraylists for only one purpose - to check for duplicates
+ArrayList<Resistor> components = new ArrayList<Resistor>();
 ArrayList<Component> sources = new ArrayList<Component>();
 ArrayList<ArrayList<junction>> nodes = new ArrayList<ArrayList<junction>>();
 //this has to be an element otherwise we wont be able to add wires
@@ -369,15 +370,19 @@ void draw() {
         System.out.println("NO");
       }
       }
-    
+      //System.out.println(val);
       Resistor r = new Resistor(x, y, x + 80, y, val);
+      //System.out.println(r.resistance);
       if (rot) r.rotate();
       junctions.add(r.a);
       junctions.add(r.b);
       r.place();
       r.display();
+      r.hitBox();
       //System.out.println("test");
       components.add(r);
+      //just to see
+      
       
       boolean makeNodeA = true;
       boolean makeNodeB = true;
@@ -426,7 +431,7 @@ void draw() {
       //System.out.println(y);
       float val = 0;
       while(val <= 1){
-      String value = showInputDialog("How many ohms of resistance would you like? ");
+      String value = showInputDialog("How many volts would you like? ");
       try{
       val = Float.parseFloat(value);
       } catch(Exception e){
@@ -545,7 +550,63 @@ void draw() {
       updateMatrix = true;
       w.display();
     }
-  }
+  } else if(pressed == BACKSPACE) {
+    
+    if(mousePressed){
+      System.out.println("ab");
+      //ok so basically now we need to see if this thing is over some sort of component
+      for(int i = 0; i < components.size(); i++){
+        //check the resistors
+        //System.out.println(components.get(i).resistance);
+        int[] hitbox = components.get(i).hitBox();
+        if(overRect(hitbox[0], hitbox[1], hitbox[2], hitbox[3])){
+          
+          String ans = components.get(i).deleteCheck();
+          System.out.println(ans);
+          if(ans == ""){
+            //THE TERMINALS JUDE
+            //System.out.println("work");
+            components.get(i).a.terminals.remove(components.get(i));
+            System.out.println(components.get(i).a.terminals.get(0));
+            components.get(i).b.terminals.remove(components.get(i));
+            System.out.println(components.get(i).b.terminals.get(0));
+            components.remove(i); 
+            i--;
+            //keep the junctions there
+          }
+          
+          if(ans == "ab"){
+            
+           //ok we need to do some searching for the junctions and remove them)
+            if(nodes.get(i).contains(components.get(i).a)){
+              nodes.get(i).remove(components.get(i).a);
+            }
+            if(nodes.get(i).contains(components.get(i).b)){
+              nodes.get(i).remove(components.get(i).b);
+            }
+            
+            components.remove(i); 
+            i--;
+            
+            
+           }
+            
+           
+            
+            
+            
+            //keep the junctions tho
+          }
+          }
+        }
+        
+        
+        
+      }
+      
+    
+    
+  
   
   if (updateMatrix) {
     for (int i = 0; i < nodes.size(); i++) {
@@ -558,6 +619,7 @@ void draw() {
     //System.out.println("______");
     updateVoltages();
   }
+ 
 }
 //resistor
 
