@@ -85,20 +85,21 @@ class Junction {
 
     for (Junction j : node) {
       for (Component e : j.terminals) {
-        if (e instanceof Component) components.add((Component)e);
+        if (!(e instanceof Wire)) components.add((Component)e);
       }
     }
     return components;
   }
   
   float[] relations() {
+    ArrayList<Junction> thisNode = getNode();
     ArrayList<Component> components = adjacent();
     
     float[] row = new float[nodes.size()+1];
     for (Component c : components) {
       for (int i = 0; i < nodes.size(); i++) {
-        if (nodes.get(i).contains(c.a) && c.b == this
-        || nodes.get(i).contains(c.b) && c.a == this) {
+        if (nodes.get(i).contains(c.a) && thisNode.contains(c.b)
+        || nodes.get(i).contains(c.b) && thisNode.contains(c.a)) {
           if (c instanceof VoltSource) {
             row = new float[nodes.size()+1];
             row[i] = -1;
@@ -113,7 +114,7 @@ class Junction {
             throw new NoSuchElementException("This node wasn't found!");
           }
           if (c instanceof Resistor) {
-            row[i] = -1 / ((Resistor)c).resistance;
+            row[i] -= 1 / ((Resistor)c).resistance;
           }
         }
       }
