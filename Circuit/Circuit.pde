@@ -57,19 +57,20 @@ boolean overRect(int x, int y, int width, int height) {
 }
 
 void updateVoltages() {
-  float[][] matrix = new float[nodes.size()][nodes.size()];
+  float[][] matrix = new float[nodes.size()][nodes.size()+1];
   matrix[0][0] = 1;
+  matrix[0][nodes.size()] = 0;
   for (int i = 1; i < nodes.size(); i++) {
     matrix[i] = nodes.get(i).get(0).relations();
   }
-  System.out.println(Arrays.deepToString(matrix));
+  System.out.println(Arrays.deepToString(matrix) + "\n___________");
 }
 
 
 String ans = "";
 
 //need a within radius functions
-Element holdera;
+Component holdera;
 
 //These are the holder vectors for the gui
 int counter = -1;
@@ -78,7 +79,7 @@ ArrayList<junction> junctions = new ArrayList<junction>();
 ArrayList<Component> components = new ArrayList<Component>();
 ArrayList<Component> sources = new ArrayList<Component>();
 ArrayList<ArrayList<junction>> nodes = new ArrayList<ArrayList<junction>>();
-//this has to be an element otherwise we wont be able to add wires
+//this has to be an Component otherwise we wont be able to add wires
 
 String totalResistance = "";
 
@@ -181,7 +182,7 @@ void draw() {
   for (ArrayList<junction> node : nodes) {
     for (junction j : node) {
       //System.out.println(j.terminals);
-      for (Element e : j.terminals) {
+      for (Component e : j.terminals) {
         e.display();
       }
     }

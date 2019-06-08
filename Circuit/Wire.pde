@@ -1,5 +1,5 @@
 
-class Wire extends Element {
+class Wire extends Component {
   float voltage;
 
 

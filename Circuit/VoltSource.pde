@@ -4,7 +4,6 @@ public class VoltSource extends Component {
   //Everything is based off of the Node
   
   public VoltSource(int x1, int y1, int x2, int y2, float value){
-    isSource = true;
     inx = x1;
     iny = y1;
     outx = x2;

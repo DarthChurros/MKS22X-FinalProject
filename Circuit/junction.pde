@@ -1,6 +1,8 @@
+import java.util.NoSuchElementException;
+
 class junction {
   //this will function as a node for the sake of nodal analysis
-  ArrayList<Element> terminals;
+  ArrayList<Component> terminals;
   String type;
   int x;
   int y;
@@ -8,12 +10,12 @@ class junction {
   float relativeCurrent;
 
   public junction(int c, int d) {
-    terminals = new ArrayList<Element>();
+    terminals = new ArrayList<Component>();
     x = c;
     y = d;
   }
 
-  public void add(Element a) {
+  public void add(Component a) {
     terminals.add(a);
   }
 
@@ -66,7 +68,7 @@ class junction {
       current.add(this);
       return;
     }
-    for (Element e : terminals) {
+    for (Component e : terminals) {
       if (e instanceof Wire) {
         if (((Wire)e).a == this) {
           ((Wire)e).b.getNodeH(current);
@@ -82,7 +84,7 @@ class junction {
     ArrayList<Component> components = new ArrayList<Component>();
 
     for (junction j : node) {
-      for (Element e : j.terminals) {
+      for (Component e : j.terminals) {
         if (e instanceof Component) components.add((Component)e);
       }
     }
@@ -91,36 +93,38 @@ class junction {
   
   float[] relations() {
     ArrayList<Component> components = adjacent();
-
-    float[] row = new float[nodes.size()];
+    
+    float[] row = new float[nodes.size()+1];
     for (Component c : components) {
       for (int i = 0; i < nodes.size(); i++) {
-        if (nodes.get(i).contains(c.a)) {
-          if (c.b == this && c.isSource()) {
-            row = new float[nodes.size()];
-            row[i] = ((VoltSource)c).voltage();
-            return row;
-          } else if (!c.isSource()) {
-            row[i] = -1 / ((Resistor)c).resistance();
+        if (nodes.get(i).contains(c.a) && c.b == this
+        || nodes.get(i).contains(c.b) && c.a == this) {
+          if (c instanceof VoltSource) {
+            row = new float[nodes.size()+1];
+            row[i] = -1;
+            row[row.length-1] = ((VoltSource)c).voltage;
+            if (c.a == this) row[row.length-1] *= -1;
+            for (int j = 0; j < nodes.size(); j++) {
+              if (nodes.get(j).contains(this)) {
+                row[j] = 1;
+                return row;
+              }
+            }
+            throw new NoSuchElementException("This node wasn't found!");
           }
-        }
-        if (nodes.get(i).contains(c.b)) {
-          if (c.a == this && c.isSource()) {
-            row = new float[nodes.size()];
-            row[i] = -1 * ((VoltSource)c).voltage();
-            return row;
-          } else if (!c.isSource()) {
-            row[i] = -1 / ((Resistor)c).resistance();
+          if (c instanceof Resistor) {
+            row[i] = -1 / ((Resistor)c).resistance;
           }
         }
       }
     }
-
+    
+    
     for (int i = 0; i < nodes.size(); i++) {
       if (nodes.get(i).contains(this)) {
         row[i] = 0;
         for (int j = 0; j < row.length; j++) {
-          row[i] -= row[j];
+          if (j != i) row[i] -= row[j];
         }
         return row;
       }
@@ -138,7 +142,7 @@ class junction {
   
   String toString() {
     String ans = "junction linking:\n";
-    for (Element e : terminals) {
+    for (Component e : terminals) {
       ans += e+"\n";
     }
     return ans;
