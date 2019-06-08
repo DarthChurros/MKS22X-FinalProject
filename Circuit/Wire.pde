@@ -16,6 +16,23 @@ class Wire extends Element {
     outx = x2;
     outy = y2;
   }
+  
+  
+  public int[] hitBox(){
+    return new int[]{inx - 10 , iny - 10, Math.abs(outx - inx) + 20 , Math.abs(outy - iny) + 20};
+  }
+  
+  public String deleteCheck(){
+    String ans = "";
+    //checks the junctions to see if the junctions are merged, and if they are dont delete them
+    if(a.terminals.size() == 1){
+      ans += "a";
+    }
+    if(b.terminals.size() == 1){
+      ans += "b";
+    }
+    return ans;
+  }
 
 
   public Wire(int x1, int y1, int x2, int y2) {

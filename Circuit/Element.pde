@@ -41,6 +41,7 @@ abstract class Element {
   }
 
   public void display() {
+    
     if (!isPlaced) {
       x = mouseX;
       y = mouseY;
