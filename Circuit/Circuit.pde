@@ -70,6 +70,35 @@ void updateVoltages() {
   System.out.println(Arrays.deepToString(matrix) + "\n___________");
 }
 
+void toIdentity(float[][] matrix) {
+  if (!matrixValid(matrix)) throw new IllegalArgumentException ("Matrix dimensions invalid!");
+}
+
+void matrixAdd(float[][] matrix, int r1, int r2) {
+  if (!matrixValid(matrix)) throw new IllegalArgumentException("Matrix dimensions invalid!");
+  if (r1 >= matrix.length || r1 < 0 || r2 >= matrix.length || r2 < 0) throw new IllegalArgumentException("Target rows out of bounds!");
+  
+  for (int i = 0; i < matrix[r1].length; i++) {
+    matrix[r1][i] += matrix[r2][i];
+  }
+}
+
+void matrixMultiply(float[][] matrix, int r, float factor) {
+  if (!matrixValid(matrix)) throw new IllegalArgumentException("Matrix dimensions invalid!");
+  if (r >= matrix.length || r < 0) throw new IllegalArgumentException("Target row out of bounds!");
+  
+  for (int i = 0; i < matrix[r].length; i++) {
+    matrix[r][i] *= factor;
+  }
+}
+
+boolean matrixValid(float[][] matrix) {
+  for (float[] row : matrix) {
+    if (row.length != matrix.length + 1) return false;
+  }
+  return true;
+}
+
 
 String ans = "";
 
