@@ -175,7 +175,7 @@ int counter = -1;
 ArrayList<junction> junctions = new ArrayList<junction>();
 //above well use these arraylists for only one purpose - to check for duplicates
 ArrayList<Resistor> components = new ArrayList<Resistor>();
-ArrayList<Component> sources = new ArrayList<Component>();
+ArrayList<VoltSource> sources = new ArrayList<VoltSource>();
 ArrayList<ArrayList<junction>> nodes = new ArrayList<ArrayList<junction>>();
 //this has to be an element otherwise we wont be able to add wires
 
@@ -690,6 +690,143 @@ void draw() {
          
           }
         }
+        
+        //RESISTOR SECTION OVER
+        //NOW WE CAN DO Batteries
+        
+        for(int i = 0; i < sources.size(); i++){
+        //check the resistors
+        //System.out.println(components.get(i).resistance);
+        int[] hitbox = sources.get(i).hitBox();
+        if(overRect(hitbox[0], hitbox[1], hitbox[2], hitbox[3])){
+          
+          String ans = sources.get(i).deleteCheck();
+          
+         //System.out.println(ans + "1");
+          if(ans.equals("")){
+            //THE TERMINALS JUDE
+            System.out.println("work");
+            sources.get(i).a.terminals.remove(sources.get(i));
+           
+            sources.get(i).b.terminals.remove(sources.get(i));
+            
+            sources.remove(i); 
+            i--;
+            //keep the junctions there
+          }
+          
+          //^^that delete works
+          
+          if(ans.equals("ab")){
+            for(int j = 0; j < nodes.size(); j++){
+           //ok we need to do some searching for the junctions and remove them)
+           
+            if(nodes.get(j).contains(sources.get(i).a)){
+              System.out.println("branch");
+              nodes.get(j).remove(sources.get(i).a);
+              junctions.remove(sources.get(i).a);
+              
+            }
+            if(nodes.get(j).contains(sources.get(i).b)){
+              nodes.get(j).remove(sources.get(i).b);
+              junctions.remove(sources.get(i).b);
+            }
+            }
+            
+            for(int j = 0; j < nodes.size(); j++){
+              if(nodes.get(j).size() == 0){
+                nodes.remove(j);
+                j--;
+              }
+            }
+            
+            
+            sources.remove(i); 
+            i--;
+            
+            
+           }
+           
+           
+           
+           
+           if(ans.equals("a")){
+            for(int j = 0; j < nodes.size(); j++){
+           //ok we need to do some searching for the junctions and remove them)
+           
+            if(nodes.get(j).contains(sources.get(i).a)){
+              System.out.println("branch");
+              nodes.get(j).remove(sources.get(i).a);
+              junctions.remove(sources.get(i).a);
+              
+            }
+            
+            
+            if(nodes.get(j).contains(sources.get(i).b)){
+              sources.get(i).b.terminals.remove(sources.get(i));
+              //removing this from the b terminal so that it doesnt display anymore
+            }
+           
+            }
+            
+            for(int j = 0; j < nodes.size(); j++){
+              if(nodes.get(j).size() == 0){
+                nodes.remove(j);
+                j--;
+              }
+            }
+            
+            
+            sources.remove(i); 
+            i--;
+            
+            
+           }
+           
+           
+           
+           
+           if(ans.equals("b")){
+            for(int j = 0; j < nodes.size(); j++){
+           //ok we need to do some searching for the junctions and remove them)
+           
+            if(nodes.get(j).contains(sources.get(i).b)){
+              System.out.println("branch");
+              nodes.get(j).remove(sources.get(i).b);
+              junctions.remove(sources.get(i).b);
+              
+            }
+            
+            
+            if(nodes.get(j).contains(sources.get(i).a)){
+              sources.get(i).a.terminals.remove(sources.get(i));
+              //removing this from the b terminal so that it doesnt display anymore
+            }
+           
+            }
+            
+            for(int j = 0; j < nodes.size(); j++){
+              if(nodes.get(j).size() == 0){
+                nodes.remove(j);
+                j--;
+              }
+            }
+            
+            
+            sources.remove(i); 
+            i--;
+            
+            
+           }
+           
+           
+           
+         
+          }
+        }
+        
+        
+        
     }
         
         
