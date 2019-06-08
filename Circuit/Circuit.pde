@@ -271,7 +271,7 @@ void draw() {
       
      
       float val = 0;
-      while(val <= 1){
+      while(val <= 0){
       String value = showInputDialog("How many ohms of resistance would you like? ");
       try{
       val = Float.parseFloat(value);
@@ -340,7 +340,7 @@ void draw() {
       //System.out.println(x);
       //System.out.println(y);
       float val = 0;
-      while(val <= 1){
+      while(val <= 0){
       String value = showInputDialog("How many volts would you like? ");
       try{
       val = Float.parseFloat(value);
