@@ -651,6 +651,42 @@ void draw() {
            
            
            
+           
+           if(ans.equals("b")){
+            for(int j = 0; j < nodes.size(); j++){
+           //ok we need to do some searching for the junctions and remove them)
+           
+            if(nodes.get(j).contains(components.get(i).b)){
+              System.out.println("branch");
+              nodes.get(j).remove(components.get(i).b);
+              junctions.remove(components.get(i).b);
+              
+            }
+            
+            
+            if(nodes.get(j).contains(components.get(i).a)){
+              components.get(i).a.terminals.remove(components.get(i));
+              //removing this from the b terminal so that it doesnt display anymore
+            }
+           
+            }
+            
+            for(int j = 0; j < nodes.size(); j++){
+              if(nodes.get(j).size() == 0){
+                nodes.remove(j);
+                j--;
+              }
+            }
+            
+            
+            components.remove(i); 
+            i--;
+            
+            
+           }
+           
+           
+           
          
           }
         }
