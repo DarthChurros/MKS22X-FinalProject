@@ -830,7 +830,137 @@ void draw() {
         
         //Wire time
         
-        
+        for(int i = 0; i < wires.size(); i++){
+        //check the resistors
+        //System.out.println(components.get(i).resistance);
+        int[] hitbox = wires.get(i).hitBox();
+        if(overRect(hitbox[0], hitbox[1], hitbox[2], hitbox[3])){
+          
+          String ans = wires.get(i).deleteCheck();
+          
+         //System.out.println(ans + "1");
+          if(ans.equals("")){
+            //THE TERMINALS JUDE
+            System.out.println("work");
+            wires.get(i).a.terminals.remove(wires.get(i));
+           
+            wires.get(i).b.terminals.remove(wires.get(i));
+            
+            wires.remove(i); 
+            i--;
+            //keep the junctions there
+          }
+          
+          //^^that delete works
+          
+          if(ans.equals("ab")){
+            for(int j = 0; j < nodes.size(); j++){
+           //ok we need to do some searching for the junctions and remove them)
+           
+            if(nodes.get(j).contains(wires.get(i).a)){
+              System.out.println("branch");
+              nodes.get(j).remove(wires.get(i).a);
+              junctions.remove(wires.get(i).a);
+              
+            }
+            if(nodes.get(j).contains(wires.get(i).b)){
+              nodes.get(j).remove(wires.get(i).b);
+              junctions.remove(wires.get(i).b);
+            }
+            }
+            
+            for(int j = 0; j < nodes.size(); j++){
+              if(nodes.get(j).size() == 0){
+                nodes.remove(j);
+                j--;
+              }
+            }
+            
+            
+            wires.remove(i); 
+            i--;
+            
+            
+           }
+           
+           
+           
+           
+           if(ans.equals("a")){
+            for(int j = 0; j < nodes.size(); j++){
+           //ok we need to do some searching for the junctions and remove them)
+           
+            if(nodes.get(j).contains(wires.get(i).a)){
+              System.out.println("branch");
+              nodes.get(j).remove(wires.get(i).a);
+              junctions.remove(wires.get(i).a);
+              
+            }
+            
+            
+            if(nodes.get(j).contains(wires.get(i).b)){
+              wires.get(i).b.terminals.remove(wires.get(i));
+              //removing this from the b terminal so that it doesnt display anymore
+            }
+           
+            }
+            
+            for(int j = 0; j < nodes.size(); j++){
+              if(nodes.get(j).size() == 0){
+                nodes.remove(j);
+                j--;
+              }
+            }
+            
+            
+            wires.remove(i); 
+            i--;
+            
+            
+           }
+           
+           
+           
+           
+           if(ans.equals("b")){
+            for(int j = 0; j < nodes.size(); j++){
+           //ok we need to do some searching for the junctions and remove them)
+           
+            if(nodes.get(j).contains(wires.get(i).b)){
+              System.out.println("branch");
+              nodes.get(j).remove(wires.get(i).b);
+              junctions.remove(wires.get(i).b);
+              
+            }
+            
+            
+            if(nodes.get(j).contains(wires.get(i).a)){
+              wires.get(i).a.terminals.remove(wires.get(i));
+              //removing this from the b terminal so that it doesnt display anymore
+            }
+           
+            }
+            
+            for(int j = 0; j < nodes.size(); j++){
+              if(nodes.get(j).size() == 0){
+                nodes.remove(j);
+                j--;
+              }
+            }
+            
+            
+            wires.remove(i); 
+            i--;
+            
+            
+           }
+           
+           
+           
+         
+          }
+        }
+        //DELETE DONE vv
         
     }
         
