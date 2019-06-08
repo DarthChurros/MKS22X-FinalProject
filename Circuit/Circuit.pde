@@ -176,6 +176,7 @@ ArrayList<junction> junctions = new ArrayList<junction>();
 //above well use these arraylists for only one purpose - to check for duplicates
 ArrayList<Resistor> components = new ArrayList<Resistor>();
 ArrayList<VoltSource> sources = new ArrayList<VoltSource>();
+ArrayList<Wire> wires = new ArrayList<Wire>();
 ArrayList<ArrayList<junction>> nodes = new ArrayList<ArrayList<junction>>();
 //this has to be an element otherwise we wont be able to add wires
 
@@ -500,6 +501,7 @@ void draw() {
       if (rot) w.rotate();
       junctions.add(w.a);
       junctions.add(w.b);
+      wires.add(w);
       w.place();
 
       boolean makeNodeA = true;
