@@ -70,6 +70,11 @@ void updateVoltages() {
   System.out.println(Arrays.deepToString(matrix) + "\n|\n|\n|\nV");
   toIdentity(matrix);
   System.out.println(Arrays.deepToString(matrix) + "\n___________");
+  for (int i = 0; i < nodes.size(); i++) {
+    for (Junction j : nodes.get(i)) {
+      j.relativeVoltage = matrix[i][nodes.size()];
+    }
+  }
 }
 
 void toIdentity(float[][] matrix) {
