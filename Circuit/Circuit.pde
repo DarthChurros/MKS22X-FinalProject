@@ -121,6 +121,18 @@ boolean matrixValid(float[][] matrix) {
 }
 
 
+boolean overCircle(int x, int y, int diameter) {
+  float disX = x - mouseX;
+  float disY = y - mouseY;
+  if (sqrt(sq(disX) + sq(disY)) < diameter ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+
 String ans = "";
 
 //need a within radius functions
@@ -142,9 +154,44 @@ void draw() {
    
   if(directions){
     background(0, 191, 255);
-    fill(255);
+    
+    fill(50);
     textSize(32);
     text("Circuit Simulator Directions", 260, 100);
+    
+    
+    fill(75);
+    textSize(32);
+    text("Resistors: Press the 'a' key \nBatteries: Press the 'v' key \nWires: Press the 'w' key  ", 100,200);
+    
+    fill(75);
+    textSize(32);
+    text("You may only place components on the grid", 100, 350);
+    
+    fill(75);
+    textSize(24);
+    text("Check the validity of your circuit by hitting 'Test'", 100,450);
+    
+    fill(75);
+    textSize(24);
+    text("Hover over a white circle to solve the circuit at that point", 100,500);
+    
+    stroke(0);
+    strokeWeight(4);
+    fill(255);
+    rect(100,600,300,75);
+    
+    fill(75);
+    textSize(24);
+    text("New Circuit", 100,600,300,75);
+    
+    
+    if(overRect(100,600,300,75)){
+      if(mousePressed){
+        directions = false;
+      }
+    }
+    
     
     
   } else {
@@ -168,6 +215,15 @@ void draw() {
   textSize(32);
   text(run, 825, 405, 100, 100);
   textSize(12);
+  
+  fill(255);
+  stroke(0, 0, 0);
+  strokeWeight(4);
+  rect(750, 290, 200, 50);
+  
+  
+  
+ 
   
    //NOW WE HAVE ALL THE junctions IN A LIST
   //WE CAN MAKE A RUN BUTTON FOR WHEN THE CIRCUIT IS DONE, AND THE junctions WILL BE IN ORDER
@@ -281,6 +337,20 @@ void draw() {
       }
     }
   }
+  
+  
+  for(int i = 0; i < nodes.size(); i++){
+    for(int j = 0; j< nodes.get(i).size(); j++){
+      if(overCircle(nodes.get(i).get(j).x, nodes.get(i).get(j).y, 15)){
+        nodes.get(i).get(j).showFacts = true;
+      } else {
+        nodes.get(i).get(j).showFacts = false;
+      }
+    }
+  }
+  
+  
+  
 
 
   

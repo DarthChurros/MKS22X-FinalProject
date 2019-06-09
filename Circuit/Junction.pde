@@ -8,7 +8,8 @@ class Junction {
   int y;
   float relativeVoltage;
   float relativeCurrent;
-  boolean display = false;
+  public boolean showFacts = false;
+  
 
   public Junction(int c, int d) {
     terminals = new ArrayList<Component>();
@@ -141,8 +142,12 @@ class Junction {
     strokeWeight(1);
     fill(255);
     ellipse(x, y, 15, 15);
-    
-   
+    fill(0);
+    if(showFacts){
+    textSize(12);
+    text("The voltage at this node is: " + relativeVoltage + "\n The current at this node is: " + relativeCurrent, 750,300);
+    }
+  // rect(750, 290, 200, 50)
     
     
    // String values = "Volts: " + relativeVoltage + "\nCurrent: " + relativeCurrent;
