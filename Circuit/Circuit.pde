@@ -215,8 +215,10 @@ void draw() {
   stroke(0, 0, 0);
   strokeWeight(4);
   rect(750, 690, 200, 50);
-  fill(50);
-  text("reset", 770, 720, 100, 100);
+  fill(10);
+  textSize(32);
+  text("Reset", 808, 699, 6000, 60);
+  textSize(12);
   
   if(overRect(750, 690, 200, 50)){
     if(mousePressed){
