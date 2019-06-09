@@ -226,7 +226,7 @@ void draw() {
       sources = new ArrayList<VoltSource>();
       wires = new ArrayList<Wire>();
       nodes = new ArrayList<ArrayList<Junction>>();
-      System.out.println(nodes.size());
+      //System.out.println(nodes.size());
     }
   }
    
@@ -539,6 +539,14 @@ void draw() {
     //THIS IS THE DELETE SECTION
     //STARTS WITH RESISTORS
     if(mousePressed){
+      if(nodes.size() <= 2 && components.size() + wires.size() + sources.size() <= 1){
+      junctions = new ArrayList<Junction>();
+//above well use these arraylists for only one purpose - to check for duplicates
+      components = new ArrayList<Resistor>();
+      sources = new ArrayList<VoltSource>();
+      wires = new ArrayList<Wire>();
+      nodes = new ArrayList<ArrayList<Junction>>();
+    } else {
       mousePressed = false;
       //ok so basically now we need to see if this thing is over some sort of component
       for(int i = 0; i < components.size(); i++){
@@ -941,6 +949,7 @@ void draw() {
         }
         //DELETE DONE vv
         updateMatrix = true;
+    }
     }
         
         
