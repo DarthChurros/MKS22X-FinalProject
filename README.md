@@ -69,3 +69,6 @@ A Processing-based circuit simulator
 
 ###### Thursday 6/6:
 **Tejas:** Spent basically the whole day fixing Jude's old code, working on connections between junctions and accounting for nodes with each element placement. Now that that's been resolved (as far as I can tell), I plan to finally fix the relations() method tomorrow so that we have a valid matrix to use. This is going to be the hardest part of the project, I think, so fingers crossed. Hallelujah.  
+
+###### Saturday 6/8:
+**Tejas:** Updated the class structure; changes in how we do our math made a couple of things redundant. Messed with the GUI updates a bit, tweaked a few things, then worked on simplifying the generated matrix to reduced row-echelon form. The matrix generation was still faulty (compared components to a single junction rather than a node) but that's been resolved. Left off by updating junction voltages as per calculations - hopefully we'll be able to use those later.
