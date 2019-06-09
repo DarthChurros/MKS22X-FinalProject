@@ -139,7 +139,7 @@ ArrayList<ArrayList<Junction>> nodes = new ArrayList<ArrayList<Junction>>();
 String totalResistance = "";
 
 void draw() {
-  
+   
   background(0, 191, 255);
   //i have this in the draw loop so it constantly merges all the annoying
   for(int i = 0; i < junctions.size(); i++){
@@ -148,7 +148,7 @@ void draw() {
     }
   }
   
-  String run = "RUN";
+  String run = "Test";
   fill(255);
   stroke(0, 0, 0);
   strokeWeight(4);
@@ -187,7 +187,7 @@ void draw() {
         junctions.get(groundJunct + 1).relativeVoltage = junctions.get(groundJunct).terminals.get(0).voltage();
         
         
-        
+        ans = "good to go";
         //oh, its also important what we want to output in our results box
         //basically, we can loop through the list of junctions and give each Junction a number
         //then, in the box, we can output each Junction, their voltage relative to ground, and their current value
@@ -208,6 +208,29 @@ void draw() {
   rect(750, 490, 200, 50);
   fill(50);
   text(ans, 820, 500, 100, 100);
+   
+   
+   
+  fill(255);
+  stroke(0, 0, 0);
+  strokeWeight(4);
+  rect(750, 690, 200, 50);
+  fill(50);
+  text("reset", 770, 720, 100, 100);
+  
+  if(overRect(750, 690, 200, 50)){
+    if(mousePressed){
+      junctions = new ArrayList<Junction>();
+//above well use these arraylists for only one purpose - to check for duplicates
+      components = new ArrayList<Resistor>();
+      sources = new ArrayList<VoltSource>();
+      wires = new ArrayList<Wire>();
+      nodes = new ArrayList<ArrayList<Junction>>();
+      System.out.println(nodes.size());
+    }
+  }
+   
+   
    
  
   //System.out.println(junctions.size());
@@ -917,7 +940,7 @@ void draw() {
           }
         }
         //DELETE DONE vv
-        
+        updateMatrix = true;
     }
         
         
@@ -958,7 +981,9 @@ void draw() {
 
 
 
-
+//important bugs -->
+//cant delete every component
+//when u delete wires still hold voltage
 
 //background(255);
 //rect(mouseX,mouseY,10,10);

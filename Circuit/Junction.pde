@@ -137,7 +137,12 @@ class Junction {
     stroke(0);
     strokeWeight(1);
     fill(255);
-    ellipse(x, y, 10, 10);
+    ellipse(x, y, 15, 15);
+    String values = "Volts: " + relativeVoltage + "\nCurrent: " + relativeCurrent;
+    fill(250);
+    text(values, x,y - 10,100,100);
+    
+    
   }
   
   String toString() {
