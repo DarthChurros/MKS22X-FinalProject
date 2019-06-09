@@ -8,6 +8,7 @@ class Junction {
   int y;
   float relativeVoltage;
   float relativeCurrent;
+  boolean display = false;
 
   public Junction(int c, int d) {
     terminals = new ArrayList<Component>();
@@ -131,6 +132,8 @@ class Junction {
     }
     return null;
   }
+  
+
 
 
   public void display() {
@@ -138,9 +141,13 @@ class Junction {
     strokeWeight(1);
     fill(255);
     ellipse(x, y, 15, 15);
-    String values = "Volts: " + relativeVoltage + "\nCurrent: " + relativeCurrent;
-    fill(250);
-    text(values, x,y - 10,100,100);
+    
+   
+    
+    
+   // String values = "Volts: " + relativeVoltage + "\nCurrent: " + relativeCurrent;
+    //fill(250);
+    //text(values, x,y - 10,100,100);
     
     
   }

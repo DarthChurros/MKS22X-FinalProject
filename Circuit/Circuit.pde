@@ -3,7 +3,7 @@ import java.util.Arrays;
 import static javax.swing.JOptionPane.*;
 
 
-
+boolean directions = true;
 
 void setup() {
   size(1000, 800);
@@ -140,6 +140,14 @@ String totalResistance = "";
 
 void draw() {
    
+  if(directions){
+    background(0, 191, 255);
+    fill(255);
+    textSize(32);
+    text("Circuit Simulator Directions", 260, 100);
+    
+    
+  } else {
   background(0, 191, 255);
   //i have this in the draw loop so it constantly merges all the annoying
   for(int i = 0; i < junctions.size(); i++){
@@ -148,13 +156,18 @@ void draw() {
     }
   }
   
+  
+  
+  
   String run = "Test";
   fill(255);
   stroke(0, 0, 0);
   strokeWeight(4);
   rect(750, 390, 200, 50);
   fill(50);
+  textSize(32);
   text(run, 825, 405, 100, 100);
+  textSize(12);
   
    //NOW WE HAVE ALL THE junctions IN A LIST
   //WE CAN MAKE A RUN BUTTON FOR WHEN THE CIRCUIT IS DONE, AND THE junctions WILL BE IN ORDER
@@ -270,33 +283,6 @@ void draw() {
   }
 
 
-  //we want to make little buttons on the bottom so that the user can choose which component they want to place in
-  String s = "Press for a new Resistor!";
-  fill(255);
-  stroke(0, 0, 0);
-  strokeWeight(4);
-  rect(750, 90, 200, 50);
-  fill(50);
-  text(s, 770, 100, 100, 100);
-
-  //add
-  //add
-
-  String g = "Press for a new Cell!";
-  fill(255);
-  stroke(0, 0, 0);
-  strokeWeight(4);
-  rect(750, 190, 200, 50);
-  fill(50);
-  text(g, 770, 190, 100, 100);
-
-  String h = "Press for a new Wire!";
-  fill(255);
-  stroke(0, 0, 0);
-  strokeWeight(4);
-  rect(750, 290, 200, 50);
-  fill(50);
-  text(h, 770, 290, 100, 100);
   
   text("Number of nodes: "+nodes.size() +" "+ pressed + " " + mousePressed, 770, 600, 100, 100);
 
@@ -305,21 +291,7 @@ void draw() {
   boolean updateMatrix = false;
 
 
-  if (overRect(750, 90, 200, 50)) {
-    if (mousePressed) {
-      counter = 0;
-      // System.out.println(counter);
-    }
-  } else if (overRect(750, 190, 200, 50)) {
-    if (mousePressed) {
-      counter = 2;
-      //System.out.println("Pressed2");
-    }
-  } else if (overRect(750, 290, 200, 50)) {
-    if (mousePressed) {
-      counter = 4;
-    }
-  } else if (counter == 0 || pressed == 'a' || pressed == 'A') {
+  if (pressed == 'a' || pressed == 'A') {
 
     //placing resistors
 
@@ -397,7 +369,7 @@ void draw() {
       
       updateMatrix = true;
     }
-  } else if (counter == 2 || pressed == 'v' || pressed == 'V') {
+  } else if (pressed == 'v' || pressed == 'V') {
     //placing cells
 
     holdera = new VoltSource(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY), 10);
@@ -462,7 +434,7 @@ void draw() {
       }
       updateMatrix = true;
     }
-  } else if (counter == 4 || pressed == 'w' || pressed == 'W') {
+  } else if (pressed == 'w' || pressed == 'W') {
     //placing wires
     
     holdera = new Wire(int(mouseX), int(mouseY), int(mouseX) + 40, int(mouseY));
@@ -973,6 +945,7 @@ void draw() {
     updateVoltages();
   }
  
+}
 }
 //resistor
 
