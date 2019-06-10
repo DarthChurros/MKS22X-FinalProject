@@ -143,7 +143,7 @@ class Junction {
     fill(0);
     if(showFacts){
     textSize(12);
-    text("The voltage at this node is: " + relativeVoltage + "\n The current at this node is: " + relativeCurrent, 750,300);
+    text("The voltage at this node is: " + relativeVoltage, 750, 300);
     }
   // rect(750, 290, 200, 50)
     

@@ -54,6 +54,8 @@ class Wire extends Component {
 
 
   public void display() {
+    super.display();
+    
     if (!rot) {
       
       

@@ -381,6 +381,15 @@ void draw() {
     }
   }
   
+  for (Component c : components) {
+    int[] h = c.hitBox();
+    if (overRect(h[0], h[1], h[2], h[3])) {
+      c.showStats = true;
+    } else {
+      c.showStats = false;
+    }
+  }
+  
   
   
 

@@ -65,6 +65,7 @@ public class VoltSource extends Component {
   public void display() {
     //OK, now this is the hard part, we first need to figure out but im going to do a green line for now
     //
+    super.display();
     
     if(!rot){
     strokeWeight(4);
