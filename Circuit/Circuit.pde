@@ -573,6 +573,7 @@ void draw() {
         nodeB.clear();
         System.out.println(nodes.size());
       }
+      
       updateMatrix = true;
       w.display();
     }
@@ -1014,12 +1015,27 @@ void draw() {
       }
     }
   }
+  
+  //setting the groudn
+  float groundVoltage = 0;
+  for(int i = 0; i < nodes.size(); i++){
+    for(int j = 0; j < nodes.get(i).size(); j++){
+      if(overCircle(nodes.get(i).get(j).x, nodes.get(i).get(j).y, 15) && mousePressed){
+        groundVoltage = nodes.get(i).get(j).relativeVoltage;
+          System.out.println("gi" + groundVoltage);
+      }
+    }
+  }
+  
+  //System.out.println("g" + groundVoltage);
     
+  
   
   
   if (updateMatrix) {
     for (int i = 0; i < nodes.size(); i++) {
       if (nodes.get(i).size() < 1) {
+        
         nodes.remove(i);
         i--;
       }
