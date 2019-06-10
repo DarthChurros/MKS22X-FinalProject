@@ -55,7 +55,7 @@ class Wire extends Component {
 
   public void display() {
     if (toDisplay == this) {
-      text("Voltage at this point: " + a.relativeVoltage, 760, 305);
+      text("Voltage at this point: " + a.relativeVoltage + " V", 760, 305);
     }
     
     if (!rot) {
