@@ -7,6 +7,7 @@ abstract class Component {
   int outx;
   int outy;
   int size;
+  float current;
   Junction a;
   Junction b;
   boolean rot;
@@ -65,8 +66,11 @@ abstract class Component {
 
   abstract void shift(int x1, int y1, int x2, int y2);
 
-  abstract public float current();
 
-
-  abstract public float voltage();
+  float voltage(Junction ref) {
+    if (ref != a && ref != b) throw new IllegalArgumentException("given junction must be a terminal");
+    float v = abs(a.relativeVoltage - b.relativeVoltage);
+    if (ref == a) v *= -1;
+    return v;
+  }
 }

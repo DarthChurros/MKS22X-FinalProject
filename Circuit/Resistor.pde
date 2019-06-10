@@ -146,16 +146,4 @@ public class Resistor extends Component {
       
     }
   }
-
-
-
-
-  public float voltage() {
-    if (a == null || b == null) return 0;
-    return abs(a.relativeVoltage - b.relativeVoltage);
-  }
-
-  public float current() {
-    return voltage() / resistance;
-  }
 }

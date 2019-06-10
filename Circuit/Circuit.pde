@@ -71,15 +71,44 @@ void updateVoltages() {
   for (int i = 1; i < nodes.size(); i++) {
     matrix[i] = nodes.get(i).get(0).relations();
   }
-  System.out.println(Arrays.deepToString(matrix) + "\n|\n|\n|\nV");
+  //System.out.println(Arrays.deepToString(matrix) + "\n|\n|\n|\nV");
   toIdentity(matrix);
-  System.out.println(Arrays.deepToString(matrix) + "\n___________");
+  //System.out.println(Arrays.deepToString(matrix) + "\n___________");  
   for (int i = 0; i < nodes.size(); i++) {
     for (Junction j : nodes.get(i)) {
       j.relativeVoltage = matrix[i][nodes.size()];
     }
   }
+}
+
+void updateCurrents() {
+  float[] currentsIn = new float[nodes.size()];
   
+  for (int i = 0; i < nodes.size(); i++) {
+    ArrayList<Component> adjacent = nodes.get(i).get(0).adjacent();
+    for (Component c : adjacent) {
+      if (c instanceof Resistor) {
+        Junction toAdd = c.a;
+        if (nodes.get(i).contains(c.b)) toAdd = c.b;
+        c.current = c.voltage(toAdd)/((Resistor)c).resistance;
+        currentsIn[i] += c.current;
+        //System.out.println("Setting current to "+c.current);
+        c.current = abs(c.current);
+      }
+    }
+  }
+  
+  //System.out.println(Arrays.toString(currentsIn));
+  
+  for (int i = 0; i < nodes.size(); i++) {
+    for (Junction j : nodes.get(i)) j.relativeCurrent = currentsIn[i];
+    ArrayList<Component> adjacent = nodes.get(i).get(0).adjacent();
+    for (Component c : adjacent) {
+      if (c instanceof VoltSource) {
+        c.current = -1 * currentsIn[i];
+      }
+    }
+  }
 }
 
 void toIdentity(float[][] matrix) {
@@ -92,7 +121,7 @@ void toIdentity(float[][] matrix) {
         matrixAdd(matrix, j, i);
       }
     }
-    System.out.println(Arrays.deepToString(matrix) + "\n|\n|\n|\nV");
+    //System.out.println(Arrays.deepToString(matrix) + "\n|\n|\n|\nV");
   }
   
   for (int i = 0; i < matrix.length; i++) {
@@ -1061,6 +1090,7 @@ void draw() {
     
     try{
     updateVoltages();
+    updateCurrents();
     } catch(ArrayIndexOutOfBoundsException e){
     }
     

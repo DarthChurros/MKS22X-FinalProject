@@ -28,8 +28,6 @@ class Junction {
     return false;
   }
 
-
-
   public void merge(Junction b) {
 
     for (int i = 0; i < b.terminals.size(); i++) {
