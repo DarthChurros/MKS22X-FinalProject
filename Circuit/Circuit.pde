@@ -12,6 +12,7 @@ void setup() {
 
 
 public static int rounder(float x) {
+  if(x > 745) x = 685;
   int y = int(x - 15);
   if (y % 40 < 20) { 
     return y/40 * 40 + 15;
@@ -225,7 +226,7 @@ void draw() {
   rect(750, 390, 200, 50);
   fill(50);
   textSize(32);
-  text(run, 825, 405, 100, 100);
+  text(run, 805, 398, 100, 100);
   textSize(12);
   
   fill(255);
