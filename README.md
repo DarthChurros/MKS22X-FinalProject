@@ -11,7 +11,7 @@ This is a simple Processing-based circuit simulator. When run, directions will a
 * R - Rotate component in hand
 * Backspace - Enter delete mode (delete any components clicked on)
 
-Our project calculates voltages at each point in the circuit, as well as the current through any particular component. By clicking the "TEST" button, a user can also see if their circuit is valid.  
+Our project calculates voltages at each point in the circuit, as well as the current through any particular component. 
 
 ## Development Log
 
@@ -78,12 +78,20 @@ Our project calculates voltages at each point in the circuit, as well as the cur
 **Tejas:** Worked with Jude in the morning to figure out junction merging, which wasn't working - fixed in the case of Wires, will do the other elements soon. We still have a bug with placement of wires in certain orientations, so hopefully that gets resolved by tomorrow at the latest. To that point: last night's code broke the Wire's display, and that's mostly been dealt with now.  
 
 ###### Thursday 6/6:
+**Jude:** Tried to implement reset button, but it didnt work, I also started to work on the delete function which developed some unusual behavior. I continued to try to improve the GUI and in top of that I treid to fix some issues with resistors being placed improperly.
+
 **Tejas:** Spent basically the whole day fixing Jude's old code, working on connections between junctions and accounting for nodes with each element placement. Now that that's been resolved (as far as I can tell), I plan to finally fix the relations() method tomorrow so that we have a valid matrix to use. This is going to be the hardest part of the project, I think, so fingers crossed. Hallelujah.  
 
+
+
 ###### Saturday 6/8:
+**Jude:** Added the start screen and added displays for each junction so that the user can see what the values are going to be at each point once the math gets fixed completely for each component. In addition, I fully implemented delete now, and it doesn't appear that there are any bugs with it. The reset button also seems to work.
+
 **Tejas:** Updated the class structure; changes in how we do our math made a couple of things redundant. Messed with the GUI updates a bit, tweaked a few things, then worked on simplifying the generated matrix to reduced row-echelon form. The matrix generation was still faulty (compared components to a single junction rather than a node) but that's been resolved. Left off by updating junction voltages as per calculations - hopefully we'll be able to use those later.
 
 ###### Sunday 6/9:
+**Jude:** Today I had to do a lot of bug squashing, once the calculatiosn came out it had turned out that I had made. For starters I had to fix the value displays as well as cleaned up all the buttons on the main screen that were now useless because of hotkeys the user could use. In addition delete didn't quite work with the node structure but it had to be fixed, so a new simpled delete was made (mainly by Tejas) and updateMatrix was set equal to true. I also implemented a try catch block at the end of the code.
+
 **Tejas:** Started (and hopefully ended) current calculations for each component. Worked on some value update glitches, messed with the value displays (I think I'll just leave that sort of thing to Jude. I'm not good at it). This project was a lot harder than expected, but fingers crossed, by the end of the night we'll have something presentable.  
 UPDATE - found a few major bugs, and killed those. Here they are:  
 * Deleting wires didn't update circuit values
