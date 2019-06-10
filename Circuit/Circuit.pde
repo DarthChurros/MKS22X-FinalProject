@@ -555,15 +555,16 @@ void draw() {
           }
         }
       } else {
-        //System.out.println("Merging both junctions...");
+        System.out.println("Merging both junctions...");
         ArrayList<Junction> nodeA = new ArrayList<Junction>();
         ArrayList<Junction> nodeB = new ArrayList<Junction>();
         for (ArrayList<Junction> node : nodes) {
-          if (node.contains(w.a)) nodeA = node;
-          if (node.contains(w.b)) nodeB = node;
+          if (nodeA.size() == 0) nodeA = node;
+          else nodeB = node;
         }
         //System.out.println(nodeA.size()+"\n"+nodeB.size()+"\n___");
         nodeA.addAll(nodeB);
+        nodeB.clear();
         //System.out.println(nodeA.size()+"\n"+nodeB.size()+"\n___");
         //System.out.println(nodes.size());
       }
