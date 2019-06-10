@@ -582,11 +582,12 @@ void draw() {
     if(mousePressed){
       if(nodes.size() <= 2 && components.size() + wires.size() + sources.size() <= 1){
       junctions = new ArrayList<Junction>();
-//above well use these arraylists for only one purpose - to check for duplicates
+    //above well use these arraylists for only one purpose - to check for duplicates
       components = new ArrayList<Resistor>();
       sources = new ArrayList<VoltSource>();
       wires = new ArrayList<Wire>();
       nodes = new ArrayList<ArrayList<Junction>>();
+      updateMatrix = false;
       
     } else {
       mousePressed = false;
@@ -1026,8 +1027,10 @@ void draw() {
     //System.out.println(nodes);
     //System.out.println("______");
     
-    
+    try{
     updateVoltages();
+    } catch(ArrayIndexOutOfBoundsException e){
+    }
     
     
     
