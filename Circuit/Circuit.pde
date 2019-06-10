@@ -559,8 +559,10 @@ void draw() {
         ArrayList<Junction> nodeA = new ArrayList<Junction>();
         ArrayList<Junction> nodeB = new ArrayList<Junction>();
         for (ArrayList<Junction> node : nodes) {
-          if (nodeA.size() == 0) nodeA = node;
-          else nodeB = node;
+          if (node.contains(w.a)) {
+            if (nodeA.size() == 0) nodeA = node;
+            else nodeB = node;
+          }
         }
         //System.out.println(nodeA.size()+"\n"+nodeB.size()+"\n___");
         nodeA.addAll(nodeB);
