@@ -247,16 +247,7 @@ void draw() {
   
   
   
-  
-  String run = "Test";
-  fill(255);
-  stroke(0, 0, 0);
-  strokeWeight(4);
-  rect(750, 390, 200, 50);
-  fill(50);
-  textSize(32);
-  text(run, 805, 398, 100, 100);
-  textSize(12);
+ 
   
   fill(255);
   stroke(0, 0, 0);
@@ -267,58 +258,13 @@ void draw() {
   
  
   
-   //NOW WE HAVE ALL THE junctions IN A LIST
-  //WE CAN MAKE A RUN BUTTON FOR WHEN THE CIRCUIT IS DONE, AND THE junctions WILL BE IN ORDER
-  
-  if(overRect(750,390,200,50)){
-    if(mousePressed){
-      mousePressed = false;
-      //this is the run function
-      //lets solve the circuit
-      //first step to nodal analysis --> Pick a ground
-      //lets make that the first Junction thats connected to a volageSource
-      try{
-        int groundJunct = 0;
-        boolean hasBattery = false;
-        boolean hasResistor = false;
-        boolean connected = true;
-        for(int i = 0; i < junctions.size(); i++){
-         if(junctions.get(i).voltsOut()){
-           hasBattery = true;
-           groundJunct = i;
-           break;
-         }
-         
-         if(Float.isNaN(junctions.get(i).relativeVoltage)) throw new NullPointerException();
-         
-         
-        }
-        if(!hasBattery){
-          throw new NullPointerException();
-        }
-        
-        
-        ans = "good to go";
-        //oh, its also important what we want to output in our results box
-        //basically, we can loop through the list of junctions and give each Junction a number
-        //then, in the box, we can output each Junction, their voltage relative to ground, and their current value
-      } catch (Exception e){
-        ans = "Enter a valid circuit";
-        
-      }
-    }
-  }
+   
   
   
   
   
   
-  fill(255);
-  stroke(0, 0, 0);
-  strokeWeight(4);
-  rect(750, 490, 200, 50);
-  fill(50);
-  text(ans, 820, 500, 100, 100);
+  ;
    
    
    
