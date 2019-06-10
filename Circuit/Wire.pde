@@ -58,26 +58,15 @@ class Wire extends Component {
       text("Voltage at this point: " + a.relativeVoltage + " V", 760, 305);
     }
     
-    if (!rot) {
       
       
       stroke(255);
       strokeWeight(4);
-      line(inx, iny, inx + 40, iny);
+      line(inx, iny, outx, outy);
 
 
-      a.display();
-      b.display();
-      
-      
-    } else {
-      stroke(255, 255, 255);
-      strokeWeight(4);
-      line(inx, iny, inx, iny + 40);
-
-      a.display();
-      b.display();
-    }
+    a.display();
+    b.display();
   }
 
 

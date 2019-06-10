@@ -21,11 +21,11 @@ public static int rounder(float x) {
   }
 }
 
-boolean rot = false;
+int rot = 0;
 char pressed;
 void keyPressed() {
   if (key == 'r' || key == 'R') {
-    rot = !rot;
+    rot = (rot + 1) % 4;
   }
   if(key == 'v' || key == 'V' || key == 'a' || key == 'A' || key == 'w' || key == 'W' || key == BACKSPACE){
     pressed = key;
@@ -351,7 +351,7 @@ void draw() {
 
 
     holdera = new Resistor(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY), 10);
-    if (rot) holdera.rotate();
+    holdera.rotate(rot);
 
 
     stroke(255, 0, 0);
@@ -383,7 +383,7 @@ void draw() {
       //System.out.println(val);
       Resistor r = new Resistor(x, y, x + 80, y, val);
       //System.out.println(r.resistance);
-      if (rot) r.rotate();
+      r.rotate(rot);
       junctions.add(r.a);
       junctions.add(r.b);
       r.place();
@@ -427,7 +427,7 @@ void draw() {
     //placing cells
 
     holdera = new VoltSource(int(mouseX), int(mouseY), int(mouseX) + 80, int(mouseY), 10);
-    if (rot) holdera.rotate();
+    holdera.rotate(rot);
 
     holdera.display();
     if (mousePressed) {
@@ -451,9 +451,7 @@ void draw() {
       }
       VoltSource v = new VoltSource(x, y, x + 80, y, val);
       
-      if (rot) {
-        v.rotate();
-      }
+      v.rotate(rot);
       junctions.add(v.a);
       junctions.add(v.b);
       v.place();
@@ -492,7 +490,7 @@ void draw() {
     //placing wires
     
     holdera = new Wire(int(mouseX), int(mouseY), int(mouseX) + 40, int(mouseY));
-    if (rot) holdera.rotate();
+    holdera.rotate(rot);
     //System.out.println("null");
     holdera.display();
     if (mousePressed) {
@@ -505,7 +503,7 @@ void draw() {
       //System.out.println(x);
       //System.out.println(y);
       Wire w = new Wire(x, y, x + 40, y);
-      if (rot) w.rotate();
+      w.rotate(rot);
       junctions.add(w.a);
       junctions.add(w.b);
       wires.add(w);

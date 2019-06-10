@@ -10,17 +10,14 @@ abstract class Component {
   float current;
   Junction a;
   Junction b;
-  boolean rot;
+  int rot;
   
-  void rotate() {
-    rot = !rot;
-    if(rot){
-      outx = inx;
-      outy = iny + 40 * size;
-    } else {
-      outx = inx + 40 * size;
-      outy = iny;
-    }
+  void rotate(int r) {
+    rot = r;
+    
+    outx = inx + 40 * size * round(cos(rot*PI/2));
+    outy = iny + 40 * size * round(sin(rot*PI/2));
+
     b.x = outx;
     b.y = outy;
   }

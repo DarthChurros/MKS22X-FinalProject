@@ -63,88 +63,45 @@ public class Resistor extends Component {
   public void display() {
     //OK, now this is the hard part, we first need to figure out but im going to do a red line for now
     super.display();
-    if (!rot) {
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx, iny, inx + 15, iny);
+    stroke(255, 0, 0);
+    strokeWeight(4);
+    line(inx, iny, inx + 15*round(cos(rot*PI/2)), iny+15*round(sin(rot*PI/2)));
 
 
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx + 15, iny, inx + 20, iny+20);
+    stroke(255, 0, 0);
+    strokeWeight(4);
+    line(inx + 15*round(cos(rot*PI/2)), iny+15*round(sin(rot*PI/2)), inx + 20*round(cos(rot*PI/2))+20*round(sin(rot*PI/2)), iny+20*round(sin(rot*PI/2))+20*round(cos(rot*PI/2)));
 
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx + 20, iny + 20, inx + 30, iny-20);
+    stroke(255, 0, 0);
+    strokeWeight(4);
+    line(inx + 20*round(cos(rot*PI/2))+20*round(sin(rot*PI/2)), iny + 20*round(sin(rot*PI/2))+20*round(cos(rot*PI/2)), inx + 30*round(cos(rot*PI/2))-20*round(sin(rot*PI/2)), iny-20*round(cos(rot*PI/2))+30*round(sin(rot*PI/2)));
 
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx + 30, iny - 20, inx + 40, iny + 20);
+    stroke(255, 0, 0);
+    strokeWeight(4);
+    line(inx + 30*round(cos(rot*PI/2))-20*round(sin(rot*PI/2)), iny - 20*round(cos(rot*PI/2))+30*round(sin(rot*PI/2)), inx + 40*round(cos(rot*PI/2))+20*round(sin(rot*PI/2)), iny + 20*round(cos(rot*PI/2))+40*round(sin(rot*PI/2)));
 
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx + 40, iny + 20, inx + 50, iny - 20);
+    stroke(255, 0, 0);
+    strokeWeight(4);
+    line(inx + 40*round(cos(rot*PI/2))+20*round(sin(rot*PI/2)), iny + 20*round(cos(rot*PI/2))+40*round(sin(rot*PI/2)), inx + 50*round(cos(rot*PI/2))-20*round(sin(rot*PI/2)), iny - 20*round(cos(rot*PI/2))+50*round(sin(rot*PI/2)));
 
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx + 50, iny - 20, inx + 60, iny + 20);
+    stroke(255, 0, 0);
+    strokeWeight(4);
+    line(inx + 50*round(cos(rot*PI/2))-20*round(sin(rot*PI/2)), iny - 20*round(cos(rot*PI/2))+50*round(sin(rot*PI/2)), inx + 60*round(cos(rot*PI/2))+20*round(sin(rot*PI/2)), iny + 20*round(cos(rot*PI/2))+60*round(sin(rot*PI/2)));
 
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx + 60, iny + 20, inx + 65, iny);
+    stroke(255, 0, 0);
+    strokeWeight(4);
+    line(inx + 60*round(cos(rot*PI/2))+20*round(sin(rot*PI/2)), iny + 20*round(cos(rot*PI/2))+60*round(sin(rot*PI/2)), inx + 65*round(cos(rot*PI/2)), iny+65*round(sin(rot*PI/2)));
 
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx + 65, iny, inx + 80, iny);
+    stroke(255, 0, 0);
+    strokeWeight(4);
+    line(inx + 65*round(cos(rot*PI/2)), iny+65*round(sin(rot*PI/2)), inx + 80*round(cos(rot*PI/2)), iny+80*round(sin(rot*PI/2)));
 
-      stroke(0, 0, 0);
-      strokeWeight(1);
-      fill(255, 255, 255);
-      ellipse(inx, iny, 10, 10);
-      
-      
-      a.display();
-      b.display();
-      
-      
-    } else {
-
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx, iny, inx, iny+ 15);
-
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx, iny+15, inx + 20, iny+ 20);
-
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx+20, iny+20, inx - 20, iny+ 30);
-
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx-20, iny+30, inx + 20, iny+ 40);
-
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx+20, iny+40, inx-20, iny+ 50);
-
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx-20, iny+50, inx+20, iny+60);
-
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx+20, iny+60, inx, iny+65);
-
-      stroke(255, 0, 0);
-      strokeWeight(4);
-      line(inx, iny+65, inx, iny+80);
-      
-      a.display();
-      b.display();
-
-      
-    }
+    stroke(0, 0, 0);
+    strokeWeight(1);
+    fill(255, 255, 255);
+    ellipse(inx, iny, 10, 10);
+    
+    a.display();
+    b.display();
   }
 }

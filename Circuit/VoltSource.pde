@@ -67,55 +67,106 @@ public class VoltSource extends Component {
     //
     super.display();
     
-    if(!rot){
-    strokeWeight(4);
-    stroke(0,255,0);
-    line(inx, iny, inx + 30, iny);
-    //line to the left^^
-
-
-    strokeWeight(4);
-    stroke(0,255,0);
-    line(inx+30, iny + 20, inx + 30, iny - 20);
-    //first line (smaller)
-
-
-    strokeWeight(4);
-    stroke(0,255,0);
-    line(inx+50, iny +30 , inx +50, iny - 30);
-    //second line (bigger)
-
-
-    strokeWeight(4);
-    stroke(0,255,0);
-    line(inx+50, iny, inx + 80, iny);
-    //line to the left^^
-
-     a.display();
-     b.display();
-     
-    } else {
-
-    strokeWeight(4);
-    stroke(0,255,0);
-    line(inx, iny, inx, iny+30);
-
-    strokeWeight(4);
-    stroke(0,255,0);
-    line(inx - 20, iny + 20, inx + 20, iny+20);
-
-    strokeWeight(4);
-    stroke(0,255,0);
-    line(inx - 30, iny + 50, inx + 30, iny+50);
-
-    strokeWeight(4);
-    stroke(0,255,0);
-    line(inx, iny + 50, inx, iny+80);
-
+    switch (rot) {
+      case 0 :
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx, iny, inx + 30*round(cos(rot*PI/2)), iny+30*round(sin(rot*PI/2)));
+        //line to the left^^
+    
+    
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx+30, iny + 20, inx + 30, iny - 20);
+        //first line (smaller)
+      
+      
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx+50, iny +30 , inx +50, iny - 30);
+        //second line (bigger)
+      
+      
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx+50, iny, inx + 80, iny);
+        //line to the left^^
+        break;
+      case 1:
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx, iny, inx + 30*round(cos(rot*PI/2)), iny+30*round(sin(rot*PI/2)));
+        //line to the left^^
+    
+    
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx+20, iny + 30, inx - 20, iny + 30);
+        //first line (smaller)
+      
+      
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx+30, iny +50 , inx - 30, iny + 50);
+        //second line (bigger)
+      
+      
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx, iny+50, inx, iny+80);
+        //line to the left^^
+        break;
+      case 2:
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx, iny, inx + 30*round(cos(rot*PI/2)), iny+30*round(sin(rot*PI/2)));
+        //line to the left^^
+    
+    
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx-30, iny + 20, inx - 30, iny - 20);
+        //first line (smaller)
+      
+      
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx-50, iny +30 , inx -50, iny - 30);
+        //second line (bigger)
+      
+      
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx-50, iny, inx - 80, iny);
+        //line to the left^^
+        break;
+      case 3:
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx, iny, inx + 30*round(cos(rot*PI/2)), iny+30*round(sin(rot*PI/2)));
+        //line to the left^^
+    
+    
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx+20, iny - 30, inx - 20, iny - 30);
+        //first line (smaller)
+      
+      
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx+30, iny -50 , inx - 30, iny - 50);
+        //second line (bigger)
+      
+      
+        strokeWeight(4);
+        stroke(0,255,0);
+        line(inx, iny-50, inx, iny-80);
+        //line to the left^^
+        break;
+    }
+    
     a.display();
     b.display();
-
-    }
   }
-
 }
