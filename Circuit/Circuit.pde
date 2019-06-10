@@ -558,11 +558,12 @@ void draw() {
         System.out.println("Merging both junctions...");
         ArrayList<Junction> nodeA = new ArrayList<Junction>();
         ArrayList<Junction> nodeB = new ArrayList<Junction>();
-        for (ArrayList<Junction> node : nodes) {
-          if (node.contains(w.a)) {
-            if (nodeA.size() == 0) nodeA = node;
-            else nodeB = node;
+        boolean foundA = false;
+        for (int i = 0; i < nodes.size(); i++) {
+          if (nodes.get(i).contains(w.a) && !foundA) {
+            nodeA = nodes.get(i);
           }
+          if (nodes.get(i).contains(w.b) && (nodes.get(i) != nodeA)) nodeB = nodes.get(i);
         }
         //System.out.println(nodeA.size()+"\n"+nodeB.size()+"\n___");
         nodeA.addAll(nodeB);
