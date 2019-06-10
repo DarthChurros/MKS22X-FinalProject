@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.lang.*;
 import static javax.swing.JOptionPane.*;
 
 
@@ -61,6 +62,8 @@ boolean overRect(int x, int y, int width, int height) {
 }
 
 void updateVoltages() {
+  
+  //System.out.println(nodes.size());
   float[][] matrix = new float[nodes.size()][nodes.size()+1];
   matrix[0][0] = 1;
   matrix[0][nodes.size()] = 0;
@@ -75,6 +78,7 @@ void updateVoltages() {
       j.relativeVoltage = matrix[i][nodes.size()];
     }
   }
+  
 }
 
 void toIdentity(float[][] matrix) {
@@ -197,9 +201,9 @@ void draw() {
   } else {
   background(0, 191, 255);
   //i have this in the draw loop so it constantly merges all the annoying
-  for(int i = 0; i < junctions.size(); i++){
+   for(int i = 0; i < junctions.size(); i++){
     if(hasDups(junctions, i) > 0){
-      junctions.remove(hasDups(junctions, i));
+     junctions.remove(hasDups(junctions, i));
     }
   }
   
@@ -238,6 +242,7 @@ void draw() {
       try{
         int groundJunct = 0;
         boolean hasBattery = false;
+        boolean hasResistor = false;
         boolean connected = true;
         for(int i = 0; i < junctions.size(); i++){
          if(junctions.get(i).voltsOut()){
@@ -245,6 +250,8 @@ void draw() {
            groundJunct = i;
            break;
          }
+         
+         if(Float.isNaN(junctions.get(i).relativeVoltage)) throw new NullPointerException();
          
          
         }
@@ -286,17 +293,7 @@ void draw() {
   text("Reset", 808, 699, 6000, 60);
   textSize(12);
   
-  if(overRect(750, 690, 200, 50)){
-    if(mousePressed){
-      junctions = new ArrayList<Junction>();
-//above well use these arraylists for only one purpose - to check for duplicates
-      components = new ArrayList<Resistor>();
-      sources = new ArrayList<VoltSource>();
-      wires = new ArrayList<Wire>();
-      nodes = new ArrayList<ArrayList<Junction>>();
-      //System.out.println(nodes.size());
-    }
-  }
+  
    
    
    
@@ -357,6 +354,8 @@ void draw() {
 
   boolean updateMatrix = false;
 
+
+  
 
   if (pressed == 'a' || pressed == 'A') {
 
@@ -572,6 +571,7 @@ void draw() {
         }
         nodeA.addAll(nodeB);
         nodeB.clear();
+        System.out.println(nodes.size());
       }
       updateMatrix = true;
       w.display();
@@ -998,6 +998,21 @@ void draw() {
       }
       
     
+    if(overRect(750, 690, 200, 50)){
+    if(mousePressed){
+      junctions = new ArrayList<Junction>();
+//above well use these arraylists for only one purpose - to check for duplicates
+      components = new ArrayList<Resistor>();
+      sources = new ArrayList<VoltSource>();
+      wires = new ArrayList<Wire>();
+      nodes = new ArrayList<ArrayList<Junction>>();
+      //System.out.println(nodes.size());
+      if(pressed == BACKSPACE){
+        pressed = '-';
+        updateMatrix = false;
+      }
+    }
+  }
     
   
   
@@ -1010,7 +1025,12 @@ void draw() {
     }
     //System.out.println(nodes);
     //System.out.println("______");
+    
+    
     updateVoltages();
+    
+    
+    
   }
  
 }
@@ -1034,8 +1054,10 @@ void draw() {
 
 
 //important bugs -->
-//cant delete every component
-//when u delete wires still hold voltage
+//NaN voltages in some combo circuits
+//square of wires
+
+
 
 //background(255);
 //rect(mouseX,mouseY,10,10);
