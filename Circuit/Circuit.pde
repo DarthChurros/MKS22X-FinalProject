@@ -377,7 +377,7 @@ void draw() {
       try{
       val = Float.parseFloat(value);
       } catch(Exception e){
-        System.out.println("NO");
+        //System.out.println("NO");
       }
       }
       //System.out.println(val);
@@ -447,7 +447,7 @@ void draw() {
       try{
       val = Float.parseFloat(value);
       } catch(Exception e){
-        System.out.println("NO");
+        //System.out.println("NO");
       }
       }
       VoltSource v = new VoltSource(x, y, x + 80, y, val);
@@ -555,7 +555,7 @@ void draw() {
           }
         }
       } else {
-        System.out.println("Merging both junctions...");
+        //System.out.println("Merging both junctions...");
         ArrayList<Junction> nodeA = new ArrayList<Junction>();
         ArrayList<Junction> nodeB = new ArrayList<Junction>();
         boolean foundA = false;
@@ -602,7 +602,7 @@ void draw() {
          //System.out.println(ans + "1");
           if(ans.equals("")){
             //THE TERMINALS JUDE
-            System.out.println("work");
+            //System.out.println("work");
             components.get(i).a.terminals.remove(components.get(i));
            
             components.get(i).b.terminals.remove(components.get(i));
@@ -620,7 +620,7 @@ void draw() {
            //ok we need to do some searching for the junctions and remove them)
            
             if(nodes.get(j).contains(components.get(i).a)){
-              System.out.println("branch");
+              //System.out.println("branch");
               nodes.get(j).remove(components.get(i).a);
               junctions.remove(components.get(i).a);
               
@@ -653,7 +653,7 @@ void draw() {
            //ok we need to do some searching for the junctions and remove them)
            
             if(nodes.get(j).contains(components.get(i).a)){
-              System.out.println("branch");
+              //System.out.println("branch");
               nodes.get(j).remove(components.get(i).a);
               junctions.remove(components.get(i).a);
               
@@ -689,7 +689,7 @@ void draw() {
            //ok we need to do some searching for the junctions and remove them)
            
             if(nodes.get(j).contains(components.get(i).b)){
-              System.out.println("branch");
+              //System.out.println("branch");
               nodes.get(j).remove(components.get(i).b);
               junctions.remove(components.get(i).b);
               
@@ -737,7 +737,7 @@ void draw() {
          //System.out.println(ans + "1");
           if(ans.equals("")){
             //THE TERMINALS JUDE
-            System.out.println("work");
+            //System.out.println("work");
             sources.get(i).a.terminals.remove(sources.get(i));
            
             sources.get(i).b.terminals.remove(sources.get(i));
@@ -755,7 +755,7 @@ void draw() {
            //ok we need to do some searching for the junctions and remove them)
            
             if(nodes.get(j).contains(sources.get(i).a)){
-              System.out.println("branch");
+              //System.out.println("branch");
               nodes.get(j).remove(sources.get(i).a);
               junctions.remove(sources.get(i).a);
               
@@ -789,7 +789,7 @@ void draw() {
            //ok we need to do some searching for the junctions and remove them)
            
             if(nodes.get(j).contains(sources.get(i).a)){
-              System.out.println("branch");
+              //System.out.println("branch");
               nodes.get(j).remove(sources.get(i).a);
               junctions.remove(sources.get(i).a);
               
@@ -825,7 +825,7 @@ void draw() {
            //ok we need to do some searching for the junctions and remove them)
            
             if(nodes.get(j).contains(sources.get(i).b)){
-              System.out.println("branch");
+              //System.out.println("branch");
               nodes.get(j).remove(sources.get(i).b);
               junctions.remove(sources.get(i).b);
               
@@ -873,7 +873,7 @@ void draw() {
          //System.out.println(ans + "1");
           if(ans.equals("")){
             //THE TERMINALS JUDE
-            System.out.println("work");
+            //System.out.println("work");
             wires.get(i).a.terminals.remove(wires.get(i));
            
             wires.get(i).b.terminals.remove(wires.get(i));
@@ -904,7 +904,7 @@ void draw() {
            //ok we need to do some searching for the junctions and remove them)
            
             if(nodes.get(j).contains(wires.get(i).a)){
-              System.out.println("branch");
+              //System.out.println("branch");
               nodes.get(j).remove(wires.get(i).a);
               junctions.remove(wires.get(i).a);
               
@@ -937,7 +937,7 @@ void draw() {
            //ok we need to do some searching for the junctions and remove them)
            
             if(nodes.get(j).contains(wires.get(i).a)){
-              System.out.println("branch");
+              //System.out.println("branch");
               nodes.get(j).remove(wires.get(i).a);
               junctions.remove(wires.get(i).a);
               
@@ -972,7 +972,7 @@ void draw() {
            //ok we need to do some searching for the junctions and remove them)
            
             if(nodes.get(j).contains(wires.get(i).b)){
-              System.out.println("branch");
+              //System.out.println("branch");
               nodes.get(j).remove(wires.get(i).b);
               junctions.remove(wires.get(i).b);
               
@@ -1036,7 +1036,7 @@ void draw() {
     for(int j = 0; j < nodes.get(i).size(); j++){
       if(overCircle(nodes.get(i).get(j).x, nodes.get(i).get(j).y, 15) && mousePressed){
         groundVoltage = nodes.get(i).get(j).relativeVoltage;
-          System.out.println("gi" + groundVoltage);
+          //System.out.println("gi" + groundVoltage);
       }
     }
   }
