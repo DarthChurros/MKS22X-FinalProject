@@ -628,6 +628,10 @@ void draw() {
               toDel.b.getNodeH(nodeB);
               nodes.add(nodeB);
             }
+          } else if (toDel instanceof VoltSource) {
+            sources.remove(toDel);
+          } else {
+            components.remove(toDel);
           }
           
           
