@@ -63,6 +63,9 @@ public class Resistor extends Component {
   public void display() {
     //OK, now this is the hard part, we first need to figure out but im going to do a red line for now
     super.display();
+    if (toDisplay == this) {
+      text("\n\nResistance: "+resistance+" Ω", 760, 305);
+    }
     stroke(255, 0, 0);
     strokeWeight(4);
     line(inx, iny, inx + 15*round(cos(rot*PI/2)), iny+15*round(sin(rot*PI/2)));
