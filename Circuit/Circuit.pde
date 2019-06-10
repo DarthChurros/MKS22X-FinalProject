@@ -420,6 +420,7 @@ void draw() {
         newNode.add(r.b);
         nodes.add(newNode);
       }
+
       
       updateMatrix = true;
     }
@@ -509,17 +510,22 @@ void draw() {
       wires.add(w);
       w.place();
 
+
       boolean makeNodeA = true;
       boolean makeNodeB = true;
       for (ArrayList<Junction> n : nodes) {
         for (Junction j : n) {
           if (rounder(j.x) == rounder(w.a.x)
-          && rounder(j.y) == rounder(w.a.y)) {
+          && rounder(j.y) == rounder(w.a.y)
+          && j != w.a) {
+            //System.out.println("merging A");
             j.merge(w.a);
             makeNodeA = false;
           }
           if (rounder(j.x) == rounder(w.b.x)
-          && rounder(j.y) == rounder(w.b.y)) {
+          && rounder(j.y) == rounder(w.b.y)
+          && j != w.b) {
+            //System.out.println("merging B");
             j.merge(w.b);
             makeNodeB = false;
           }
@@ -549,14 +555,16 @@ void draw() {
           }
         }
       } else {
-        ArrayList nodeA = new ArrayList();
-        ArrayList nodeB = new ArrayList();
+        //System.out.println("Merging both junctions...");
+        ArrayList<Junction> nodeA = new ArrayList<Junction>();
+        ArrayList<Junction> nodeB = new ArrayList<Junction>();
         for (ArrayList<Junction> node : nodes) {
           if (node.contains(w.a)) nodeA = node;
           if (node.contains(w.b)) nodeB = node;
         }
+        //System.out.println(nodeA.size()+"\n"+nodeB.size()+"\n___");
         nodeA.addAll(nodeB);
-        nodeB.clear();
+        //System.out.println(nodeA.size()+"\n"+nodeB.size()+"\n___");
         //System.out.println(nodes.size());
       }
       

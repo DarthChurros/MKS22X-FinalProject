@@ -28,14 +28,13 @@ class Junction {
   }
 
   public void merge(Junction b) {
-
-    for (int i = 0; i < b.terminals.size(); i++) {
-      terminals.add(b.terminals.get(i));
-      if (b.terminals.get(i).a == b) {
-        b.terminals.get(i).a = this;
+    for (Component c : b.terminals) {
+      terminals.add(c);
+      if (c.a == b) {
+        c.a = this;
       }
-      if (b.terminals.get(i).b == b) {
-        b.terminals.get(i).b = this;
+      if (c.b == b) {
+        c.b = this;
       }
     }
   b.terminals = null;
