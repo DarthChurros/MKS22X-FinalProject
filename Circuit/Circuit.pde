@@ -628,6 +628,7 @@ void draw() {
     //THIS IS THE DELETE SECTION
     //STARTS WITH RESISTORS
     if(mousePressed){
+      updateMatrix = true;
       if(nodes.size() <= 2 && components.size() + wires.size() + sources.size() <= 1){
       junctions = new ArrayList<Junction>();
     //above well use these arraylists for only one purpose - to check for duplicates
