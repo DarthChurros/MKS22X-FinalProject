@@ -174,11 +174,19 @@ void draw() {
     
     fill(75);
     textSize(24);
-    text("Check the validity of your circuit by hitting 'Test'", 100,450);
+    text("Check the validity of your circuit by hitting 'Test'", 100,400);
     
     fill(75);
     textSize(24);
-    text("Hover over a white circle to solve the circuit at that point", 100,500);
+    text("Hover over a white circle to solve the circuit at that point", 100,440);
+    
+    fill(75);
+    textSize(24);
+    text("Delete by first pressing the delete button then clicking components", 100, 490);
+    
+    fill(75);
+    textSize(24);
+    text("Click on any node to set it to ground", 100, 530);
     
     stroke(0);
     strokeWeight(4);
