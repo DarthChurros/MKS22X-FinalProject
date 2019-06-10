@@ -1027,6 +1027,13 @@ void draw() {
     }
   }
   
+  
+  for(int i = 0; i < nodes.size(); i++){
+    for(int j = 0; j < nodes.get(i).size(); j++){
+      nodes.get(i).get(j).relativeVoltage -= groundVoltage;
+    }
+  }
+  
   //System.out.println("g" + groundVoltage);
     
   
