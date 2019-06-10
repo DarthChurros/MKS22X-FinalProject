@@ -1015,7 +1015,7 @@ void draw() {
       //System.out.println(nodes.size());
       if(pressed == BACKSPACE){
         pressed = '-';
-        updateMatrix = false;
+        updateMatrix = true;
       }
     }
   }
