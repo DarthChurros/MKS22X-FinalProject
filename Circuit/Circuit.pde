@@ -873,6 +873,19 @@ void draw() {
            
             wires.get(i).b.terminals.remove(wires.get(i));
             
+            for (int j = 0; j < nodes.size(); j++) {
+              if (nodes.get(j).contains(wires.get(i).a)) {
+                nodes.remove(j);
+                ArrayList<Junction> nodeA = new ArrayList<Junction>();
+                ArrayList<Junction> nodeB = new ArrayList<Junction>();
+                wires.get(i).a.getNodeH(nodeA);
+                wires.get(i).b.getNodeH(nodeB);
+                nodes.add(nodeA);
+                nodes.add(nodeB);
+                j = nodes.size();
+              }
+            }
+            
             wires.remove(i); 
             i--;
             updateMatrix = true;
@@ -932,7 +945,6 @@ void draw() {
             }
            
             }
-            
             for(int j = 0; j < nodes.size(); j++){
               if(nodes.get(j).size() == 0){
                 nodes.remove(j);
