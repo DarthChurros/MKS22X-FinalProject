@@ -1,7 +1,17 @@
 # MKS22X-FinalProject  
-A Processing-based circuit simulator  
 
 ###### By: Leon  
+
+## Synopsis
+This is a simple Processing-based circuit simulator. When run, directions will appear regarding how to construct a circuit, most importantly the hotkeys for each component. So far, this is the list.  
+
+* V - Voltage source  
+* A - Resistor  
+* W - Wire  
+* R - Rotate component in hand
+* Backspace - Enter delete mode (delete any components clicked on)
+
+Our project calculates voltages at each point in the circuit, as well as the current through any particular component. By clicking the "TEST" button, a user can also see if their circuit is valid.  
 
 ## DEVLOG  
 
