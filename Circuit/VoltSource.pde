@@ -32,10 +32,6 @@ public class VoltSource extends Component {
   
   
   
-  public int[] hitBox(){
-    return new int[]{inx - 10 , iny - 10, Math.abs(outx - inx) + 20 , Math.abs(outy - iny) + 20};
-  }
-  
   public String deleteCheck(){
     String ans = "";
     //checks the junctions to see if the junctions are merged, and if they are dont delete them

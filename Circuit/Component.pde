@@ -31,7 +31,7 @@ abstract class Component {
   }
 
   int[] hitBox(){
-    return new int[]{1,2,3,4};
+    return new int[]{min(inx-10,outx-10),min(iny-10,outy-10), Math.abs(outx - inx) + 20, Math.abs(outy - iny) + 20};
   }
 
   public boolean placed() {

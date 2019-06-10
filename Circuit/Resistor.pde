@@ -41,10 +41,6 @@ public class Resistor extends Component {
     return false;
   }*/
   
-  
-  public int[] hitBox(){
-    return new int[]{inx - 10 , iny - 10, Math.abs(outx - inx) + 20 , Math.abs(outy - iny) + 20};
-  }
 
 
   public String deleteCheck(){

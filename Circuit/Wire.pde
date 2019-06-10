@@ -16,11 +16,7 @@ class Wire extends Component {
     outx = x2;
     outy = y2;
   }
-  
-  
-  public int[] hitBox(){
-    return new int[]{inx - 10 , iny - 10, Math.abs(outx - inx) + 20 , Math.abs(outy - iny) + 20};
-  }
+ 
   
   public String deleteCheck(){
     String ans = "";
