@@ -187,7 +187,7 @@ void draw() {
     
     fill(75);
     textSize(24);
-    text("New Circuit", 100,600,300,75);
+    text("New Circuit", 160, 640);
     
     
     if(overRect(100,600,300,75)){
