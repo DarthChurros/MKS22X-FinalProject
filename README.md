@@ -82,3 +82,6 @@ Our project calculates voltages at each point in the circuit, as well as the cur
 
 ###### Saturday 6/8:
 **Tejas:** Updated the class structure; changes in how we do our math made a couple of things redundant. Messed with the GUI updates a bit, tweaked a few things, then worked on simplifying the generated matrix to reduced row-echelon form. The matrix generation was still faulty (compared components to a single junction rather than a node) but that's been resolved. Left off by updating junction voltages as per calculations - hopefully we'll be able to use those later.
+
+###### Sunday 6/9:
+**Tejas:** Started (and hopefully ended) current calculations for each component. Worked on some value update glitches, messed with the value displays (I think I'll just leave that sort of thing to Jude. I'm not good at it). This project was a lot harder than expected, but fingers crossed, by the end of the night we'll have something presentable.
