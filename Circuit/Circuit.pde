@@ -635,7 +635,6 @@ void draw() {
       sources = new ArrayList<VoltSource>();
       wires = new ArrayList<Wire>();
       nodes = new ArrayList<ArrayList<Junction>>();
-      updateMatrix = false;
       
     } else {
       mousePressed = false;
@@ -658,6 +657,7 @@ void draw() {
             
             components.remove(i); 
             i--;
+            updateMatrix = true;
             //keep the junctions there
           }
           
@@ -689,7 +689,7 @@ void draw() {
             
             components.remove(i); 
             i--;
-            
+            updateMatrix = true;
             
            }
            
@@ -726,7 +726,7 @@ void draw() {
             components.remove(i); 
             i--;
             
-            
+            updateMatrix = true;
            }
            
            
@@ -761,7 +761,7 @@ void draw() {
             
             components.remove(i); 
             i--;
-            
+            updateMatrix = true;
             
            }
            
@@ -792,6 +792,7 @@ void draw() {
             
             sources.remove(i); 
             i--;
+            updateMatrix = true;
             //keep the junctions there
           }
           
@@ -824,6 +825,7 @@ void draw() {
             sources.remove(i); 
             i--;
             
+            updateMatrix = true;
             
            }
            
@@ -859,7 +861,7 @@ void draw() {
             
             sources.remove(i); 
             i--;
-            
+            updateMatrix = true;
             
            }
            
@@ -895,7 +897,7 @@ void draw() {
             
             sources.remove(i); 
             i--;
-            
+            updateMatrix = true;
             
            }
            
@@ -926,6 +928,7 @@ void draw() {
             
             wires.remove(i); 
             i--;
+            updateMatrix = true;
             //keep the junctions there
           }
           
@@ -958,7 +961,7 @@ void draw() {
             wires.remove(i); 
             i--;
             
-            
+            updateMatrix = true;
            }
            
            
@@ -993,7 +996,7 @@ void draw() {
             
             wires.remove(i); 
             i--;
-            
+            updateMatrix = true;
             
            }
            
@@ -1029,7 +1032,7 @@ void draw() {
             
             wires.remove(i); 
             i--;
-            
+            updateMatrix = true;
             
            }
            
