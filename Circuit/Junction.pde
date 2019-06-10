@@ -8,7 +8,6 @@ class Junction {
   int y;
   float relativeVoltage;
   float relativeCurrent;
-  public boolean showFacts = false;
   
 
   public Junction(int c, int d) {
@@ -141,10 +140,6 @@ class Junction {
     fill(255);
     ellipse(x, y, 15, 15);
     fill(0);
-    if(showFacts){
-    textSize(12);
-    text("The voltage at this node is: " + relativeVoltage, 750, 300);
-    }
   // rect(750, 290, 200, 50)
     
     

@@ -183,6 +183,7 @@ ArrayList<ArrayList<Junction>> nodes = new ArrayList<ArrayList<Junction>>();
 //this has to be an Component otherwise we wont be able to add wires
 
 String totalResistance = "";
+Component toDisplay;
 
 void draw() {
    
@@ -305,7 +306,20 @@ void draw() {
     strokeWeight(4);
     line(15, x, 735, x);
   }
+  
+  
 
+  toDisplay = null;
+  for (ArrayList<Junction> node : nodes) {
+    for (Junction j : node) {
+      for (Component c : j.terminals) {
+        int[] h = c.hitBox();
+        if (overRect(h[0], h[1], h[2], h[3])) {
+          toDisplay = c;
+        }
+      }
+    }
+  }
 
   for (ArrayList<Junction> node : nodes) {
     for (Junction j : node) {
@@ -316,25 +330,6 @@ void draw() {
     }
   }
   
-  
-  for(int i = 0; i < nodes.size(); i++){
-    for(int j = 0; j< nodes.get(i).size(); j++){
-      if(overCircle(nodes.get(i).get(j).x, nodes.get(i).get(j).y, 15)){
-        nodes.get(i).get(j).showFacts = true;
-      } else {
-        nodes.get(i).get(j).showFacts = false;
-      }
-    }
-  }
-  
-  for (Component c : components) {
-    int[] h = c.hitBox();
-    if (overRect(h[0], h[1], h[2], h[3])) {
-      c.showStats = true;
-    } else {
-      c.showStats = false;
-    }
-  }
   
   
   

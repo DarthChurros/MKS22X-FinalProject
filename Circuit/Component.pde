@@ -11,7 +11,6 @@ abstract class Component {
   Junction a;
   Junction b;
   boolean rot;
-  boolean showStats = false;
   
   void rotate() {
     rot = !rot;
@@ -43,8 +42,8 @@ abstract class Component {
   }
 
   public void display() {
-    if (showStats) {
-      text("Voltage across: " + abs(voltage(a)) + "\nCurrent through: " + current, 750, 300);
+    if (toDisplay == this) {
+      text("Voltage across: " + abs(voltage(a)) + " V\nCurrent through: " + current + " A", 760, 305);
     }
   }
 
