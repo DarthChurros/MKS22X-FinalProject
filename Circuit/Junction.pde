@@ -62,17 +62,12 @@ class Junction {
   }
 
   void getNodeH(ArrayList<Junction> current) {
-    if (!current.contains(this)) {
-      current.add(this);
-      return;
-    }
+    if (current.contains(this)) return;
+    current.add(this);
     for (Component e : terminals) {
       if (e instanceof Wire) {
-        if (((Wire)e).a == this) {
-          ((Wire)e).b.getNodeH(current);
-        } else if (((Wire)e).b == this) {
-          ((Wire)e).a.getNodeH(current);
-        }
+        ((Wire)e).a.getNodeH(current);
+        ((Wire)e).b.getNodeH(current);
       }
     }
   }

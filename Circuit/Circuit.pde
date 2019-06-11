@@ -609,7 +609,7 @@ void draw() {
             wires.remove(toDel);
             ArrayList<Junction> nodeA = new ArrayList<Junction>();
             ArrayList<Junction> nodeB = new ArrayList<Junction>();
-            
+            System.out.println("nodes before: "+nodes);
             for (int i = 0; i < nodes.size(); i++) {
               if (nodes.get(i).contains(toDel.a)
               || nodes.get(i).contains(toDel.b)) {
@@ -619,12 +619,10 @@ void draw() {
             }
             
             if (toDel.a.terminals.size() > 0) {
-              nodeA.add(toDel.a);
               toDel.a.getNodeH(nodeA);
               nodes.add(nodeA);
             }
             if (toDel.b.terminals.size() > 0) {
-              nodeB.add(toDel.b);
               toDel.b.getNodeH(nodeB);
               nodes.add(nodeB);
             }
@@ -634,6 +632,7 @@ void draw() {
             components.remove(toDel);
           }
           
+          System.out.println("nodes after : "+nodes+"\n----\n\n");
           
           toDel.a = null;
           toDel.b = null;
